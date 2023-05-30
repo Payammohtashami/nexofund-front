@@ -1,0 +1,143 @@
+//mazzard-Black
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-Black.otf") format("truetype")
+  font-weight: 900
+  font-style : normal
+
+
+
+//mazzard-ExtraBold
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-ExtraBold.otf") format("truetype")
+  font-weight: 800
+  font-style : normal
+
+//mazzard-Bold
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-Bold.otf") format("truetype")
+  font-weight: 700
+  font-style : normal
+
+
+
+//mazzard-semiBold
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-SemiBold.otf") format("truetype")
+  font-weight: 600
+  font-style : normal
+
+
+//mazzard-Medium
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-Medium.otf") format("truetype")
+  font-weight: 500
+  font-style : normal
+
+
+
+//mazzard-regular
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-Regular.otf") format("truetype")
+  font-weight: 400
+  font-style : normal
+
+//mazzard-light
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-Light.otf") format("truetype")
+  font-weight: 300
+  font-style : normal
+
+
+//mazzard-ExtraLight
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-ExtraLight.otf") format("truetype")
+  font-weight: 200
+  font-style : normal
+
+
+//mazzard-thin
+@font-face 
+  font-family: "mazzard"
+  src        : url("/fonts/mazzard/MazzardH-Thin.otf") format("truetype")
+  font-weight: 100
+  font-style : normal
+
+
+.ltr
+    direction: ltr
+
+.max-tablet
+    display: none !important
+    +m
+        display: block !important
+
+.d-flex
+    @include dis-flex
+
+.pomazzard
+    cursor: pomazzard
+
+.flex-end
+    @include dis-flex
+    justify-content: flex-end
+
+*
+    scrollbar-color: $dark1 $dark1
+    scrollbar-width: thin
+
+::-webkit-scrollbar-track
+    background-color: $dark2
+
+::-webkit-scrollbar
+    width: 4px
+    border-radius: 20px
+    background-color: $dark2
+    height: 0.5px
+
+
+::-webkit-scrollbar-thumb
+    background-color: $dark3
+
+.positive
+    background: $green
+
+.negative
+    background: $red
+
+.column
+    display: flex
+    flex-direction: column
+.ellipsis
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+.center
+    display: flex
+    justify-content: center
+    align-items: center
+h1
+    font-size: toRem(42) !important
+h2
+    font-size: toRem(34) !important
+h3
+    font-size: toRem(28) !important
+h4
+    font-size: toRem(24) !important
+h5
+    font-size: toRem(20) !important
+h6
+    font-size: toRem(18) !important
+p
+    font-size: toRem(16) !important
+
+*
+    font-family: "mazzard" !important
+    color: #FFF

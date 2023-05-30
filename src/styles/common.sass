@@ -1,0 +1,54 @@
+// common styles
+body
+    min-width: 375px
+    background: $backgroundColor
+    +poppins
+    &.rtl
+        font-family: fa, sans-serif
+    font-size: 14px
+    line-height: normal
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    color: #FFF
+
+.fa
+    font-family: fa, sans-serif !important
+a
+    text-decoration: none
+    color: inherit
+
+svg,
+img
+    vertical-align: middle
+
+.desktop
+    &-hide
+        +d
+            display: none !important
+    &-show
+        display: none !important
+        +d
+            display: block !important
+    &-text-right
+        +d
+          text-align: right
+        +rtl
+          text-align: left
+
+.tablet
+    &-hide
+        +t
+            display: none !important
+    &-show
+        display: none !important
+        +t
+            display: block !important
+            
+.mobile
+    &-hide
+        +m
+            display: none !important
+    &-show
+        display: none !important
+        +m
+            display: block !important
