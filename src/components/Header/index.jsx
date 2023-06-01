@@ -1,51 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import cn from "classnames";
 import Icon from "components/Icon";
 import Link from "lib/Link";
 import styles from "./Header.module.sass";
+import { headerMenu } from "enum/main";
 import { AppBar, Box, Button, Container, Stack, Typography } from "@mui/material";
 
 const Header = () => {
-    const homeNavbar = [
-        {
-            id: 'menu-1',
-            title: 'Home',
-            url: '#',
-        },
-        {
-            id: 'menu-2',
-            title: 'Statistics',
-            url: '#',
-        },
-        {
-            id: 'menu-3',
-            title: 'Market',
-            url: '#',
-        },
-        {
-            id: 'menu-4',
-            title: 'How it works?',
-            url: '#',
-        },
-    ];
+    // Variable
+    const [blurHeader, setBlurHeader] = useState();
+
+    // Functions
+
+
+    // Effects
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+          window.addEventListener("scroll", () => setBlurHeader(window.scrollY > 75));
+        }
+    }, []);
+
     return (
         <header>
             <AppBar
+                className={cn(styles.wrapper, blurHeader ? styles.blurHeader : '')}
                 position="fixed"
                 id="main-navbar"
                 sx={{
                     boxShadow: "none",
                     background: 'none',
                     maxWidth: "100vw",
+                    py: 2
                 }}
             >
                 <Container>
-                    <Stack className={styles.wrapper} direction='row' justifyContent='space-between'>
+                    <Stack direction='row' justifyContent='space-between'>
                         <Stack direction='row' alignItems='center' gap='32px'>
                             <Box className={styles.logoWrapper}>
                                 <Icon name='Logo' />
                             </Box>
                             <Stack direction='row' alignItems='center' gap='44px'>
-                                {homeNavbar?.map((item) => (
+                                {headerMenu?.map((item) => (
                                     <Link key={item.id} href={item.url}>
                                         <Typography className={styles.menuItem}>
                                             {item.title}

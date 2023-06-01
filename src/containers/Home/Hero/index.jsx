@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from "./Hero.module.sass";
-import { Box, Button, Stack, Typography } from '@mui/material';
-import HeroBackground from 'components/Icon/HeroBackground';
+import React, { useRef } from 'react';
 import Icon from 'components/Icon';
+import styles from "./Hero.module.sass";
+import HeroBackground from 'components/Icon/HeroBackground';
+import { Box, Button, Stack, Typography } from '@mui/material';
 
 const Hero = () => {
     return (
@@ -21,7 +21,6 @@ const Hero = () => {
                     </Stack>
                 </Stack>
             </Box>
-
             <Box>
                 <Box className={styles.HeroBackground}>
                     <HeroBackground />

@@ -4,9 +4,11 @@ import Head from "next/head";
 import nookies from "nookies";
 import PagesLayout from "components/PagesLayout";
 import { Provider } from "react-redux";
+import { ParallaxProvider } from "react-scroll-parallax";
 import { appWithTranslation } from "next-i18next";
 import { initializeStore, useStore } from "lib/storeConfig";
 import "styles/app.sass";
+import "aos/dist/aos.css";
 
 
 function MyApp({ Component, pageProps, ...MyAppProps }) {
@@ -43,7 +45,9 @@ function MyApp({ Component, pageProps, ...MyAppProps }) {
         <meta name="twitter:description" content="Nexofund , predict it right , get free doge coin" />
       </Head>
       <Provider store={store}>
-        <PagesLayout Component={Component} pageProps={pageProps} />
+        <ParallaxProvider>
+          <PagesLayout Component={Component} pageProps={pageProps} />
+        </ParallaxProvider>
       </Provider>
     </>
   );

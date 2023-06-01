@@ -1,0 +1,164 @@
+@import styles/helpers
+
+.planCardWrapper
+    border: 1px solid $dark5
+    backdrop-filter: blur(12px)
+    border-radius: 26px
+    padding: 16px 24px
+    background: $dark5
+
+.activePlanCardWrapper
+    border: 1px solid $primary
+    backdrop-filter: blur(12px)
+    border-radius: 26px
+    padding: 16px 24px
+    background: $dark7
+    animation: boxshadow 2s infinite
+
+.planCardcircle
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    background: $dark5
+
+.activePlanCardcircle
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    background: $primary
+    border: 2px solid $dark6
+    position: relative
+    &::before
+        content: ""
+        position: absolute
+        border-radius: 50%
+        top: -3.1px
+        right: -3.1px
+        z-index: -1
+        width: 27px
+        height: 27px
+        background: $primary
+        animation: filterAnimations 2s infinite
+
+.planCardName
+    font-size: 14px
+    font-weight: 400
+    line-height: 24px
+    text-align: left
+    color: $dark2
+
+.planCardFund
+    font-size: 26px
+    font-weight: 600
+    line-height: 39px
+    letter-spacing: 0em
+    text-align: left
+    span
+        font-size: 16px
+        font-weight: 400
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: left
+        color: $dark2
+        margin-left: 8px
+
+.planCardButton
+    box-shadow: 0px 0px 15px rgba(40, 23, 237, 0.3)
+    border-radius: 16px
+    align-items: center
+    display: flex
+    gap: 4px
+    justify-content: center
+    padding: 12px
+    flex-direction: row
+    background: $primary
+    font-weight: 600
+    font-size: 26px
+    line-height: 39px
+    span
+        font-weight: 400
+        font-size: 14px
+        line-height: 18px
+        color: $dark2
+
+.activePlanCardButton
+    position: relative
+    overflow: hidden
+    background: $gradient1
+    background-size: 400% 400%
+    animation: gradient 8s ease infinite
+    background-position: center
+    color: #fff
+    border: 2px solid transparent
+    z-index: 10
+    box-shadow: 0px 0px 15px rgba(40, 23, 237, 0.3)
+    border-radius: 16px
+    align-items: center
+    display: flex
+    gap: 4px
+    justify-content: center
+    padding: 12px
+    flex-direction: row
+    font-weight: 600
+    font-size: 26px
+    line-height: 39px
+    span
+        font-weight: 400
+        font-size: 14px
+        line-height: 18px
+        color: $dark2
+
+
+.PlansDetailWrapper
+    border: 1px solid $primary
+    backdrop-filter: blur(12px)
+    border-radius: 26px
+    padding: 16px 24px
+    background: $dark7
+    animation: boxshadow 2s infinite
+    height: 100%
+    padding: 24px
+
+.PlansDetailTitle
+    font-size: 20px
+    font-weight: 600
+    line-height: 12px
+
+.planDetailText
+    color: $dark2
+    font-size: 16px
+    font-weight: 400
+    line-height: 12px
+
+
+@keyframes filterAnimations
+    0%
+        filter: blur(0)
+    40%
+        filter: blur(5px)
+    90%
+        filter: blur(0)
+    100%
+        filter: blur(0)
+
+
+@keyframes boxshadow
+    0%
+        box-shadow: 0px 0px 0px 0px #2817ED80
+    40%
+        box-shadow: 0px 0px 32px 0px #2817ED80
+    90%
+        box-shadow: 0px 0px 0px 0px #2817ED80
+    100%
+        box-shadow: 0px 0px 0px 0px #2817ED80
+        
+
+@keyframes gradient 
+    0% 
+        background-position: 5% 50%
+        
+    50% 
+        background-position: 95% 50%
+    
+    100% 
+        background-position: 5% 50%

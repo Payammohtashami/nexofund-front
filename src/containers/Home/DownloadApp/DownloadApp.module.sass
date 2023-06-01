@@ -1,0 +1,32 @@
+@import styles/helpers
+
+.descriptionText
+    color: $dark2
+    font-size: 16px
+    line-height: 30px
+    font-weight: 400
+    margin-top: 10px
+    margin-bottom: 24px
+
+.buttonWrapper
+    border-radius: 16px
+    padding: 0
+
+
+.secondButtonWrapper
+    background: rgba(234, 233, 255, 0.08)
+    backdrop-filter: blur(17px)
+    border-radius: inherit
+    padding: 16px 32px
+    border: solid 1px $dark3
+    background-clip: padding-box
+    position: relative
+    svg
+        fill: $dark1
+        width: 32px
+        height: 32px
+    &:hover
+        background: $dark7
+        border-color: $primary
+        svg
+            fill: $primary
