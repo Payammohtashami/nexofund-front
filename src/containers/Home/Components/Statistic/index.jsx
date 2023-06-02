@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Statistic.module.sass';
+import styles from './styles.js';
 import { Grid, Stack, Typography } from '@mui/material';
 
 const Statistic = () => {
@@ -30,8 +30,8 @@ const Statistic = () => {
             {data?.map((item) => (
                 <Grid item xs={6} md={3} key={item.id}>
                     <Stack alignItems='center' direction='column'>
-                        <Typography className={styles.value}>{item?.value}</Typography>
-                        <Typography className={styles.title}>{item?.title}</Typography>
+                        <Typography sx={styles.value}>{item?.value}</Typography>
+                        <Typography sx={styles.title}>{item?.title}</Typography>
                     </Stack>
                 </Grid>
             ))}

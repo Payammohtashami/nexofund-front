@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Icon from 'components/Icon';
 import Link from 'lib/Link';
 import Image from 'next/image';
-import styles from './Plans.module.sass';
+import styles from './styles.js';
 import { Box, Button, ButtonBase, Divider, Grid, Stack, Typography } from '@mui/material';
 
 const Plans = () => {
@@ -228,14 +228,14 @@ const Plans = () => {
 
 const PlansCard = ({data, isActive, handler}) => {
     return (
-        <ButtonBase onClick={handler} className={isActive ? styles.activePlanCardWrapper : styles.planCardWrapper}>
+        <ButtonBase onClick={handler} sx={isActive ? styles.activePlanCardWrapper : styles.planCardWrapper}>
             <Grid container spacing={2} alignItems='center'>
                 <Grid item xs={7}>
                     <Stack direction='row' alignItems='center' gap='16px'>
-                        <Box className={isActive ? styles.activePlanCardcircle : styles.planCardcircle} />
+                        <Box sx={isActive ? styles.activePlanCardcircle : styles.planCardcircle} />
                         <Box>
-                            <Typography className={styles.planCardName}>{data?.name}</Typography>
-                            <Typography className={styles.planCardFund}>{data?.fund}<span>USD</span></Typography>
+                            <Typography sx={styles.planCardName}>{data?.name}</Typography>
+                            <Typography sx={styles.planCardFund}>{data?.fund}<span>USD</span></Typography>
                         </Box>
                     </Stack>
                 </Grid>
@@ -257,17 +257,17 @@ const PlansDetail = ({data}) => {
     const ref = useRef(null);
     const offsetWidth = ref?.current?.offsetWidth || 100;
     return (
-        <Box className={styles.PlansDetailWrapper}>
+        <Box sx={styles.PlansDetailWrapper}>
             <Grid container spacing={2} alignItems='stretch' sx={{height: '100%'}}>
                 <Grid item xs={12} md={6}>
                     <Stack direction='column' justifyContent='center' sx={{height: '100%'}}>
-                        <Typography className={styles.PlansDetailTitle}>What’s in this plan?</Typography>
+                        <Typography sx={styles.PlansDetailTitle}>What’s in this plan?</Typography>
                         <Stack gap='32px' sx={{mt: '32px'}}>
                             {data?.details?.map((item) => (
                                 <Stack direction='row' alignItems='center' gap='8px'>
-                                    <Typography className={styles.planDetailText}>{item?.title}</Typography>
+                                    <Typography sx={styles.planDetailText}>{item?.title}</Typography>
                                     <Divider sx={{flex: 1, bgcolor: 'rgba(255,255,255,0.1)'}} />
-                                    <Typography className={styles.planDetailText}>{item?.value}</Typography>
+                                    <Typography sx={styles.planDetailText}>{item?.value}</Typography>
                                 </Stack>
                             ))}
                         </Stack>

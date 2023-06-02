@@ -1,20 +1,20 @@
 import React, { useRef } from 'react';
 import Icon from 'components/Icon';
-import styles from "./Hero.module.sass";
+import styles from "./styles.js";
 import HeroBackground from 'components/Icon/HeroBackground';
 import { Box, Button, Stack, Typography } from '@mui/material';
 
 const Hero = () => {
     return (
         <Box sx={{height: '165vh'}}>
-            <Box className={styles.stickyWrapper}>
+            <Box sx={styles.stickyWrapper}>
                 <Stack alignItems='center' justifyContent='center' sx={{height: '100%'}}>
-                    <Typography variant='h1' component='h1' className={styles.heroTitle}>nexofund</Typography>
-                    <Typography className={styles.heroDescription}>Predict It Right , Get Free Doge Coin</Typography>
+                    <Typography variant='h1' component='h1' sx={styles.heroTitle}>nexofund</Typography>
+                    <Typography sx={styles.heroDescription}>Predict It Right , Get Free Doge Coin</Typography>
                     <Stack direction='row' alignItems='center' sx={{ml: '-24px'}}>
-                        <Button className={styles.circleButton}>Click</Button>
-                        <Box className={styles.buttonWrapper}>
-                            <Button className={styles.backButton} endIcon={<Icon name={'ArrowBottom'} size='24px' />}>
+                        <Button sx={styles.circleButton}>Click</Button>
+                        <Box sx={styles.buttonWrapper}>
+                            <Button sx={styles.backButton} endIcon={<Icon name={'ArrowBottom'} size='24px' />}>
                                 Let’s Begin
                             </Button>
                         </Box>
@@ -22,10 +22,10 @@ const Hero = () => {
                 </Stack>
             </Box>
             <Box>
-                <Box className={styles.HeroBackground}>
+                <Box sx={styles.HeroBackground}>
                     <HeroBackground />
-                    <Box className={styles.thirdBackgroundLayer} />
-                    <Box className={styles.secendBackgroundLayer} />
+                    <Box sx={styles.thirdBackgroundLayer} />
+                    <Box sx={styles.secendBackgroundLayer} />
                 </Box>
             </Box>
         </Box>

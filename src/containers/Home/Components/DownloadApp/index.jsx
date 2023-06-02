@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import styles from './DownloadApp.module.sass';
+import styles from './styles.js';
 import Icon from 'components/Icon';
 import Image from 'next/image';
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
@@ -11,7 +11,7 @@ const DownloadApp = () => {
         <Grid container spacing={3} alignItems='center' sx={{mb: '108px'}}>
             <Grid item xs={12} md={7}>
                 <Typography className='title'>Download It Now</Typography>
-                <Typography className={styles.descriptionText}>
+                <Typography sx={styles.descriptionText}>
                     Lorem ipsum dolor sit amet consectetur. Arcu leo arcu sit 
                     tristique amet proin molestie. In cras in fusce erat phasellus. 
                     Ultricies tempor egestas rhoncus egestas dignissim risus dictum 
@@ -19,8 +19,8 @@ const DownloadApp = () => {
                     rhoncus egestas dignissim risus dictum .
                 </Typography>
                 <Stack direction='row' gap='16px'>
-                    <Button className={styles.buttonWrapper}>
-                        <Stack direction='row' alignItems='center' gap='16px' className={styles.secondButtonWrapper}>
+                    <Button sx={styles.buttonWrapper}>
+                        <Stack direction='row' alignItems='center' gap='16px' sx={styles.secondButtonWrapper}>
                             <Icon name='AppleLogo' />
                             <Box>
                                 <Typography sx={{textAlign: 'left', mb: 1}} className='caption'>Available on</Typography>
@@ -28,8 +28,8 @@ const DownloadApp = () => {
                             </Box>
                         </Stack>
                     </Button>
-                    <Button className={styles.buttonWrapper}>
-                        <Stack direction='row' alignItems='center' gap='16px' className={styles.secondButtonWrapper}>
+                    <Button sx={styles.buttonWrapper}>
+                        <Stack direction='row' alignItems='center' gap='16px' sx={styles.secondButtonWrapper}>
                             <Icon name='GooglePlayLogo' />
                             <Box>
                                 <Typography sx={{textAlign: 'left', mb: 1}} className='caption'>Available on</Typography>
