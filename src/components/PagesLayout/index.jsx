@@ -3,6 +3,7 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import WithErrorHandler from "components/WithErrorHandler";
 import Aos from "aos";
+import NextNProgress from 'nextjs-progressbar';
 import useTheme from "hooks/useTheme";
 import { ThemeProvider } from "@mui/material";
 
@@ -14,10 +15,11 @@ const PagesLayout = ({ Component, pageProps }) => {
   }, []);
   return (
     <WithErrorHandler>
+        <NextNProgress color="#2817ED" options={{ easing: "ease",showSpinner: false}} />
         <ThemeProvider theme={appTheme}>
-            <Header />
+            {!Component.headerHide ? <Header /> : null}
             <Component {...pageProps} />
-            <Footer />
+            {!Component.footerHide ? <Footer /> : null}
         </ThemeProvider>
     </WithErrorHandler>
   );

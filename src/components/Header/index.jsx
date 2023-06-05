@@ -43,8 +43,12 @@ const Header = () => {
                             </Stack>
                         </Stack>
                         <Stack direction='row' gap='16px'>
-                            <Button sx={styles.whiteButton}>Login</Button>
-                            <Button sx={styles.blueButton}>join us</Button>
+                            <Button sx={styles.whiteButton}>
+                                <Link href='/auth/login'>Login</Link>
+                            </Button>
+                            <Button sx={styles.blueButton}>
+                                <Link href='/auth/register'>join us</Link>
+                            </Button>
                         </Stack>
                     </Stack>
                 </Container>

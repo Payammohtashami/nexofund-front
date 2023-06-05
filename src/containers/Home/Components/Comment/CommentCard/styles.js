@@ -3,7 +3,7 @@ const styles = {
         padding: '24px 42px',
         bgcolor: 'rgba(234, 233, 255, 0.08)',
         border: '1px solid #414974',
-        backdropFilter: 'blur(12px)',
+        // backdropFilter: 'blur(12px)',
         borderRadius: '24px',
     },
     

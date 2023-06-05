@@ -1,10 +1,10 @@
 import React from "react";
 import styles from './styles.js';
-import { Box, Button, Container, Divider, IconButton, Stack, Typography } from "@mui/material";
-import Icon from "components/Icon";
 import Link from "lib/Link";
-import { headerMenu, socialMedia } from "enum/main";
+import Icon from "components/Icon";
 import HeroBackground from "components/Icon/HeroBackground";
+import { headerMenu, socialMedia } from "enum/main";
+import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
 
 const Footer = () => {
   

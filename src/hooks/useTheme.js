@@ -9,7 +9,7 @@ const useTheme = () => {
         palette: {
           mode: "light",
           primary: {
-            light: "#2817ED",
+            light: "#4B88FF",
             main: "#2817ED",
             dark: "#2817ED",
           },
