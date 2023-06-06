@@ -19,7 +19,7 @@ const Mesh = ({translateY, translateX, bgcolor, size, top, left, right, bottom})
                     height: size,
                     position: 'absolute',
                     borderRadius: '50%',
-                    filter: 'blur(45px)',
+                    filter: 'blur(65px)',
                     animation: 'meshSpin 3s linear infinite',
                 }}
             />

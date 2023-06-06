@@ -4,15 +4,33 @@ import Link from "lib/Link";
 import styles from "./styles.js";
 import { headerMenu } from "enum/main";
 import { AppBar, Box, Button, Container, Stack, Typography } from "@mui/material";
+import routes from "enum/routes.js";
 
 const Header = () => {
     // Variable
+    const [scrollDirection, setScrollDirection] = useState(null);
     const [blurHeader, setBlurHeader] = useState();
-
+    
     // Functions
-
-
+    
+    
     // Effects
+    useEffect(() => {
+        let lastScrollY = window.pageYOffset;
+        const updateScrollDirection = () => {
+        const scrollY = window.pageYOffset;
+        const direction = scrollY > lastScrollY ? "down" : "up";
+        if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
+            setScrollDirection(direction);
+        }
+        lastScrollY = scrollY > 0 ? scrollY : 0;
+        };
+        window.addEventListener("scroll", updateScrollDirection);
+        return () => {
+        window.removeEventListener("scroll", updateScrollDirection);
+        }
+    }, [scrollDirection]);
+
     useEffect(() => {
         if (typeof window !== "undefined") {
           window.addEventListener("scroll", () => setBlurHeader(window.scrollY > 75));
@@ -24,7 +42,7 @@ const Header = () => {
             <AppBar
                 position="fixed"
                 id="main-navbar"
-                sx={[styles.wrapper, blurHeader ? styles.blurHeader : {}]}
+                sx={[styles.wrapper, scrollDirection === 'up' ? styles.showHeader : blurHeader ? styles.hideHeader : styles.normalHeader]}
             >
                 <Container>
                     <Stack direction='row' justifyContent='space-between'>
@@ -44,10 +62,10 @@ const Header = () => {
                         </Stack>
                         <Stack direction='row' gap='16px'>
                             <Button sx={styles.whiteButton}>
-                                <Link href='/auth/login'>Login</Link>
+                                <Link href={routes.auth.login}>Login</Link>
                             </Button>
                             <Button sx={styles.blueButton}>
-                                <Link href='/auth/register'>join us</Link>
+                                <Link href={routes.auth.register}>join us</Link>
                             </Button>
                         </Stack>
                     </Stack>

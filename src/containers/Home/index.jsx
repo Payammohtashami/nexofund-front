@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "./Components/Hero";
 import { Box, Container, Stack } from "@mui/material";
 import HowToWork from "./Components/HowToWork";
@@ -7,12 +7,10 @@ import Comment from "./Components/Comment";
 import DownloadApp from "./Components/DownloadApp";
 import Plans from "./Components/Plans";
 import CryptoBubbles from "./Components/CryptoBubbles";
-import Mesh from "components/Mesh";
-import JellyFish from "components/JellyFish";
 import TotalMarketcap from "./Components/TotalMarketcap";
 
-
 const Home = () => {
+
   return (
     <Box>
         <Hero />

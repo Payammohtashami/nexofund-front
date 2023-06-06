@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Login from "containers/Login";
+import Login from "containers/Auth/Login";
 
 const LoginPage = () => {
   return (

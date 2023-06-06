@@ -1,9 +1,11 @@
 const styles = {
-    blurHeader: {
-        backdropFilter: 'blur(8px)',
-        background: (theme) => theme.palette.solid.dark5,
+    showHeader: {
         width: '100%'
     },
+    hideHeader: {
+        transform: 'translateY(-74px)',
+    },
+   
     wrapper: {
         py: 2,
         maxWidth: "100vw",
@@ -18,7 +20,23 @@ const styles = {
         },
     },
     menuItem: {
-        color: (theme) => theme.palette.solid.dark1
+        color: (theme) => theme.palette.solid.dark1,
+        fontWeight: 500,
+        fontSize: 15,
+        position: 'relative',
+        '&:hover': {
+            '&::before':{
+                animation: 'headerLine 0.8s ease-out',
+            },
+        },
+        '&::before': {
+            content: '""',
+            bottom: -2,
+            height: '3px',
+            position: 'absolute',
+            borderRadius: '12px',
+            bgcolor: 'primary.main',
+        }
     }, 
     whiteButton: {
         borderRadius: '16px',

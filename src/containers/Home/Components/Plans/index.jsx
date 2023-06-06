@@ -1,14 +1,26 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Icon from 'components/Icon';
 import Link from 'lib/Link';
 import Image from 'next/image';
 import styles from './styles.js';
 import { Box, Button, ButtonBase, Divider, Grid, Stack, Typography } from '@mui/material';
+import Aos from 'aos';
 
 const Plans = () => {
     const [activePlan, setActivePlan] = useState('plans-1');
+    const [plansChanged, setPlanChanged] = useState(false)
+    useEffect(() => {
+        Aos.init({
+            anchorPlacement: plansChanged,
+        });
+        console.log({plansChanged}, 'I am Here');
+    }, [plansChanged])
     const planHandler = (id) => {
-        setActivePlan(id)
+        setActivePlan(id);
+        setPlanChanged(true);
+        setTimeout(() => {
+            setPlanChanged(false)
+        }, 300)
     }
     const plansData = [
         {
@@ -58,22 +70,22 @@ const Plans = () => {
                 {
                     id: 1,
                     title: 'First Target',
-                    value: '160 $',
+                    value: '240 $',
                 },
                 {
                     id: 2,
                     title: 'Secound Target',
-                    value: '80 $',
+                    value: '580 $',
                 },
                 {
                     id: 3,
                     title: 'Daily Drawdown',
-                    value: '5%',
+                    value: '25%',
                 },
                 {
                     id: 4,
                     title: 'Maximum Drawdown',
-                    value: '880 $',
+                    value: '8000 $',
                 },
                 {
                     id: 5,
@@ -83,7 +95,7 @@ const Plans = () => {
                 {
                     id: 6,
                     title: 'Capital growth',
-                    value: 'up to 100,000 $',
+                    value: 'up to 100,000,000 $',
                 },
             ],
         },
@@ -219,7 +231,7 @@ const Plans = () => {
                     </Stack>
                 </Grid>
                 <Grid item xs={12} md={7}>
-                    <PlansDetail data={plansData?.find((item) => item?.id === activePlan)} />
+                    <PlansDetail plansChanged={plansChanged} data={plansData?.find((item) => item?.id === activePlan)} />
                 </Grid>
             </Grid>
         </Box>
@@ -253,9 +265,10 @@ const PlansCard = ({data, isActive, handler}) => {
 };
 
 
-const PlansDetail = ({data}) => {
+const PlansDetail = ({data, plansChanged}) => {
     const ref = useRef(null);
     const offsetWidth = ref?.current?.offsetWidth || 100;
+
     return (
         <Box sx={styles.PlansDetailWrapper}>
             <Grid container spacing={2} alignItems='stretch' sx={{height: '100%'}}>
@@ -263,8 +276,15 @@ const PlansDetail = ({data}) => {
                     <Stack direction='column' justifyContent='center' sx={{height: '100%'}}>
                         <Typography sx={styles.PlansDetailTitle}>What’s in this plan?</Typography>
                         <Stack gap='32px' sx={{mt: '32px'}}>
-                            {data?.details?.map((item) => (
-                                <Stack direction='row' alignItems='center' gap='8px'>
+                            {data?.details?.map((item, index) => (
+                                <Stack
+                                    key={`index-${index}`}
+                                    data-aos={plansChanged ? 'fade-left' : 'fade-right'}
+                                    data-aos-delay={index * 30}
+                                    direction='row' 
+                                    alignItems='center' 
+                                    gap='8px'
+                                >
                                     <Typography sx={styles.planDetailText}>{item?.title}</Typography>
                                     <Divider sx={{flex: 1, bgcolor: 'rgba(255,255,255,0.1)'}} />
                                     <Typography sx={styles.planDetailText}>{item?.value}</Typography>

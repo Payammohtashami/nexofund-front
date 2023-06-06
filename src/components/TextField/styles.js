@@ -12,7 +12,10 @@ const styles = {
             border: '1px solid',
             borderColor: '#414974',
             "&.Mui-focused fieldset": {
-                border: 'none !important'
+                borderColor: 'primary.main'
+            },
+            '&:hover': {
+                borderColor: 'primary.main',
             },
             '& input': {
                 borderRadius: "16px",

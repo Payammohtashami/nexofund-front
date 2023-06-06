@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import Login from "containers/Login";
+import Register from "containers/Auth/Register";
 
 const RegisterPage = () => {
   return (
     <Fragment>
-      <Login />
+      <Register />
     </Fragment>
   );
 };

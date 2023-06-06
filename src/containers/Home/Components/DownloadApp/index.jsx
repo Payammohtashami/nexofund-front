@@ -10,16 +10,6 @@ const DownloadApp = () => {
     const offsetWidth = ref?.current?.offsetWidth || 150;
     return (
         <Box position='relative'>
-            <Mesh
-                top='24px'
-                left='21px'
-                right='20px'
-                bottom='0px'
-                bgcolor='secondary.main'
-                size='82px'
-                translateX={[20,0]}
-                translateY={[-20,0]}
-            />
             <Grid container spacing={3} alignItems='center' sx={{mb: '108px'}}>
                 <Grid item xs={12} md={7}>
                     <Typography className='title'>Download It Now</Typography>
