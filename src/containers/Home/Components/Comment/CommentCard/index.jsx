@@ -7,7 +7,7 @@ const CommentCard = ({data}) => {
     return (
         <Box 
             sx={styles.cardWrapper} 
-            data-aos="fade-up"
+            data-aos="zoom-in"
             data-aos-duration="600"
             data-aos-delay="200"
         >

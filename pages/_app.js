@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps, ...MyAppProps }) {
       </Head>
       <Provider store={store}>
         <ParallaxProvider>
-          <PagesLayout Component={Component} pageProps={pageProps} />
+            <PagesLayout Component={Component} pageProps={pageProps} />
         </ParallaxProvider>
       </Provider>
     </>

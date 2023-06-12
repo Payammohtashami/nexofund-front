@@ -5,21 +5,29 @@ import WithErrorHandler from "components/WithErrorHandler";
 import Aos from "aos";
 import NextNProgress from 'nextjs-progressbar';
 import useTheme from "hooks/useTheme";
-import { ThemeProvider } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
+import { enablePageScroll } from "scroll-lock";
 
 
 const PagesLayout = ({ Component, pageProps }) => {
   const appTheme = useTheme();
   useEffect(() => {
-    Aos.init({})
+    Aos.init({});
+    enablePageScroll()
   }, []);
   return (
     <WithErrorHandler>
         <NextNProgress color="#2817ED" options={{ easing: "ease",showSpinner: false}} />
         <ThemeProvider theme={appTheme}>
+          <Box sx={{
+            width: '100%',
+            minHeight: '100vh',
+            
+          }}>
             {!Component.headerHide ? <Header /> : null}
             <Component {...pageProps} />
             {!Component.footerHide ? <Footer /> : null}
+          </Box>
         </ThemeProvider>
     </WithErrorHandler>
   );

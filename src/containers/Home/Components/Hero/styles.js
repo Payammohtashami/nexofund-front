@@ -2,7 +2,7 @@ const styles = {
     HeroBackground: {
         position: 'absolute',
         width: 'calc( 100vw - 6px )',
-        margin: '-100% 0 0',
+        margin: '-110% 0 0',
         height: 'calc( 100vw - 6px )',
         svg: {
             width: 'calc( 100vw - 6px )',

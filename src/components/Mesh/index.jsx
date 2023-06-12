@@ -1,29 +1,24 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Parallax } from 'react-scroll-parallax';
 
-const Mesh = ({translateY, translateX, bgcolor, size, top, left, right, bottom}) => {
+const Mesh = ({bgcolor, size, top, left, right, bottom}) => {
     return (
-        <Parallax 
-            translateY={translateY ? translateY : ''} 
-            translateX={translateX ? translateX : ''}
-        >
-            <Box 
-                sx={{
-                    top,
-                    left,
-                    right,
-                    bottom,
-                    bgcolor,
-                    width: size,
-                    height: size,
-                    position: 'absolute',
-                    borderRadius: '50%',
-                    filter: 'blur(65px)',
-                    animation: 'meshSpin 3s linear infinite',
-                }}
-            />
-        </Parallax>
+        <Box 
+            sx={{
+                top,
+                left,
+                right,
+                bottom,
+                bgcolor,
+                width: size,
+                height: size,
+                position: 'absolute',
+                borderRadius: '50%',
+                filter: 'blur(65px)',
+                zIndex: -5,
+                animation: 'meshSpin 3s linear infinite',
+            }}
+        />
     );
 };
 

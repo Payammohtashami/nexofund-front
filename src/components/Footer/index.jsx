@@ -3,39 +3,15 @@ import styles from './styles.js';
 import Link from "lib/Link";
 import Icon from "components/Icon";
 import HeroBackground from "components/Icon/HeroBackground";
-import { headerMenu, socialMedia } from "enum/main";
-import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
+import { headerMenu} from "enum/main";
+import { Box, Container, Stack, Typography } from "@mui/material";
 
 const Footer = () => {
   
   return (
     <footer style={{overflow: 'hidden'}}>
-
-      <Container>
-        <Box sx={styles.wrapper}>
-          <Stack direction='column' alignItems='center' justifyContent='center'  gap='24px' sx={{py: '32px'}}>
-            <Box sx={styles.divider} />
-            <Typography className='title'>
-              Join The Team <br /> Of Our Experienced Traders
-            </Typography>
-            <Stack direction='row' gap='12px'>
-              <Button sx={styles.blueButton}>Start Premium</Button>
-              <Button sx={styles.whiteButton}>Free Trial</Button>
-            </Stack>
-            <Stack direction='row' alignItems='center' gap='24px'>
-              {socialMedia?.map((item) => (
-                <Box>
-                  <IconButton>
-                    {/* <Link href={item?.url} target='_blank'> */}
-                      <Icon name={item?.name} size='24px' />
-                    {/* </Link> */}
-                  </IconButton>
-                </Box>
-              ))}
-            </Stack>
-            <Box sx={styles.divider} />
-            </Stack>
-        </Box>
+      <Container sx={{position: 'relative'}}>
+        
       </Container>
       <Box sx={styles.planetWrapper}> 
           <Box sx={styles.HeroBackground}>
@@ -60,6 +36,7 @@ const Footer = () => {
                 <Icon name='Logo' />
               </Box>
             </Stack>
+            
       </Container>
     </footer>
   );

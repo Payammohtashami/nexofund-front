@@ -5,6 +5,7 @@ const styles = {
         backdropFilter: 'blur(12px)',
         borderRadius: '26px',
         padding: '16px 24px',
+        width: '100%',
         borderColor: (theme) => theme.palette.solid.dark5,
     },
     activePlanCardWrapper: {
@@ -13,6 +14,7 @@ const styles = {
         backdropFilter: 'blur(12px)',
         borderRadius: '26px',
         padding: '16px 24px',
+        width: '100%',
         background: (theme) => theme.palette.solid.dark7,
         animation: 'boxshadow 2s infinite',
     },
@@ -122,13 +124,14 @@ const styles = {
     PlansDetailWrapper: {
         border: '1px solid',
         borderColor: (theme) => theme.palette.primary.main,
-        backdropFilter: 'blur(12px)',
+        // backdropFilter: 'blur(12px)',
         borderRadius: '26px',
         padding: '16px 24px',
         background: (theme) => theme.palette.solid.dark7,
         animation: 'boxshadow 2s infinite',
         height: "100%",
         padding: '24px',
+        overflow: 'hidden',
     },
     
     PlansDetailTitle:{

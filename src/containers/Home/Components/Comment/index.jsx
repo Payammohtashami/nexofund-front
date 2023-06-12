@@ -98,7 +98,12 @@ const Comment = () => {
     ]
     return (
         <Box>
-            <Box sx={{mb: 2}}>
+            <Box 
+                data-aos="zoom-in"
+                data-aos-duration="600"
+                data-aos-delay="200" 
+                sx={{mb: 2}}
+            >
                 <Typography className='title'>What Our Clients Say About Us</Typography>
             </Box>
             <ResponsiveMasonry columnsCountBreakPoints={{350: 2, 750: 2, 900: 3}}>

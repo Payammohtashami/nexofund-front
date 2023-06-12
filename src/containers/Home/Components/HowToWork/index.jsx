@@ -32,13 +32,12 @@ const HowToWork = () => {
     return (
         <Box sx={{top: '-128px', position: 'relative',}}>
             <Box sx={{textAlign: 'center'}}>
-                <Typography className='title' sx={{mb: 3}}>How It Works?</Typography>
+                <Typography data-aos='zoom-in' data-aos-delay='250' data-aos-duration='800' className='title' sx={{mb: 3}}>How It Works?</Typography>
                 <Box>
                     {data?.map((item, index) => (
-                        
                         <Stack direction='row' gap='8px'>
                             {index % 2 === 0 ? 
-                                <Box ref={ref} sx={{flex: '1'}}>
+                                <Box ref={ref} data-aos='zoom-in' data-aos-delay='150' data-aos-duration='800' sx={{flex: '1'}}>
                                     <Box sx={styles.textsWrapper}>
                                         <Typography sx={styles.numberText}>{item.number}</Typography>
                                         <Typography sx={styles.titleText}>{item.title}</Typography>
@@ -46,13 +45,13 @@ const HowToWork = () => {
                                     </Box>
                                 </Box>
                                 :
-                                <Box sx={{flex: '1'}}>
+                                <Box data-aos='zoom-in' data-aos-delay='250' data-aos-duration='800' sx={{flex: '1'}}>
                                     <Image src={item.image} height='320' width='320' />
                                 </Box>
                             }
                             <Box orientation='vertical' sx={{background: (theme) => theme.palette.solid.dark1, width: '1px' }} />
                             {index % 2 !== 0 ? 
-                                <Box  sx={{flex: '1'}}>
+                                <Box data-aos='zoom-in' data-aos-delay='150' data-aos-duration='800' sx={{flex: '1'}}>
                                     <Box sx={styles.textsWrapper}>
                                         <Typography sx={styles.numberText}>{item.number}</Typography>
                                         <Typography sx={styles.titleText}>{item.title}</Typography>
@@ -60,8 +59,8 @@ const HowToWork = () => {
                                     </Box>
                                 </Box>
                                 :
-                                <Box sx={{flex: '1'}}>
-                                    <Image src={item.image} height={offsetWidth} width={offsetWidth} />
+                                <Box data-aos='zoom-in' data-aos-delay='250' data-aos-duration='800' sx={{flex: '1'}}>
+                                    <Image src={item.image} height='320' width='320'  />
                                 </Box>
                             }
                         </Stack>

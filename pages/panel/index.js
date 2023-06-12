@@ -1,20 +1,18 @@
 import React, { Fragment } from 'react';
-import Home from 'containers/Home';
+import Panel from 'containers/Panel';
 
-const Homepage = () => {
+const Panelpage = () => {
 
   return (
     <Fragment>
-      <Home />
+      <Panel />
     </Fragment>
   );
 };
-
-Homepage.footerHide = true;
 
 export const getServerSideProps = async (ctx) => {
   return {
     props: {},
   }
 }
-export default Homepage;
+export default Panelpage;
