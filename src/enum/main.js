@@ -2,7 +2,7 @@ export const headerMenu = [
     {
         id: 'menu-1',
         title: 'Home',
-        url: '#',
+        url: '/',
     },
     {
         id: 'menu-2',

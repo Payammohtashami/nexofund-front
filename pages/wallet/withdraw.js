@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import Home from 'containers/Home';
+import Withdraw from 'containers/Wallet/Withdraw';
 
-const Homepage = () => {
+const Withdrawpage = () => {
 
   return (
     <Fragment>
-      <Home />
+      <Withdraw />
     </Fragment>
   );
 };
@@ -16,4 +16,4 @@ export const getServerSideProps = async (ctx) => {
     props: {},
   }
 }
-export default Homepage;
+export default Withdrawpage;

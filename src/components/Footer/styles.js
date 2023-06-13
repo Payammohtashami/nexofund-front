@@ -89,12 +89,12 @@ const styles = {
     },
     
     secendBackgroundLayer: {
-        position: 'absolute',
-        zIndex: -2,
         bottom: 0,
+        zIndex: -2,
         width: '360px',
         height: '360px',
         borderRadius: '50%',
+        position: 'absolute',
         filter: 'blur(60px)',
         background: 'radial-gradient(circle, rgba(38,44,198,1) 65%, rgba(39,57,201,1) 70%, rgba(52,203,236,1) 100%)',
         animation: 'widthSpin 3s linear infinite',

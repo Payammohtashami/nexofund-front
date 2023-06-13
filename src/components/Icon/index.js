@@ -233,7 +233,34 @@ const icons = {
       <path d="M19.52 12.0195H4.53002" stroke="#2817ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M10.5171 18.0117L4.48009 11.9997L10.5171 5.98772" stroke="#2817ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-  )
+  ),
+  profileUserButton: (
+    <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 16.9996C1 14.4996 3 12.5996 5.4 12.5996H10.5C13 12.5996 14.9 14.5996 14.9 16.9996" stroke="#DFDEEF" stroke-width="1.4824" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11 2.2C12.7 3.9 12.7 6.6 11 8.2C9.29999 9.8 6.59999 9.9 4.99999 8.2C3.39999 6.5 3.29999 3.8 4.99999 2.2C6.69999 0.6 9.29999 0.6 11 2.2" stroke="#DFDEEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  ),
+  KeyboardArrowDown: (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 10L12 14L8 10" stroke="#DFDEEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  ),
+  Wallet: (
+    <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.5027 7.95098L17.1369 4.79657C16.4998 3.94704 15.31 3.74323 14.4264 4.33227L8.92816 7.99776" stroke="#DFDEEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5027 12.5H22.0037C22.5562 12.5 23.0041 12.9479 23.0041 13.5004V16.5017C23.0041 17.0542 22.5562 17.5021 22.0037 17.5021H19.5027C18.1214 17.5021 17.0016 16.3823 17.0016 15.001V15.001C17.0016 13.6198 18.1214 12.5 19.5027 12.5V12.5Z" stroke="#DFDEEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22.0037 12.4999V10.4991C22.0037 9.1178 20.884 7.99805 19.5027 7.99805H6.49726C5.11597 7.99805 3.99622 9.1178 3.99622 10.4991V19.5028C3.99622 20.8841 5.11597 22.0039 6.49726 22.0039H19.5027C20.884 22.0039 22.0037 20.8841 22.0037 19.5028V17.502" stroke="#DFDEEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  ),
+  USDT: (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 22.2628C17.8477 22.2628 22.5882 17.5952 22.5882 11.8374C22.5882 6.07969 17.8477 1.41211 12 1.41211C6.15227 1.41211 1.41176 6.07969 1.41176 11.8374C1.41176 17.5952 6.15227 22.2628 12 22.2628Z" fill="#00A478"/>
+      <path d="M10.7975 10.8505V8.18657H7.22359V5.85156H17.2106V8.21946H13.6367V10.8505H10.7975Z" fill="#DFDEEF"/>
+      <path d="M12.1336 9.79826C15.8746 9.79826 17.8118 10.8178 18.0457 11.1466C17.8118 11.4755 15.908 11.9688 12.1336 11.9688C8.39266 11.9688 6.45538 11.4755 6.22157 11.1466C6.45538 10.7849 8.39266 9.79826 12.1336 9.79826ZM12.1336 9.53516C8.55967 9.53516 5.68715 10.2587 5.68715 11.1466C5.68715 12.0346 8.55967 12.7581 12.1336 12.7581C15.7076 12.7581 18.5801 12.0346 18.5801 11.1466C18.5801 10.2587 15.7076 9.53516 12.1336 9.53516Z" fill="#DFDEEF"/>
+      <path d="M13.6367 11.6731V9.8314C13.169 9.79851 12.668 9.76562 12.167 9.76562C11.6994 9.76562 11.2652 9.76562 10.8309 9.79851V11.6402C11.2318 11.6402 11.6994 11.6731 12.167 11.6731C12.668 11.706 13.169 11.706 13.6367 11.6731ZM12.1336 12.7584C11.666 12.7584 11.2318 12.7584 10.7975 12.7255V17.6257H13.6033V12.6926C13.1356 12.7255 12.6346 12.7584 12.1336 12.7584Z" fill="#DFDEEF"/>
+    </svg>
+  ),
+
 };
 
 const Icon = (props) => {

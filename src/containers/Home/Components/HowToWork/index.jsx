@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import styles from './styles';
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 const HowToWork = () => {
-    const ref = useRef(null)
-    const offsetWidth = ref?.current?.offsetWidth / 2 || 150;
+
     const data = [
         {
             id: 'sections-1',
@@ -37,7 +36,7 @@ const HowToWork = () => {
                     {data?.map((item, index) => (
                         <Stack direction='row' gap='8px'>
                             {index % 2 === 0 ? 
-                                <Box ref={ref} data-aos='zoom-in' data-aos-delay='150' data-aos-duration='800' sx={{flex: '1'}}>
+                                <Box data-aos='zoom-in' data-aos-delay='150' data-aos-duration='800' sx={{flex: '1'}}>
                                     <Box sx={styles.textsWrapper}>
                                         <Typography sx={styles.numberText}>{item.number}</Typography>
                                         <Typography sx={styles.titleText}>{item.title}</Typography>

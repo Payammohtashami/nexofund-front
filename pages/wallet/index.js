@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import Home from 'containers/Home';
+import Wallet from 'containers/Wallet/Main';
 
-const Homepage = () => {
+const Walletpage = () => {
 
   return (
     <Fragment>
-      <Home />
+      <Wallet />
     </Fragment>
   );
 };
@@ -16,4 +16,4 @@ export const getServerSideProps = async (ctx) => {
     props: {},
   }
 }
-export default Homepage;
+export default Walletpage;

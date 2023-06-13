@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles';
-import { Box, Button, ButtonBase, Stack, Typography } from '@mui/material';
 import Icon from 'components/Icon';
+import { Box, Button, ButtonBase, Stack, Typography } from '@mui/material';
 
 const DailyNews = () => {
     const [openNews, setOpenNews] = useState(false)
@@ -79,17 +79,17 @@ const DailyNews = () => {
                         dolore eu fugiat nulla pariatur. 
                         Excepteur sint occaecat cupidatat 
                     </Typography>
-                    <Stack direction='row' alignItems='center' gap='24px' mt={2}>
+                    <Box display='flex' alignItems='center' gap='24px' mt={2}>
                         <Typography sx={styles.statsTitle}>Comments :</Typography>
                         <Stack direction='row' alignItems='center'>
                             <Typography sx={styles.analysStats}>60%</Typography>
-                            <Icon name='increaseArrow' size='24px' />
+                            <Icon name='increaseArrow' size='20px' />
                         </Stack>
                         <Stack direction='row' alignItems='center'>
                             <Typography sx={styles.analysStats}>40%</Typography>
-                            <Icon name='decreaseArrow' size='24px' />
+                            <Icon name='decreaseArrow' size='20px' />
                         </Stack>
-                    </Stack>
+                    </Box>
                 </Box>
             </Box>
         </Box>
