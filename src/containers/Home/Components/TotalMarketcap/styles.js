@@ -2,6 +2,7 @@ const styles = {
     boxesWrapper: {
         p: 1,
         flex: 1,
+        overflow: 'hidden',
         border: '1px solid', 
         bgcolor: (theme) => theme.palette.solid.dark5,
         backdropFilter: 'blur(12px)',

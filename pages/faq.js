@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
-import Deposit from 'containers/Wallet/Deposit';
+import dynamic from "next/dynamic";
 
-const Depositpage = () => {
+const FAQ = dynamic(() => import('containers/FAQ'));
+const FAQpage = () => {
 
   return (
     <Fragment>
-      <Deposit />
+      <FAQ />
     </Fragment>
   );
 };
@@ -16,4 +17,4 @@ export const getServerSideProps = async (ctx) => {
     props: {},
   }
 }
-export default Depositpage;
+export default FAQpage;

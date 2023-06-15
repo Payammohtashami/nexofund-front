@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import Home from 'containers/Home';
+import dynamic from "next/dynamic";
 
+const Home = dynamic(() => import('containers/Home'));
 const Homepage = () => {
 
   return (

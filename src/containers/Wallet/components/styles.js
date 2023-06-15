@@ -21,14 +21,19 @@ const styles = {
         mb: 1,
         'button': {
             p: '12px 18px',
-            bgcolor: 'solid.dark5',
-            border: '2px solid',
-            borderColor: 'primary.main',
             color: 'solid.dark1',
             borderRadius: '16px',
+            border: '2px solid transparent',
+            bgcolor: 'solid.dark5',
             'svg': {
                 mr: '6px'
             }
+        }
+    },
+    activeButton: {
+        borderColor: '#2817ED !important',
+        'svg': {
+            mr: '6px'
         }
     },
     balanceText: {
@@ -46,6 +51,7 @@ const styles = {
         mb: '30px',
     },
     walletWrapper: {
+        zIndex: -1,
         mt: '10px',
         maxWidth: 480,
         width: '100%',
@@ -71,6 +77,23 @@ const styles = {
             borderColor: 'primary.main',
         }
     },
+
+    activeChainButton: {
+        width: '100%',
+        padding: '12px',
+        color: 'solid.dark1',
+        borderRadius: '16px',
+        backdropFilter: 'blur(12px)',
+        border: '1px solid',
+        borderColor: 'primary.main',
+        'svg': {
+            mr: 1
+        },
+        '&:hover': {
+            borderColor: 'primary.main',
+        }
+    },
+
     blueButton: {
         flex: 2,
         p: '12px 24px',
@@ -79,6 +102,49 @@ const styles = {
         bgcolor: 'primary.main',
         borderRadius: '16px',
         textTransform: 'capitalize',
+    },
+
+    greenButton: {
+        flex: 2,
+        width: '100%',
+        p: '12px 24px',
+        borderRadius: '16px',
+        color: 'solid.dark6',
+        bgcolor: 'green.default',
+        textTransform: 'capitalize',
+        '&:hover': {
+            color: 'solid.dark1',
+        }
+    },
+    depositButton: {
+        borderRadius: '16px',
+        p: '12px 24px',
+        bgcolor: 'green.default',
+        color: 'solid.dark6',
+        textTransform: 'capitalize',
+        '&:hover': {
+            color: 'solid.dark1',
+        }
+    },
+
+    withdrawButton: {
+        borderRadius: '16px',
+        p: '12px 24px',
+        bgcolor: 'red.default',
+        color: 'solid.dark6',
+        textTransform: 'capitalize',
+        '&:hover': {
+            color: 'solid.dark1',
+        }
+    },
+    walletAddressBox: {
+        mt: '6px',
+        borderRadius: '16px',
+        bgcolor: 'solid.dark7',
+        padding: '6px 20px',
+        border: '1px solid',
+        borderColor: 'primary.main',
+        boxShadow: ''
     },
 };
 

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import Wallet from 'containers/Wallet/Main';
+import dynamic from 'next/dynamic';
 
+const Wallet = dynamic(() => import('containers/Wallet'));
 const Walletpage = () => {
-
   return (
     <Fragment>
       <Wallet />
@@ -11,7 +11,7 @@ const Walletpage = () => {
 };
 
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async () => {
   return {
     props: {},
   }

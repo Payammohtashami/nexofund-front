@@ -3,7 +3,7 @@ import Icon from 'components/Icon';
 import Link from 'lib/Link';
 import Image from 'next/image';
 import styles from './styles.js';
-import { Box, ButtonBase, Divider, Grid, Slide, Stack, Typography } from '@mui/material';
+import { Box, Button, ButtonBase, Divider, Grid, Slide, Stack, Typography } from '@mui/material';
 
 const Plans = () => {
     const [activePlan, setActivePlan] = useState('plans-1');
@@ -211,7 +211,7 @@ const Plans = () => {
                 },
             ],
         },
-    ]
+    ];
     return (
         <Box sx={{mb: 8}}>
             <Typography className='title'>Our Plans <span className='body1'>Per Month</span></Typography>
@@ -259,11 +259,13 @@ const PlansCard = ({data, isActive, handler}) => {
                         </Stack>
                     </Grid>
                     <Grid item xs={5}>
-                        <Link href='' className={isActive ? styles.activePlanCardButton : styles.planCardButton}>
-                            <span>$</span>
-                            {data?.price}
-                            <span>/month</span>
-                            <Icon name='launch' size='24' />
+                        <Link href='#'>
+                            <Button sx={isActive ? styles.activePlanCardButton : styles.planCardButton}>
+                                <span>$</span>
+                                {data?.price}
+                                <span>/month</span>
+                                <Icon name='launch' size='24' />
+                            </Button>
                         </Link>
                     </Grid>
                 </Grid>

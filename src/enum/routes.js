@@ -5,6 +5,7 @@ const routes = {
         login: '/auth/login'
     },
     wallet: {
+        base: '/wallet',
         deposit: '/wallet/deposit',
         withdraw: '/wallet/withdraw',
     }

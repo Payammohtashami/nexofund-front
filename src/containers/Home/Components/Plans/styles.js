@@ -72,6 +72,7 @@ const styles = {
     },
     
     planCardButton: {
+        color: 'solid.dark1',
         boxShadow: '0px 0px 15px rgba(40, 23, 237, 0.3)',
         borderRadius: '16px',
         alignItems: 'center',
@@ -83,7 +84,7 @@ const styles = {
         background: (theme) => theme.palette.primary.main,
         fontWeight: 600,
         fontSize: 26,
-        lineHeight: '39px',
+        lineHeight: '32px',
         span: {
             fontWeight: 400,
             fontSize: 14,
@@ -108,11 +109,10 @@ const styles = {
         display: 'flex',
         gap: '4px',
         justifyContent: 'center',
-        padding: '12px',
+        padding: '3.65px 12px',
         flexDirection: 'row',
         fontWeight: 600,
-        fontSize: '26px',
-        lineGeight: '39px',
+        fontSize: 26,
         span: {
             fontWeight: 400,
             fontSize: 14,

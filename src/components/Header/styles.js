@@ -82,12 +82,11 @@ const styles = {
         borderRadius: '16px',
         textTransform: 'none',
         padding: '0',
-        border: '1px solid transparent',
+        p: '1px',
         background: 'linear-gradient(90deg, #2817ED 0%, #AB30D7 100%)',
         boxShadow: '0px 0px 16px 0px #2817ED80',
         '&:hover': {
             background: 'linear-gradient(180deg, rgba(140, 220, 255, 0.1) 0%, rgba(140, 220, 255, 0) 100%)',
-            borderColor: '#2817ED',
             backdropFilter: 'blur(12px)',
             filter: 'drop-shadow(0px 0px 11px rgba(40, 23, 237, 0.5))',
         }

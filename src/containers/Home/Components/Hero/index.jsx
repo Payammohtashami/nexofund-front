@@ -17,8 +17,8 @@ const Hero = () => {
                 <Stack alignItems='center' justifyContent='center' sx={{height: '100%', width: '100%'}}>
                     <Typography variant='h1' component='h1' sx={styles.heroTitle}>nexofund</Typography>
                     <Typography sx={styles.heroDescription}>Predict It Right , Get Free Doge Coin</Typography>
-                    <Stack direction='row' alignItems='center' sx={{ml: '-24px'}}>
-                        <Button sx={styles.circleButton} onClick={handleScroll} component='a' href='#how-to-work'>Click</Button>
+                    <Stack direction='row' alignItems='center'>
+                        {/* <Button sx={styles.circleButton} onClick={handleScroll} component='a' href='#how-to-work'>Click</Button> */}
                         <Box sx={styles.buttonWrapper}>
                             <Button sx={styles.backButton} endIcon={<Icon name={'ArrowBottom'} size='24px' />}>
                                 Let’s Begin
