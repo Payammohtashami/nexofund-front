@@ -17,7 +17,7 @@ const styles = {
         bgcolor: 'rgba(234, 233, 255, 0.08)',
         backdropFilter: 'blur(17px)',
         borderRadius: 'inherit',
-        p: '16px 32px',
+        p: {xs: '12px 16px', md:'16px 32px'},
         border: 'solid 1px',
         borderColor: (theme) => theme.palette.solid.dark3,
         backgroundClip: 'padding-box',

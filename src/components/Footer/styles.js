@@ -11,7 +11,7 @@ const styles = {
 
     menuItem: {
         color: (theme) => theme.palette.solid.dark1,
-        fontSize: 14,
+        fontSize: {xs: 12, md: 14},
     },
     
     logoWrapper: {

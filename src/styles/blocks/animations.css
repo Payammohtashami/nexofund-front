@@ -1,0 +1,19 @@
+@keyframes translateToRight {
+  0% {
+    transform: translateX(-150%); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes headerLine {
+  0% {
+    left: 0;
+    width: 0px; }
+  40% {
+    left: 0;
+    width: 100%; }
+  60% {
+    right: 0;
+    width: 100%; }
+  100% {
+    right: 0;
+    width: 0px; } }

@@ -40,9 +40,9 @@ const styles = {
         borderRadius: '16px',
         color: '#FFF',
         fontWeight: 400,
-        fontSize: 16,
         textTransform: 'none',
-        padding: '8px 24px',
+        fontSize: {xs: '13px', md: '16px'},
+        padding: {xs: '8px 18px', md:'8px 24px'},
         border: '1px solid #2817ED',
         '&:hover': {
             boxShadow: '0px 0px 16px 0px #2817ED80',
@@ -58,9 +58,9 @@ const styles = {
         bgcolor: 'primary.main',
         color: '#FFF',
         fontWeight: 400,
-        fontSize: '16px',
+        fontSize: {xs: '13px', md: '16px'},
+        padding: {xs: '8px 18px', md:'8px 24px'},
         textTransform: 'none',
-        padding: '8px 24px',
         border: '1px solid transparent',
         boxShadow: '0px 0px 16px 0px #2817ED80',
         '&:hover': {

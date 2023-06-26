@@ -18,13 +18,13 @@ const DownloadApp = () => {
                         nascetur. Non tristique at lectus tristique.Ultricies tempor egestas 
                         rhoncus egestas dignissim risus dictum .
                     </Typography>
-                    <Stack direction='row' gap='16px'>
+                    <Stack direction={{xs: 'column', md: 'row'}} gap='16px'>
                         <Button data-aos='fade-right' data-aos-delay='250' data-aos-duration='600' sx={styles.buttonWrapper}>
                             <Stack direction='row' alignItems='center' gap='16px' sx={styles.secondButtonWrapper}>
                                 <Icon name='AppleLogo' />
                                 <Box>
-                                    <Typography sx={{textAlign: 'left', mb: 1}} className='caption'>Available on</Typography>
-                                    <Typography sx={{fontWeight: 600, textAlign: 'left'}}>App Store</Typography>
+                                    <Typography sx={{textAlign: 'left', mb: 1, fontSize: {xs: 12, md: 16}}} className='caption'>Available on</Typography>
+                                    <Typography sx={{fontWeight: 600, textAlign: 'left', fontSize: {xs: 12, md: 16}}}>App Store</Typography>
                                 </Box>
                             </Stack>
                         </Button>
@@ -32,17 +32,20 @@ const DownloadApp = () => {
                             <Stack direction='row' alignItems='center' gap='16px' sx={styles.secondButtonWrapper}>
                                 <Icon name='GooglePlayLogo' />
                                 <Box>
-                                    <Typography sx={{textAlign: 'left', mb: 1}} className='caption'>Available on</Typography>
-                                    <Typography sx={{fontWeight: 600, textAlign: 'left'}}>Google play</Typography>
+                                    <Typography sx={{textAlign: 'left', mb: 1, fontSize: {xs: 12, md: 16}}} className='caption'>Available on</Typography>
+                                    <Typography sx={{fontWeight: 600, textAlign: 'left', fontSize: {xs: 12, md: 16}}}>Google play</Typography>
                                 </Box>
                             </Stack>
                         </Button>
                     </Stack>
                 </Grid>
                 <Grid item xs={12} md={5}>
-                    <Box sx={{width: '100%'}} data-aos='fade-left' data-aos-delay='200' data-aos-duration='600'>
+                    <Stack sx={{width: '100%', display: {xs: 'none', md: 'flex'}}} data-aos='fade-left' data-aos-delay='200' data-aos-duration='600'>
                         <Image src='/images/Home/download.png' width={480} height={480} />
-                    </Box>
+                    </Stack>
+                    <Stack sx={{width: '100%', display: {xs: 'flex', md: 'none'}, 'img': {height: 'unset', widht: '100%'}}} data-aos='fade-up' data-aos-delay='200' data-aos-duration='600'>
+                        <Image src='/images/Home/download.png' width={280} height={320} />
+                    </Stack>
                 </Grid>
             </Grid>
             <Mesh

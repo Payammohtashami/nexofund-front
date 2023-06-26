@@ -16,10 +16,10 @@ const styles = {
     },
 
     commentText: {
-        fontSize: 18,
+        fontSize: {xs: 14, md: 18},
         fontWeight: 400,
         color: (theme) => theme.palette.solid.dark2,
-        lineHeight: '32px',
+        lineHeight: {xs: '24px', md: '32px'},
         mb: '16px',
     },
     

@@ -8,7 +8,7 @@ import Plans from "./Components/Plans";
 import CryptoBubbles from "./Components/CryptoBubbles";
 import TotalMarketcap from "./Components/TotalMarketcap";
 import Footer from "./Components/Footer";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Home = () => {
   useEffect(() => {
@@ -19,14 +19,16 @@ const Home = () => {
     <Box>
       <Hero />
       <Box className='container'>
-        <HowToWork />
-        <Statistic />
-        <TotalMarketcap />
-        <CryptoBubbles />
-        <Plans />
-        <DownloadApp />
-        <Comment />
-        <Footer />
+        <Box sx={{maxWidth: 'calc(100vw - 4px)', overflow: 'hidden'}}>
+          <HowToWork />
+          <Statistic />
+          <TotalMarketcap />
+          <CryptoBubbles />
+          <Plans /> 
+          <DownloadApp />
+          <Comment />
+          <Footer />
+        </Box>
       </Box>
     </Box>
   );

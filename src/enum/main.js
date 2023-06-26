@@ -5,6 +5,11 @@ export const headerMenu = [
         url: '/',
     },
     {
+      id: 'menu-4',
+      title: 'How it works?',
+      url: '#',
+  },
+    {
         id: 'menu-2',
         title: 'Statistics',
         url: '#',
@@ -15,9 +20,9 @@ export const headerMenu = [
         url: '#',
     },
     {
-        id: 'menu-4',
-        title: 'How it works?',
-        url: '#',
+        id: 'menu-5',
+        title: 'FAQ',
+        url: '/faq',
     },
 ];
 

@@ -1,0 +1,55 @@
+body {
+  min-width: 375px;
+  background: #08071A;
+  font-size: 14px;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #DFDEEF; }
+  body.rtl {
+    font-family: fa, sans-serif; }
+
+.fa {
+  font-family: fa, sans-serif !important; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+svg,
+img {
+  vertical-align: middle; }
+
+@media only screen and (max-width: 1179px) {
+  .desktop-hide {
+    display: none !important; } }
+
+.desktop-show {
+  display: none !important; }
+  @media only screen and (max-width: 1179px) {
+    .desktop-show {
+      display: block !important; } }
+
+@media only screen and (max-width: 1179px) {
+  .desktop-text-right {
+    text-align: right; } }
+
+@media only screen and (max-width: 1023px) {
+  .tablet-hide {
+    display: none !important; } }
+
+.tablet-show {
+  display: none !important; }
+  @media only screen and (max-width: 1023px) {
+    .tablet-show {
+      display: block !important; } }
+
+@media only screen and (max-width: 768px) {
+  .mobile-hide {
+    display: none !important; } }
+
+.mobile-show {
+  display: none !important; }
+  @media only screen and (max-width: 768px) {
+    .mobile-show {
+      display: block !important; } }

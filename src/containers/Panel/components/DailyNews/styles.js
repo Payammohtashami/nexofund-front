@@ -68,7 +68,7 @@ const styles = {
     description: {
         color: '#A5A2B5',
         lineHeight: '30px',
-        mt: 2,
+        my: 2,
     },
     analysStats: {
         color: '#DFDEEF',

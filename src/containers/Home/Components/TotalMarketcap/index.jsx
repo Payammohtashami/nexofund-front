@@ -54,7 +54,7 @@ const TotalMarketcap = () => {
             <Typography className='title'>Crypto Total Market Cap, $</Typography>
             <Box sx={{mt: 2}}>
                 <Grid container spacing={2}>
-                    <Grid item xs={11}>
+                    <Grid item xs={12} md={11}>
                         <Stack gap='20px'>
                             <Box 
                                 ref={widthRef} 
@@ -67,54 +67,62 @@ const TotalMarketcap = () => {
                                     <div id='tradingview_cad91' />
                                 </div>
                             </Box>
-                            <Stack direction='row' gap='16px'>
-                                <Box sx={{...styles.boxesWrapper, flex: 1.5}}>
-                                    <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
-                                        <Stack direction='row' gap='6px' alignItems='center'>
-                                            <Icon name='TOTALMARKETCAP' size='28' />
-                                            <Typography sx={styles.percentageText}>Total Market Cap</Typography>
+                            <Grid container direction='row' spacing='6px'>
+                                <Grid item xs={12} md={3.3}>
+                                    <Box sx={{...styles.boxesWrapper, flex: 1.5}}>
+                                        <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
+                                            <Stack direction='row' gap='6px' alignItems='center'>
+                                                <Icon name='TOTALMARKETCAP' size='28' />
+                                                <Typography sx={styles.percentageText}>Total Market Cap</Typography>
+                                            </Stack>
+                                            <Stack direction='row' gap='6px'>
+                                                <IconButton sx={styles.arrowButton}>
+                                                    <Icon name='ArrowTop' />
+                                                </IconButton>
+                                                <IconButton sx={styles.arrowButton}>
+                                                    <Icon name='ArrowBottom' />
+                                                </IconButton>
+                                            </Stack>
                                         </Stack>
-                                        <Stack direction='row' gap='6px'>
-                                            <IconButton sx={styles.arrowButton}>
-                                                <Icon name='ArrowTop' />
-                                            </IconButton>
-                                            <IconButton sx={styles.arrowButton}>
-                                                <Icon name='ArrowBottom' />
-                                            </IconButton>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={6} md={2.9}>
+                                    <Box sx={styles.boxesWrapper}>
+                                        <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
+                                            <Stack direction='row' gap='6px' alignItems='center'>
+                                                <Icon name='Bitcoin' size='28' />
+                                                <Typography sx={styles.percentageText}>66<span>.9%</span></Typography>
+                                            </Stack >
+                                            <Typography sx={styles.positiveText}>+0.03%</Typography>
                                         </Stack>
-                                    </Stack>
-                                </Box>
-                                <Box sx={styles.boxesWrapper}>
-                                    <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
-                                        <Stack direction='row' gap='6px' alignItems='center'>
-                                            <Icon name='Bitcoin' size='28' />
-                                            <Typography sx={styles.percentageText}>66<span>.9%</span></Typography>
-                                        </Stack >
-                                        <Typography sx={styles.positiveText}>+0.03%</Typography>
-                                    </Stack>
-                                </Box>
-                                <Box sx={styles.boxesWrapper}>
-                                    <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
-                                        <Stack direction='row' gap='6px' alignItems='center'>
-                                            <Icon name='BNB' size='28' />
-                                            <Typography sx={styles.percentageText}>66<span>.9%</span></Typography>
-                                        </Stack >
-                                        <Typography sx={styles.positiveText}>+0.03%</Typography>
-                                    </Stack>
-                                </Box>
-                                <Box sx={styles.boxesWrapper}>
-                                    <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
-                                        <Stack direction='row' gap='6px' alignItems='center'>
-                                            <Icon name='ETH' size='28' />
-                                            <Typography sx={styles.percentageText}>66<span>.9%</span></Typography>
-                                        </Stack >
-                                        <Typography sx={styles.positiveText}>+0.03%</Typography>
-                                    </Stack>
-                                </Box>
-                            </Stack>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={6} md={2.9}>
+                                    <Box sx={styles.boxesWrapper}>
+                                        <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
+                                            <Stack direction='row' gap='6px' alignItems='center'>
+                                                <Icon name='BNB' size='28' />
+                                                <Typography sx={styles.percentageText}>66<span>.9%</span></Typography>
+                                            </Stack >
+                                            <Typography sx={styles.positiveText}>+0.03%</Typography>
+                                        </Stack>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={6} md={2.9}>
+                                    <Box sx={styles.boxesWrapper}>
+                                        <Stack direction='row' justifyContent='space-between' alignItems='center' sx={styles.secondBoxWrapper}>
+                                            <Stack direction='row' gap='6px' alignItems='center'>
+                                                <Icon name='ETH' size='28' />
+                                                <Typography sx={styles.percentageText}>66<span>.9%</span></Typography>
+                                            </Stack >
+                                            <Typography sx={styles.positiveText}>+0.03%</Typography>
+                                        </Stack>
+                                    </Box>
+                                </Grid>
+                            </Grid>
                         </Stack>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid item xs={3} md={1}>
                         <Stack sx={styles.boxesWrapper} gap={'12px'}>
                             <IconButton sx={styles.iconButton}>
                                 <Icon name='Camera' size='24' />

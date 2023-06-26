@@ -4,7 +4,7 @@ const styles = {
         bgcolor: (theme) => theme.palette.solid.dark5,
         backdropFilter: 'blur(12px)',
         borderRadius: '26px',
-        padding: '16px 24px',
+        padding: {xs: '8px 16px', md: '16px 24px'},
         width: '100%',
         borderColor: (theme) => theme.palette.solid.dark5,
     },
@@ -47,7 +47,7 @@ const styles = {
     },
     
     planCardName: {
-        fontSize: 14,
+        fontSize: {xs: 12, md: 14},
         fontWeight: 400,
         lineHeight: '24px',
         textAlign: 'left',
@@ -55,7 +55,7 @@ const styles = {
     },
     
     planCardFund: {
-        fontSize: 26,
+        fontSize: {xs: 16, md: 26},
         fontWeight: 600,
         lineHeight: '39px',
         letterSpacing: 0,
@@ -83,7 +83,7 @@ const styles = {
         flexDirection: 'row',
         background: (theme) => theme.palette.primary.main,
         fontWeight: 600,
-        fontSize: 26,
+        fontSize: {xs: 16, md: 26},
         lineHeight: '32px',
         span: {
             fontWeight: 400,
@@ -112,7 +112,7 @@ const styles = {
         padding: '3.65px 12px',
         flexDirection: 'row',
         fontWeight: 600,
-        fontSize: 26,
+        fontSize: {xs: 16, md: 26},
         span: {
             fontWeight: 400,
             fontSize: 14,

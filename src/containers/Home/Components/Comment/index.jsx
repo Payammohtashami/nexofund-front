@@ -106,7 +106,7 @@ const Comment = () => {
             >
                 <Typography className='title'>What Our Clients Say About Us</Typography>
             </Box>
-            <ResponsiveMasonry columnsCountBreakPoints={{350: 2, 750: 2, 900: 3}}>
+            <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
                 <Masonry gutter='20px'>
                     {commentsData?.map((item) =>  (
                         <CommentCard data={item} />

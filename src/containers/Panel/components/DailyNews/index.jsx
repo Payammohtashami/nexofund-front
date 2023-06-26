@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from './styles';
 import Icon from 'components/Icon';
+import styles from './styles';
 import { Box, Button, ButtonBase, Stack, Typography } from '@mui/material';
 
 const DailyNews = () => {
@@ -65,7 +65,7 @@ const DailyNews = () => {
                     </Button>
                 </Box>
                 <Box sx={styles.detailWrapper}>
-                    <Typography sx={styles.newsTitle}>1 <Box sx={styles.circle}></Box> $ETH holders that have never tried $aDA <span>(12:34 am)</span></Typography>
+                    <Typography sx={styles.newsTitle}>1 <Box sx={styles.circle} /> $ETH holders that have never tried $aDA <span>(12:34 am)</span></Typography>
                     <Typography sx={styles.description}>
                         Lorem ipsum dolor sit amet, 
                         consectetur adipiscing elit, sed do 
@@ -79,17 +79,18 @@ const DailyNews = () => {
                         dolore eu fugiat nulla pariatur. 
                         Excepteur sint occaecat cupidatat 
                     </Typography>
-                    <Box display='flex' alignItems='center' gap='24px' mt={2}>
+                    <Box sx={{display: 'none !important'}} />
+                    <Stack direction='row' alignItems='center' gap='24px' mt={2}>
                         <Typography sx={styles.statsTitle}>Comments :</Typography>
-                        <Stack direction='row' alignItems='center'>
+                        <Box sx={{display: 'flex', alignItems:'center'}}>
                             <Typography sx={styles.analysStats}>60%</Typography>
                             <Icon name='increaseArrow' size='20px' />
-                        </Stack>
-                        <Stack direction='row' alignItems='center'>
+                        </Box>
+                        <Box sx={{display: 'flex', alignItems:'center'}}>
                             <Typography sx={styles.analysStats}>40%</Typography>
                             <Icon name='decreaseArrow' size='20px' />
-                        </Stack>
-                    </Box>
+                        </Box>
+                    </Stack>
                 </Box>
             </Box>
         </Box>

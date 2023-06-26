@@ -10,7 +10,7 @@ const Footer = () => {
         <Box sx={styles.wrapper}>
           <Stack direction='column' alignItems='center' justifyContent='center'  gap='24px' sx={{py: '32px'}}>
             <Box sx={styles.divider} />
-            <Typography className='title'>
+            <Typography className='title' sx={{textAlign: 'center'}}>
               Join The Team <br /> Of Our Experienced Traders
             </Typography>
             <Stack direction='row' gap='12px'>
