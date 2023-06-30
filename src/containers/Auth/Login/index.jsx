@@ -12,9 +12,6 @@ import Mesh from 'components/Mesh';
 const Login = () => {
     const [step, setStep] = useState('LOGIN');
     const [turnBack, setTurnBack] = useState(false);
-    const { control, formState: { errors }, } = useForm({
-        defaultValues: { email: "", mobile: "", password: "" },
-    });
     return (
         <Box sx={{position: 'relative', mb: '90px'}}>
             <Box sx={styles.HeroBackground}>
@@ -56,8 +53,6 @@ const Login = () => {
                 <Box sx={styles.boxWrapper}>
                     {step === 'LOGIN' ? 
                         <LoginForms 
-                            control={control} 
-                            errors={errors} 
                             setStep={setStep}
                             turnBack={turnBack}
                             setTurnBack={setTurnBack}
@@ -65,8 +60,6 @@ const Login = () => {
                     : null}
                     {step === 'FORGOT_PASSWORD' ? 
                         <ForgotPassword 
-                            control={control} 
-                            errors={errors} 
                             setStep={setStep}
                             turnBack={turnBack}
                             setTurnBack={setTurnBack}
@@ -74,8 +67,6 @@ const Login = () => {
                     : null}
                     {step === 'CONFIRM_CODE' ? 
                         <ConfirmCode
-                            control={control} 
-                            errors={errors} 
                             setStep={setStep}
                             turnBack={turnBack}
                             setTurnBack={setTurnBack}

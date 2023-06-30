@@ -128,9 +128,12 @@ function EnhancedTableHead() {
       <TableHead>
         <TableRow sx={styles.borderColor}>
           {headCells.map((headCell) => (
-            <TableCell key={headCell.id} sx={{'&:first-child': {
-                pl: '24px'
-            }}}>
+            <TableCell 
+                key={headCell.id} 
+                sx={{'&:first-child': {
+                    pl: '24px'
+                }}}
+            >
               <TableSortLabel>
                 <Typography sx={{
                     fontSize: '16px',

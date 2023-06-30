@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Container } from '@mui/material';
-import { useForm } from 'react-hook-form';
-import HeroBackground from 'components/Icon/HeroBackground';
+import Mesh from 'components/Mesh';
 import styles from '../styles';
-import RegisterForm from './Components/RegisterForm';
 import ConfirmCode from './Components/ConfirmCode';
 import SetPassword from './Components/SetPassword';
-import Mesh from 'components/Mesh';
+import RegisterForm from './Components/RegisterForm';
+import HeroBackground from 'components/Icon/HeroBackground';
+import { Box, Container } from '@mui/material';
 
 const Register = () => {
     const [step, setStep] = useState('REGISTER');
     const [turnBack, setTurnBack] = useState(false);
-    const { control, formState: { errors }, } = useForm({
-        defaultValues: { email: "", mobile: "", password: "" },
-    });
     return (
         <Box sx={{position: 'relative', mb: '90px'}}>
             <Box sx={styles.HeroBackground}>
@@ -55,8 +51,6 @@ const Register = () => {
                 <Box sx={styles.boxWrapper}>
                     {step === 'REGISTER' ? 
                         <RegisterForm
-                            errors={errors} 
-                            control={control}
                             setStep={setStep}
                             turnBack={turnBack}
                             setTurnBack={setTurnBack}
@@ -64,8 +58,6 @@ const Register = () => {
                     : null}
                     {step === 'CONFIRM_CODE' ?
                         <ConfirmCode
-                            errors={errors} 
-                            control={control}
                             setStep={setStep}
                             turnBack={turnBack}
                             setTurnBack={setTurnBack}
@@ -74,8 +66,6 @@ const Register = () => {
 
                     {step === 'SET_PASSWORD' ?
                         <SetPassword
-                            errors={errors} 
-                            control={control}
                             setStep={setStep}
                             turnBack={turnBack}
                             setTurnBack={setTurnBack}

@@ -19,7 +19,7 @@ const Footer = () => {
             </Stack>
             <Stack direction='row' alignItems='center' gap='24px'>
               {socialMedia?.map((item) => (
-                <Box>
+                <Box key={item?.id}>
                   <IconButton>
                       <Icon name={item?.name} size='24px' />
                   </IconButton>

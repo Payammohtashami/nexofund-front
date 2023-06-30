@@ -109,7 +109,7 @@ const Comment = () => {
             <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
                 <Masonry gutter='20px'>
                     {commentsData?.map((item) =>  (
-                        <CommentCard data={item} />
+                        <CommentCard data={item} key={item?.id} />
                     ))}
                 </Masonry>
             </ResponsiveMasonry>

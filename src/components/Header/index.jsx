@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Icon from "components/Icon";
 import Link from "lib/Link";
 import styles from "./styles.js";
-import routes from "enum/routes.js";
+import routes from "config/routes.js";
 import { headerMenu } from "enum/main";
 import { AppBar, Box, Button, Container, Menu, MenuItem, Stack, Typography } from "@mui/material";
 
 const Header = () => {
     // Variable
-    const user = true;
+    const user = false;
     const [scrollDirection, setScrollDirection] = useState(null);
     const [blurHeader, setBlurHeader] = useState();
     const [open, setOpen] = useState(false);

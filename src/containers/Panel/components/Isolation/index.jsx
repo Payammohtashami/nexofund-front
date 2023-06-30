@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import styles from './styles';
-import { Box, Button, ButtonGroup, Grid, Stack, TextField, Typography } from '@mui/material';
 import Icon from 'components/Icon';
 import TextFieldComponent from 'components/TextField';
-import { useForm } from 'react-hook-form';
+import { Box, Button, ButtonGroup, Grid, Stack, TextField, Typography } from '@mui/material';
 
 const Isolation = () => {
     const [activeMode, setActiveMode] = useState('SELL');
-    const { control, formState: { errors }, } = useForm({
-        defaultValues: { email: "", mobile: "", password: "" },
-    });
     return (
         <Box sx={styles.wrapper}>
             <Stack direction='row' justifyContent='space-between' alignItems='center'>
@@ -32,7 +28,6 @@ const Isolation = () => {
                             name='amount'
                             placeholder='Amount'
                             label='Enter Amount'
-                            control={control}
                         />
                     </Box>
                     <Button sx={styles.submitButton}>Submit</Button>

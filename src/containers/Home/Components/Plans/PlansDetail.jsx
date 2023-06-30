@@ -17,7 +17,7 @@ const PlansDetail = ({direction, checked, data}) => {
                         <Typography sx={styles.PlansDetailTitle}>What’s in this plan?</Typography>
                         <Stack gap='32px' sx={{mt: '32px', height: '232px'}}>
                             {data?.details?.map((item, index) => (
-                                <Slide direction={direction} in={checked} style={{transitionDuration: '0.5s', transitionDelay: !checked ? 0 : `${index * 50}ms`}}>
+                                <Slide key={index} direction={direction} in={checked} style={{transitionDuration: '0.5s', transitionDelay: !checked ? 0 : `${index * 50}ms`}}>
                                     <Stack
                                         key={`index-${index}`}
                                         direction='row' 

@@ -5,7 +5,7 @@ import { Avatar, Box, Stack, Typography } from '@mui/material';
 
 const CommentCard = ({data}) => {
     return (
-        <Box 
+        <Box
             sx={styles.cardWrapper} 
             data-aos="zoom-in"
             data-aos-duration="600"
@@ -15,7 +15,7 @@ const CommentCard = ({data}) => {
             <Typography sx={styles.commentText}>{data?.description}</Typography>
             <Stack direction='row' alignItems='center' sx={styles.ratingWrapper}>
                 {Array(5).fill({}).map((_, index) => (
-                    <Icon name={data?.rating >= index + 1 ? 'FillRatingStar' : 'RatingStar'} />
+                    <Icon key={index} name={data?.rating >= index + 1 ? 'FillRatingStar' : 'RatingStar'} />
                 ))}
             </Stack>
             <Typography sx={styles.createdAtText}>{data?.createdAt}</Typography>

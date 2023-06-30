@@ -1,10 +1,12 @@
 import React from 'react';
-import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material';
-import styles from './styles';
 import Icon from 'components/Icon';
+import styles from './styles';
 import TextFieldComponent from 'components/TextField';
+import { useRouter } from 'next/router';
+import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material';
 
-const SetPassword = ({turnBack, setTurnBack, setStep, errors, control}) => {
+const SetPassword = ({turnBack, setTurnBack, setStep}) => {
+    const router = useRouter();
     const backHandler = () => {
         setStep('LOGIN');
         setTurnBack(true);

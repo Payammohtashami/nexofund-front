@@ -1,14 +1,33 @@
 import React from 'react';
 import Icon from 'components/Icon';
-import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
 import styles from './styles';
-import TextFieldComponent from 'components/TextField';
 import Link from 'lib/Link';
-import routes from 'enum/routes';
+import routes from 'config/routes';
+import CustomButton from 'components/CustomButton';
+import TextFieldComponent from 'components/TextField';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { emailValidationSchema } from 'validations/auth';
+import { useDispatch } from 'react-redux';
+import { registerUser } from 'redux/store/user/action';
+import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
 
-const RegisterForm = ({control, errors, setStep, turnBack}) => {
+const RegisterForm = ({setStep, turnBack}) => {
+    const dispatch = useDispatch();
+    const { 
+        control,
+        handleSubmit,
+        formState: { errors, isValid, isSubmitting },
+    } = useForm({
+        mode: "onSubmit",
+        defaultValues: {email: ""}, 
+        resolver: yupResolver(emailValidationSchema),
+    });
+    const registerHandler = (data) => {
+        dispatch(registerUser(data, setStep))
+    };
     return (
-        <Box>
+        <Box component='form' noValidate onSubmit={handleSubmit(registerHandler)}>
             <Stack 
                 gap='6px' 
                 direction='row' 
@@ -39,15 +58,22 @@ const RegisterForm = ({control, errors, setStep, turnBack}) => {
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    <TextFieldComponent
-                        control={control}
-                        type='text'
+                    <Controller
                         name='email'
-                        label='Your Email'
-                        placeholder='Enter Your Email'
-                        errors={errors}
-                        Icon={
-                            <Icon name='email' size='24' />
+                        control={control}
+                        render={({field}) => (
+                            <TextFieldComponent
+                                field={field}
+                                type='text'
+                                name='email'
+                                label='Your Email'
+                                placeholder='Enter Your Email'
+                                errors={errors?.email?.message}
+                                Icon={
+                                    <Icon name='email' size='24' />
+                                }
+                            />
+                            )
                         }
                     />
                 </Grid>
@@ -70,9 +96,15 @@ const RegisterForm = ({control, errors, setStep, turnBack}) => {
                     sx={{mb: '14px'}}
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
-                    <Button sx={styles.loginButton} onClick={() => setStep('CONFIRM_CODE')}>
+                    <CustomButton
+                        type="submit"
+                        withSpinner
+                        loading={isSubmitting}
+                        extraSx={styles.loginButton} 
+                        disabled={!isValid || isSubmitting}
+                    >
                         Send Code
-                    </Button>
+                    </CustomButton>
                 </Grid>
                 <Grid 
                     item

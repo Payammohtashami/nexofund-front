@@ -4,9 +4,9 @@ import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@m
 import styles from './styles';
 import TextFieldComponent from 'components/TextField';
 import Link from 'lib/Link';
-import routes from 'enum/routes';
+import routes from 'config/routes';
 
-const LoginForms = ({control, errors, setStep, turnBack}) => {
+const LoginForms = ({ setStep, turnBack}) => {
     return (
         <Box>
             <Stack 
@@ -32,8 +32,7 @@ const LoginForms = ({control, errors, setStep, turnBack}) => {
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    <TextFieldComponent
-                        control={control}
+                    {/* <TextFieldComponent
                         type='text'
                         name='email'
                         label='Your Email'
@@ -42,7 +41,7 @@ const LoginForms = ({control, errors, setStep, turnBack}) => {
                         Icon={
                             <Icon name='email' size='24' />
                         }
-                    />
+                    /> */}
                 </Grid>
                 <Grid 
                     item 

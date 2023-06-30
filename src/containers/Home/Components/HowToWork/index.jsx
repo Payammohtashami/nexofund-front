@@ -62,7 +62,7 @@ const HowToWork = () => {
                 <Typography data-aos='zoom-in' data-aos-delay='250' data-aos-duration='800' className='title' sx={{mb: 3}}>How It Works?</Typography>
                 <Box>
                     {data?.map((item, index) => (
-                        <Stack direction={{xs: 'column', md: 'row'}} gap='8px'>
+                        <Stack key={item?.id} direction={{xs: 'column', md: 'row'}} gap='8px'>
                             {index % 2 === 0 ? 
                                 <Box data-aos='zoom-in' data-aos-delay='150' data-aos-duration='800' sx={{flex: '1'}}>
                                     <Box sx={styles.textsWrapper}>

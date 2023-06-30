@@ -22,7 +22,7 @@ const Footer = () => {
               <Typography variant='h1' component='h1' sx={styles.heroTitle}>nexofund</Typography>
               <Stack direction='row' alignItems='center' gap={{xs: '12px', md:'24px'}}>
                   {headerMenu?.map((item) => (
-                      <Link key={item.id} href={item.url}>
+                      <Link key={item?.id} href={item.url}>
                           <Typography sx={styles.menuItem}>
                               {item.title}
                           </Typography>

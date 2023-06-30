@@ -4,7 +4,7 @@ import styles from './styles';
 import Icon from 'components/Icon';
 import TextFieldComponent from 'components/TextField';
 
-const ForgotPassword = ({setStep, turnBack, setTurnBack, errors, control}) => {
+const ForgotPassword = ({setStep, turnBack, setTurnBack}) => {
     const backHandler = () => {
         setStep('LOGIN');
         setTurnBack(true);
@@ -44,8 +44,7 @@ const ForgotPassword = ({setStep, turnBack, setTurnBack, errors, control}) => {
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    <TextFieldComponent
-                        control={control}
+                    {/* <TextFieldComponent
                         type='text'
                         name='email'
                         label='Your Email'
@@ -54,7 +53,7 @@ const ForgotPassword = ({setStep, turnBack, setTurnBack, errors, control}) => {
                         Icon={
                             <Icon name='email' size='24' />
                         }
-                    />
+                    /> */}
                 </Grid>
                 <Grid
                     item 

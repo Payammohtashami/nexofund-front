@@ -13,22 +13,22 @@ const PagesLayout = ({ Component, pageProps }) => {
     Aos.init({});
   }, []);
 
-  useEffect(() => {
-    const handleWindowMouseMove = event => {
-      setCoords({
-        x: event.clientX,
-        y: event.clientY,
-      });
-    };
-    window.addEventListener('mousemove', handleWindowMouseMove);
+  // useEffect(() => {
+  //   const handleWindowMouseMove = event => {
+  //     setCoords({
+  //       x: event.clientX,
+  //       y: event.clientY,
+  //     });
+  //   };
+  //   window.addEventListener('mousemove', handleWindowMouseMove);
 
-    return () => {
-      window.removeEventListener(
-        'mousemove',
-        handleWindowMouseMove,
-      );
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener(
+  //       'mousemove',
+  //       handleWindowMouseMove,
+  //     );
+  //   };
+  // }, []);
 
   return (
     <WithErrorHandler>
@@ -39,7 +39,7 @@ const PagesLayout = ({ Component, pageProps }) => {
           
         }}>
           
-          <Box sx={{position: 'fixed', top: 0, zIndex: 0, display: {xs: 'none', md: 'block'}}}>
+          {/* <Box sx={{position: 'fixed', top: 0, zIndex: 0, display: {xs: 'none', md: 'block'}}}>
             <Box 
               sx={{
                 width: 40,
@@ -53,7 +53,7 @@ const PagesLayout = ({ Component, pageProps }) => {
               
               }} 
             />
-          </Box>
+          </Box> */}
           {!Component.headerHide ? <Header /> : null}
           <Component {...pageProps} />
           {!Component.footerHide ? <Footer /> : null}
