@@ -1,10 +1,12 @@
 import React from 'react';
-import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material';
-import styles from './styles';
 import Icon from 'components/Icon';
+import styles from './styles';
 import TextFieldComponent from 'components/TextField';
+import { useRouter } from 'next/router';
+import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material';
 
-const ForgotPassword = ({setStep, turnBack, setTurnBack}) => {
+const SetPassword = ({turnBack, setTurnBack, setStep}) => {
+    const router = useRouter();
     const backHandler = () => {
         setStep('LOGIN');
         setTurnBack(true);
@@ -27,15 +29,8 @@ const ForgotPassword = ({setStep, turnBack, setTurnBack}) => {
                 <IconButton onClick={backHandler}>
                     <Icon name='Back' size='20' />
                 </IconButton>
-                <Typography sx={styles.loginText}>Forgot Password</Typography>
+                <Typography sx={styles.loginText}>Choose Your Password</Typography>
             </Stack>
-            <Typography 
-                data-aos={turnBack ? "fade-left" : "fade-right"}
-                data-aos-delay='200' 
-                sx={styles.descriptionText}
-            >
-                We will send you A 4 digit confirmation code please make sure your email is currect.
-            </Typography>
             <Grid container>
                 <Grid 
                     item 
@@ -44,16 +39,36 @@ const ForgotPassword = ({setStep, turnBack, setTurnBack}) => {
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    {/* <TextFieldComponent
-                        type='text'
-                        name='email'
-                        label='Your Email'
-                        placeholder='Enter Your Email'
+                    <TextFieldComponent
+                        control={control}
+                        type='password'
+                        name='password'
+                        label='Your Password'
+                        placeholder='Enter Your Password'
                         errors={errors}
                         Icon={
                             <Icon name='email' size='24' />
                         }
-                    /> */}
+                    />
+                </Grid>
+                <Grid 
+                    item 
+                    xs={12} 
+                    sx={{mb: '36px'}}
+                    data-aos={turnBack ? "fade-left" : "fade-right"}
+                    data-aos-delay='150'
+                >
+                    <TextFieldComponent
+                        control={control}
+                        type='password'
+                        name='confirmPassword'
+                        label='Confirm Your Password'
+                        placeholder='Enter Your Password'
+                        errors={errors}
+                        Icon={
+                            <Icon name='email' size='24' />
+                        }
+                    />
                 </Grid>
                 <Grid
                     item 
@@ -63,7 +78,7 @@ const ForgotPassword = ({setStep, turnBack, setTurnBack}) => {
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
                     <Button sx={styles.loginButton} onClick={sendCode}>
-                        Send Code
+                        Confirm
                     </Button>
                 </Grid>
             </Grid>
@@ -71,4 +86,4 @@ const ForgotPassword = ({setStep, turnBack, setTurnBack}) => {
     );
 };
 
-export default ForgotPassword;
+export default SetPassword;

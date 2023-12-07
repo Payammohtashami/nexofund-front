@@ -3,42 +3,21 @@ import Icon from 'components/Icon';
 import Link from 'lib/Link';
 import styles from './styles';
 import routes from 'config/routes';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from "@hookform/resolvers/yup"
 import { OtpInputCustom } from 'components/ConfirmCode';
-import { Box, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
-import CustomButton from 'components/CustomButton';
-import { useConfirmRegisteredCode } from 'client/Mutation';
+import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
 
-const ConfirmCode = ({turnBack, setStep}) => {
-    const { mutate: confirmRegsiterCodeSubmit, isLoading: conftirmRegisterCodeLoading } = useConfirmRegisteredCode()
-    const [ otp, setOtp ] = useState('');
-    const { 
-        handleSubmit,
-        formState: { isValid, isSubmitting },
-    } = useForm({
-        mode: "onSubmit",
-        defaultValues: {code: ""}, 
-        resolver: yupResolver(emailValidationSchema),
-    });
-    const confirmEmailHandler = () => {
-        confirmRegsiterCodeSubmit(
-            {
-                code: otp,
-                verifyToken: '',
-            },
-            {
-                onSuccess: () => {
-                    setStep('SET_PASSWORD')
-                },
-                onError: (error) => {
-                    toast?.error(`${error}`)
-                },
-            }
-        )
+const ConfirmCode = ({turnBack, setTurnBack, setStep}) => {
+    const [otp, setOtp] = useState('');
+    const editEmailHandler = () => {
+        setTurnBack(true);
+        setStep('FORGOT_PASSWORD');
+    };
+    const backToLogin = () => {
+        setTurnBack(true);
+        setStep('LOGIN');
     };
     return (
-        <Box component='form' noValidate onSubmit={handleSubmit(confirmEmailHandler)}>
+        <Box>
             <Stack
                 gap='6px'
                 direction='row' 
@@ -47,16 +26,14 @@ const ConfirmCode = ({turnBack, setStep}) => {
                 data-aos-delay='400'
                 sx={{mb: '16px'}}
             >
-                <IconButton>
-                    <Link href={routes.base}>
-                        <Icon name='Back' size='20' />
-                    </Link>
+                <IconButton onClick={backToLogin}>
+                    <Icon name='Back' size='20' />
                 </IconButton>
-                <Typography sx={styles.loginText}>Confirmation Code</Typography>
+                <Typography sx={styles.loginText}>Forgot Password</Typography>
             </Stack>
             <Stack>
                 <Typography
-                    data-aos="fade-right"
+                    data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='200' 
                     sx={styles.descriptionText}
                     >
@@ -66,6 +43,7 @@ const ConfirmCode = ({turnBack, setStep}) => {
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150' 
                     sx={styles.fotgotPasswordButton}
+                    onClick={editEmailHandler}
                 >
                     Edit email
                 </ButtonBase>
@@ -88,23 +66,16 @@ const ConfirmCode = ({turnBack, setStep}) => {
                         />
                     </Box>
                 </Grid>
-                <Grid 
-                    item 
+                <Grid
+                    item
                     xs={12} 
                     data-aos-delay='300'
                     sx={{mb: '14px'}}
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
-                    <CustomButton
-                        withSpinner
-                        type="submit"
-                        spinnerColor='#FFF'
-                        extraSx={styles.loginButton} 
-                        disabled={!isValid || isSubmitting}
-                        loading={conftirmRegisterCodeLoading}
-                    >
+                    <Button sx={styles.loginButton}>
                         Confirm
-                    </CustomButton>
+                    </Button>
                 </Grid>
             </Grid>
         </Box>

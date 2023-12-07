@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import Mesh from 'components/Mesh';
+import React from 'react';
 import styles from '../styles';
-import LoginForms from './components/LoginForms';
-import ConfirmCode from './components/ConfirmCode';
 import HeroBackground from 'components/Icon/HeroBackground';
 import { Box, Container } from '@mui/material';
+import Mesh from 'components/Mesh';
+import { useState } from 'react';
+import ForgotPasswordComponent from './Components/ForgotPassword';
+import SetPassword from './Components/SetPassword';
+import ConfirmCode from './Components/ConfirmCode';
 
-const Login = () => {
-    const [step, setStep] = useState('LOGIN');
+const ForgotPassword = () => {
+    const [step, setStep] = useState('FORGOT_PASSWORD');
     const [turnBack, setTurnBack] = useState(false);
     return (
         <Box sx={{position: 'relative', mb: '90px'}}>
@@ -27,7 +29,7 @@ const Login = () => {
                     left='10%'
                     top='10vh'
                 />
-                <Mesh 
+                <Mesh
                     bgcolor='#2817ED'
                     size='88px'
                     right='10%'
@@ -48,14 +50,13 @@ const Login = () => {
             </Box>
             <Container component="main" maxWidth="sm" sx={{my: '90px'}}>
                 <Box sx={styles.boxWrapper}>
-                    {step === 'LOGIN' ? 
-                        <LoginForms 
+                    {step === 'FORGOT_PASSWORD' ? 
+                        <ForgotPasswordComponent
                             setStep={setStep}
                             turnBack={turnBack}
                             setTurnBack={setTurnBack}
                         /> 
                     : null}
-                    
                     {step === 'CONFIRM_CODE' ? 
                         <ConfirmCode
                             setStep={setStep}
@@ -63,11 +64,17 @@ const Login = () => {
                             setTurnBack={setTurnBack}
                         /> 
                     : null}
+                    {step === 'SET_PASSWORD' ? 
+                        <SetPassword
+                            setStep={setStep}
+                            turnBack={turnBack}
+                            setTurnBack={setTurnBack}
+                        /> 
+                    : null}
                 </Box>
             </Container>
-            
         </Box>
     );
 };
 
-export default Login;
+export default ForgotPassword;

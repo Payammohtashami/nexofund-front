@@ -10,9 +10,18 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import "styles/app.css";
 import "aos/dist/aos.css";
 import { Toaster } from "react-hot-toast";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const clientSideEmotionCache = createEmotionCache();
 function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache, ...MyAppProps }) {
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
@@ -23,7 +32,7 @@ function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache, ..
 
 
   return (
-    <>
+    <React.Fragment>
         <CacheProvider value={emotionCache}>
             <Head>
                 <meta charSet="UTF-8" key="charset" />
@@ -38,15 +47,20 @@ function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache, ..
                 <meta name="twitter:creator" content="Nexofund" />
                 <meta name="twitter:title" content="Nexofund" />
             </Head>
-            <ThemeProvider theme={theme}>
-                <ParallaxProvider>
-                    <CssBaseline />
-                    <Toaster />
-                    <PagesLayout Component={Component} pageProps={pageProps} />
-                </ParallaxProvider>
-            </ThemeProvider>
+            <QueryClientProvider client={queryClient}>
+              <ThemeProvider theme={theme}>
+                  <ParallaxProvider>
+                      <CssBaseline />
+                      <Toaster
+                        position="top-right"
+                        reverseOrder={true}
+                      />
+                      <PagesLayout Component={Component} pageProps={pageProps} />
+                  </ParallaxProvider>
+              </ThemeProvider>
+            </QueryClientProvider>
         </CacheProvider>
-    </>
+    </React.Fragment>
   );
 }
 

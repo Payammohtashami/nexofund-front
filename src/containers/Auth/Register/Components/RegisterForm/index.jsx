@@ -8,12 +8,12 @@ import TextFieldComponent from 'components/TextField';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { emailValidationSchema } from 'validations/auth';
-import { useDispatch } from 'react-redux';
-import { registerUser } from 'redux/store/user/action';
 import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
+import { useRegisterEmail } from 'client/Mutation';
+import { toast } from 'react-hot-toast';
 
 const RegisterForm = ({setStep, turnBack}) => {
-    const dispatch = useDispatch();
+    const { mutate: registerEmailSubmit, isLoading: registerEmailLoading } = useRegisterEmail()
     const { 
         control,
         handleSubmit,
@@ -24,7 +24,17 @@ const RegisterForm = ({setStep, turnBack}) => {
         resolver: yupResolver(emailValidationSchema),
     });
     const registerHandler = (data) => {
-        dispatch(registerUser(data, setStep))
+        registerEmailSubmit(
+            data,
+            {
+                onSuccess: () => {
+                    setStep('CONFIRM_CODE')
+                },
+                onError: (error) => {
+                    toast?.error(`${error?.response?.data?.message}`)
+                },
+            }
+        )
     };
     return (
         <Box component='form' noValidate onSubmit={handleSubmit(registerHandler)}>
@@ -99,7 +109,8 @@ const RegisterForm = ({setStep, turnBack}) => {
                     <CustomButton
                         type="submit"
                         withSpinner
-                        loading={isSubmitting}
+                        spinnerColor='#FFF'
+                        loading={registerEmailLoading}
                         extraSx={styles.loginButton} 
                         disabled={!isValid || isSubmitting}
                     >
