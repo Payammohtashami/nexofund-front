@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Icon from 'components/Icon';
-import Link from 'lib/Link';
 import styles from './styles';
-import routes from 'config/routes';
 import { OtpInputCustom } from 'components/ConfirmCode';
 import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
 

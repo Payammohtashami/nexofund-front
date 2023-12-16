@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles';
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import Icon from 'components/Icon';
-import { socialMedia } from 'enum/main';
+import { socialMedia } from 'constant/main';
 import Mesh from 'components/Mesh';
 
 const Footer = () => {

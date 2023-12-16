@@ -8,6 +8,7 @@ node_modules/
 dist/
 .next/
 yarn.lock
+.env/
 package-lock.json
 
 # Compiled Java class files

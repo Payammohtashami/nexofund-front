@@ -1,8 +1,8 @@
 import React from 'react';
-import Link from 'lib/Link';
 import Icon from 'components/Icon';
 import styles from './styles';
-import { Box, Button, ButtonBase, Grid, Stack, Typography } from '@mui/material';
+import Link from 'next/link';
+import { Box, ButtonBase, Grid, Stack, Typography } from '@mui/material';
 
 const PlansCard = ({data, isActive, handler}) => {
     return (

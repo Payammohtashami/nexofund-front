@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'components/Icon';
 import styles from './styles';
-import Link from 'lib/Link';
+import Link from 'next/link';
 import routes from 'config/routes';
 import TextFieldComponent from 'components/TextField';
 import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
@@ -9,11 +9,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginValidationSchema } from 'validations/auth';
 import CustomButton from 'components/CustomButton';
-import { useLogin } from 'client/Mutation';
-import { toast } from 'react-hot-toast';
 
 const LoginForms = ({ setStep, turnBack}) => {
-    const { mutate: loginSubmit, isLoading: loginLoading } = useLogin()
     const { 
         control,
         handleSubmit,
@@ -25,17 +22,7 @@ const LoginForms = ({ setStep, turnBack}) => {
     });
     
     const loginHandler = (data) => {
-        loginSubmit(
-            data,
-            {
-                onSuccess: () => {
-                    toast?.success(`Successfully Login!`)
-                },
-                onError: (error) => {
-                    toast?.error(`${error?.response?.data?.message}`)
-                },
-            }
-        )
+        
     };
     return (
         <Box component='form' noValidate onSubmit={handleSubmit(loginHandler)}>
@@ -143,7 +130,7 @@ const LoginForms = ({ setStep, turnBack}) => {
                     <CustomButton 
                         withSpinner
                         type='submit'
-                        loading={loginLoading}
+                        loading={false}
                         spinnerColor='#FFF'
                         extraSx={styles.loginButton}
                         disabled={!isValid || isSubmitting}

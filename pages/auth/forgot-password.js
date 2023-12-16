@@ -1,23 +1,21 @@
-import React, { Fragment } from "react";
 import Login from "containers/Auth/Login";
 
-const LoginPage = () => {
-  return (
-    <Fragment>
-      <Login />
-    </Fragment>
-  );
+const ForgotPasswordPage = () => {
+    return (
+        <Login />
+    );
 };
-LoginPage.headerHide = true;
-LoginPage.footerHide = true;
+ForgotPasswordPage.headerHide = true;
+ForgotPasswordPage.footerHide = true;
+
+
 export const getServerSideProps = async () => {
 
-  return {
-    props: {
-      initialStore: {
-      },
-    },
-  };
+    return {
+        props: {
+            initialStore: {},
+        },
+    };
 };
 
-export default LoginPage;
+export default ForgotPasswordPage;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import Icon from 'components/Icon';
 import styles from './styles';
 import { Box, Grid, IconButton, Stack, Typography } from '@mui/material';
-import Icon from 'components/Icon';
 
 
 let tvScriptLoadingPromise;

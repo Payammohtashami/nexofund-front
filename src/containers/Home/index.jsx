@@ -8,7 +8,6 @@ import Plans from "./Components/Plans";
 import CryptoBubbles from "./Components/CryptoBubbles";
 import TotalMarketcap from "./Components/TotalMarketcap";
 import Footer from "./Components/Footer";
-import { Box } from "@mui/material";
 
 const Home = () => {
   useEffect(() => {
@@ -16,10 +15,10 @@ const Home = () => {
   }, []);
 
   return (
-    <Box>
+    <>
       <Hero />
-      <Box className='container'>
-        <Box sx={{maxWidth: 'calc(100vw - 4px)', overflow: 'hidden'}}>
+      <div className='container'>
+        <div  style={{maxWidth: 'calc(100vw - 4px)', overflow: 'hidden'}}>
           <HowToWork />
           <Statistic />
           <TotalMarketcap />
@@ -28,9 +27,9 @@ const Home = () => {
           <DownloadApp />
           <Comment />
           <Footer />
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </>
   );
 };
 

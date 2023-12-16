@@ -34,27 +34,6 @@ const HowToWork = () => {
             descriptions: `Even if you don't meet the required budget or you are not well assured yet, don't worry. You can simply sign up and leave comments on a limited number of the news and earn Dogecoins as rewards. ( Some of the platform features shown on their profile will be deactivated and only available to use for the users with active plans. In addition, the paid users will have access to all the comments to pass their challenge more conveniently. )`,
             image: '/images/Home/howToWork4.png',
         },
-        // {
-        //     id: 'sections-5',
-        //     number: '05',
-        //     title: 'Know Your Trading Tools ',
-        //     descriptions: `We have set some targets in each plan, which demand the user's competence in investment and evaluating the market . The users should hit the targets in a certain period of time to claim the funds at the end of the challenge. The position size, limits or instruments you use are all up to you.`,
-        //     image: '/images/Home/howToWork5.png',
-        // },
-        // {
-        //     id: 'sections-6',
-        //     number: '06',
-        //     title: 'Payout System',
-        //     descriptions: `There will be no tax included in the successfully earned funds through the challenges. These Nexofund users will have the earned assets as well as 100% of the initial funds. The free users will earn ( n darsad) Dogecoins and the paid users will earn ( n darsad) Dogecoins for their comments in the news section.`,
-        //     image: '/images/Home/howToWork6.png',
-        // },
-        // {
-        //     id: 'sections-7',
-        //     number: '07',
-        //     title: 'About Us',
-        //     descriptions: `We have set some targets in each plan, which demand the user's competence in investment and evaluating the market . The users should hit the targets in a certain period of time to claim the funds at the end of the challenge. The position size, limits or instruments you use are all up to you.`,
-        //     image: '/images/Home/howToWork7.png',
-        // },
     ];
     return (
         <Box sx={{top: '-128px', position: 'relative',}}>

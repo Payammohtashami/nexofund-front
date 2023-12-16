@@ -1,39 +1,21 @@
-import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import theme from 'hooks/useTheme';
-import PagesLayout from "components/PagesLayout";
-import createEmotionCache from 'utility/createEmotionCache';
-import { wrapper } from '../src/redux/store';
-import { CacheProvider } from "@emotion/react";
-import { ParallaxProvider } from "react-scroll-parallax";
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import "styles/app.css";
-import "aos/dist/aos.css";
+
+// components
+import Layout from "components/Layout";
 import { Toaster } from "react-hot-toast";
+
+// providers
+import ThemeRegistery from '../src/theme/ThemeRegistery';
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const clientSideEmotionCache = createEmotionCache();
-function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache, ...MyAppProps }) {
+// css styles
+import "theme/css/styles.css";
+import "aos/dist/aos.css";
 
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-      },
-    },
-  });
-
-  useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles?.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
-
-
-  return (
-    <React.Fragment>
-        <CacheProvider value={emotionCache}>
+function MyApp({ Component, pageProps }) {
+    const queryClient = new QueryClient();
+    return (
+        <>
             <Head>
                 <meta charSet="UTF-8" key="charset" />
                 <title>Nexofund</title>
@@ -48,20 +30,13 @@ function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache, ..
                 <meta name="twitter:title" content="Nexofund" />
             </Head>
             <QueryClientProvider client={queryClient}>
-              <ThemeProvider theme={theme}>
-                  <ParallaxProvider>
-                      <CssBaseline />
-                      <Toaster
-                        position="top-right"
-                        reverseOrder={true}
-                      />
-                      <PagesLayout Component={Component} pageProps={pageProps} />
-                  </ParallaxProvider>
-              </ThemeProvider>
+                <ThemeRegistery>
+                    <Layout {...{Component, pageProps}} />
+                    <Toaster position="top-right" />
+                </ThemeRegistery>
             </QueryClientProvider>
-        </CacheProvider>
-    </React.Fragment>
-  );
+        </>
+    );
 }
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;

@@ -1,32 +1,28 @@
-import axios from "axios";
+import { getAccessToken } from '../utils/';
 
-function axiosConfig() {
-  axios.defaults.headers = {
-    Accept: "application/json",
-    "Authorization": token ? "Bearer ".concat(token) : "",
-    "Content-Type": "application/json",
-  };
-  const onRequestSuccess = (config) => {
-    return config;
-  };
-  const onResponseSuccess = (response) => {
-    return response;
-  };
-  const onResponseError = (error) => {
-    if (error?.response?.status == 401) {
-    }
-    if (error?.response?.status == 403) {
-    }
-    return Promise.reject(error);
-  };
-  axios.interceptors.request.use(onRequestSuccess);
-  axios.interceptors.response.use(onResponseSuccess, onResponseError);
-  return {
-    get: axios.get,
-    post: axios.post,
-    put: axios.put,
-    delete: axios.delete,
-    patch: axios.patch,
-  };
-}
-export default axiosConfig;
+export default function axiosConfig(store, axios) {
+    // const { dispatch } = store;
+    axios.interceptors.request.use(
+        (config) => {
+            const accessToken = getAccessToken(config);
+            if (accessToken) config.headers.authorization = `Bearer ${accessToken}`;
+            return config;
+        },
+        (error) => {
+            Promise.reject(error);
+        }
+    );
+
+    axios.interceptors.response.use(
+        function(response) {
+            return response;
+        },
+        function (error) {
+            const state = store.getState();
+            if (error?.response?.status === 401 && !!Object.keys(state.auth.user)?.length) {
+                // dispatch(logout());
+            };
+            return Promise.reject(error);
+        }
+    );
+};

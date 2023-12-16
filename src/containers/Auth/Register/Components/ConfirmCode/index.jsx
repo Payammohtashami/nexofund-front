@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Icon from 'components/Icon';
-import Link from 'lib/Link';
 import styles from './styles';
+import Link from "next/link";
 import routes from 'config/routes';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"

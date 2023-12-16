@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles';
+import { AddRounded } from '@mui/icons-material';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
-import { AddRounded, ExpandMoreRounded } from '@mui/icons-material';
 
 const FAQ = () => {
     const [expanded, setExpanded] = useState(false);

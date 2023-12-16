@@ -1,13 +1,10 @@
-import React, { Fragment } from 'react';
 import dynamic from 'next/dynamic';
 
 const Wallet = dynamic(() => import('containers/Wallet'));
 const Walletpage = () => {
-  return (
-    <Fragment>
-      <Wallet />
-    </Fragment>
-  );
+    return (
+        <Wallet />
+    );
 };
 
 

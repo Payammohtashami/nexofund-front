@@ -1,5 +1,5 @@
-import ApiCall from "client/apiCall";
 import api from "config/api";
+import ApiCall from "client/apiCall";
 import { useMutation, useQueryClient } from "react-query";
 
 export const useRegisterEmail = () => {

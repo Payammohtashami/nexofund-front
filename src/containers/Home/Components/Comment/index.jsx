@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import CommentCard from './CommentCard';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 const Comment = () => {
     const commentsData = [
@@ -106,13 +105,13 @@ const Comment = () => {
             >
                 <Typography className='title'>What Our Clients Say About Us</Typography>
             </Box>
-            <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
+            {/* <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
                 <Masonry gutter='20px'>
                     {commentsData?.map((item) =>  (
                         <CommentCard data={item} key={item?.id} />
                     ))}
                 </Masonry>
-            </ResponsiveMasonry>
+            </ResponsiveMasonry> */}
         </Box>
     );
 };

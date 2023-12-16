@@ -1,23 +1,18 @@
-import React, { Fragment } from "react";
 import Login from "containers/Auth/Login";
 
 const LoginPage = () => {
-  return (
-    <Fragment>
-      <Login />
-    </Fragment>
-  );
+    return (
+        <Login />
+    );
 };
 LoginPage.headerHide = true;
 LoginPage.footerHide = true;
 export const getServerSideProps = async () => {
-
-  return {
-    props: {
-      initialStore: {
-      },
-    },
-  };
+    return {
+        props: {
+            initialStore: {},
+        },
+    };
 };
 
 export default LoginPage;

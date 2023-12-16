@@ -1,4 +1,4 @@
-export const BASE_URL = "https://dev-api.nexofund.com/api";
+export const BASE_URL = "http://localhost:5010/api";
 
 export default {
     auth: {
