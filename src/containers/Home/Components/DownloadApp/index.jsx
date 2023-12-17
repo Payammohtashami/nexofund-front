@@ -1,67 +1,47 @@
 import React from 'react';
-import styles from './styles.js';
 import Icon from 'components/Icon';
 import Image from 'next/image';
-import Mesh from 'components/Mesh/index.jsx';
-import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 
 const DownloadApp = () => {
     return (
-        <Box position='relative'>
-            <Grid container spacing={3} alignItems='center' sx={{mb: '108px'}}>
-                <Grid item xs={12} md={7}>
-                    <Typography data-aos='fade-right' data-aos-delay='100' data-aos-duration='600' className='title'>Download It Now</Typography>
-                    <Typography data-aos='fade-right' data-aos-delay='250' data-aos-duration='600' sx={styles.descriptionText}>
+        <div className='relative'>
+            <div className='grid grid-cols-1 md:grid-cols-12 items-center gap-8 md:gap-4'>
+                <div className='col-span-1 md:col-span-6'>
+                    <h4 data-aos='fade-right' data-aos-delay='100' data-aos-duration='600' className='title'>Download It Now</h4>
+                    <p data-aos='fade-right' data-aos-delay='250' data-aos-duration='600' className='text-darkness-200 mt-2.5 mb-8 text-sm md:text-base leading-6 md:leading-7'>
                         Lorem ipsum dolor sit amet consectetur. Arcu leo arcu sit 
                         tristique amet proin molestie. In cras in fusce erat phasellus. 
                         Ultricies tempor egestas rhoncus egestas dignissim risus dictum 
                         nascetur. Non tristique at lectus tristique.Ultricies tempor egestas 
                         rhoncus egestas dignissim risus dictum .
-                    </Typography>
-                    <Stack direction={{xs: 'column', md: 'row'}} gap='16px'>
-                        <Button data-aos='fade-right' data-aos-delay='250' data-aos-duration='600' sx={styles.buttonWrapper}>
-                            <Stack direction='row' alignItems='center' gap='16px' sx={styles.secondButtonWrapper}>
-                                <Icon name='AppleLogo' />
-                                <Box>
-                                    <Typography sx={{textAlign: 'left', mb: 1, fontSize: {xs: 12, md: 16}}} className='caption'>Available on</Typography>
-                                    <Typography sx={{fontWeight: 600, textAlign: 'left', fontSize: {xs: 12, md: 16}}}>App Store</Typography>
-                                </Box>
-                            </Stack>
-                        </Button>
-                        <Button data-aos='fade-right' data-aos-delay='350' data-aos-duration='600' sx={styles.buttonWrapper}>
-                            <Stack direction='row' alignItems='center' gap='16px' sx={styles.secondButtonWrapper}>
-                                <Icon name='GooglePlayLogo' />
-                                <Box>
-                                    <Typography sx={{textAlign: 'left', mb: 1, fontSize: {xs: 12, md: 16}}} className='caption'>Available on</Typography>
-                                    <Typography sx={{fontWeight: 600, textAlign: 'left', fontSize: {xs: 12, md: 16}}}>Google play</Typography>
-                                </Box>
-                            </Stack>
-                        </Button>
-                    </Stack>
-                </Grid>
-                <Grid item xs={12} md={5}>
-                    <Stack sx={{width: '100%', display: {xs: 'none', md: 'flex'}}} data-aos='fade-left' data-aos-delay='200' data-aos-duration='600'>
-                        <Image src='/images/Home/download.png' width={480} height={480} />
-                    </Stack>
-                    <Stack sx={{width: '100%', display: {xs: 'flex', md: 'none'}, 'img': {height: 'unset', widht: '100%'}}} data-aos='fade-up' data-aos-delay='200' data-aos-duration='600'>
-                        <Image src='/images/Home/download.png' width={280} height={320} />
-                    </Stack>
-                </Grid>
-            </Grid>
-            <Mesh
-                bgcolor='#2817ED'
-                size='88px'
-                left='5%'
-                top='70vh'
-            />
-            
-            <Mesh 
-                bgcolor='#B53FEC'
-                size='88px'
-                left='15%'
-                bottom='40vh'
-            />
-        </Box>
+                    </p>
+                    <div className='flex gap-4'>
+                        <button data-aos='fade-right' data-aos-delay='250' data-aos-duration='600' className='overflow-hidden hover:shadow-btn rounded-2xl p-[1px] transition bg-gradient-dark-100 hover:bg-gradient-primary'>
+                            <div className='flex items-center gap-4 w-full h-full px-4 lg:px-8 rounded-[15px] bg-darkness-800 py-4 hover:bg-darkness-600'>
+                                <Icon name='AppleLogo' className="text-white" size="32px" />
+                                <p className='text-left text-white font-medium text-xs md:text-base'>
+                                    <span className="mb-1 text-xs md:text-sm block text-slate-200">Available on</span>
+                                    App Store
+                                </p>
+                            </div>
+                        </button>
+                        <button data-aos='fade-right' data-aos-delay='250' data-aos-duration='600' className='overflow-hidden hover:shadow-btn rounded-2xl p-[1px] transition bg-gradient-dark-100 hover:bg-gradient-primary'>
+                            <div className='flex items-center gap-4 w-full h-full px-4 lg:px-8 rounded-[15px] bg-darkness-800 py-4 hover:bg-darkness-600'>
+                                <Icon name='GooglePlayLogo' className="text-white" size="32px" />
+                                <p className='text-left text-white font-medium text-xs md:text-base'>
+                                    <span className="mb-1 text-xs md:text-sm block text-slate-200">Available on</span>
+                                    Google play
+                                </p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div className='col-span-1 md:col-span-6'>
+                    <Image src='/images/Home/download.png' width={480} height={480} sizes='100vw' className='w-60 md:w-[480px] mx-auto' />
+                </div>
+            </div>
+            <div className='mesh bg-primary-500 w-20 h-20 left-[5%] top-6'></div>
+        </div>
     );
 };
 

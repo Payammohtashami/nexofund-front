@@ -12,7 +12,7 @@ import { FuturaFont } from "theme/LocalFonts.js";
 const Footer = () => {
     return (
         <footer className="overflow-hidden pt-20">
-            <div className="relative"> 
+            <div className="relative -z-0"> 
                 <span
                     className="absolute w-80 h-80 top-0 -right-32 rounded-full blur-2xl" 
                     style={{background: 'radial-gradient(circle, rgba(38,44,198,1) 65%, rgba(39,57,201,1) 70%, rgba(52,203,236,1) 100%)'}}
@@ -23,12 +23,12 @@ const Footer = () => {
                 ></span>
                 <HeroBackground classname='absolute w-80 h-80 top-0 -right-32 rotate-[120deg]' />
             </div>
-            <div className='container mx-auto px-2 xl:max-w-screen-xl top-0 py-2 md:py-2 md:px-0'>
+            <div className='container z-10 relative mx-auto px-2 xl:max-w-screen-xl top-0 py-2 md:py-2 md:px-0'>
                 <div className="flex flex-col items-center justify-center gap-6 pb-12">
-                    <h6 className={`${FuturaFont.className} text-darkness-100 tracking-[20px] font-bold textAlign mb-6`}>NEXOFUND</h6>
+                    <h6 className={`${FuturaFont.className} text-darkness-100 tracking-[20px] font-bold text-center mb-6`}>NEXOFUND</h6>
                     <div className="flex items-center gap-4 md:gap-6">
                         {headerMenu?.map((item) => (
-                            <Link key={item?.id} href={item.url} className="text-darkness-100 text-sm md:text-base">
+                            <Link key={item?.id} href={item.url} className="text-darkness-100 text-xs md:text-base">
                                 {item.title}
                             </Link>
                         ))}

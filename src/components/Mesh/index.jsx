@@ -16,7 +16,6 @@ const Mesh = ({bgcolor, size, top, left, right, bottom}) => {
                 borderRadius: '50%',
                 filter: 'blur(65px)',
                 zIndex: -5,
-                animation: 'meshSpin 3s linear infinite',
             }}
         />
     );

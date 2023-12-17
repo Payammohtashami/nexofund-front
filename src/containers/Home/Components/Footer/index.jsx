@@ -1,47 +1,36 @@
 import React from 'react';
-import styles from './styles';
-import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
-import Icon from 'components/Icon';
+
+// constants
 import { socialMedia } from 'constant/main';
-import Mesh from 'components/Mesh';
+
+// components
+import Icon from 'components/Icon';
 
 const Footer = () => {
     return (
-        <Box sx={styles.wrapper}>
-          <Stack direction='column' alignItems='center' justifyContent='center'  gap='24px' sx={{py: '32px'}}>
-            <Box sx={styles.divider} />
-            <Typography className='title' sx={{textAlign: 'center'}}>
-              Join The Team <br /> Of Our Experienced Traders
-            </Typography>
-            <Stack direction='row' gap='12px'>
-              <Button sx={styles.blueButton}>Start Premium</Button>
-              <Button sx={styles.whiteButton}>Free Trial</Button>
-            </Stack>
-            <Stack direction='row' alignItems='center' gap='24px'>
-              {socialMedia?.map((item) => (
-                <Box key={item?.id}>
-                  <IconButton>
-                      <Icon name={item?.name} size='24px' />
-                  </IconButton>
-                </Box>
-              ))}
-            </Stack>
-            <Box sx={styles.divider} />
-            </Stack>
-            <Mesh
-                bgcolor='#2817ED'
-                size='88px'
-                left='0'
-                bottom='70vh'
-            />
-            
-            <Mesh 
-                bgcolor='#B53FEC'
-                size='88px'
-                right='5%'
-                bottom='40vh'
-            />
-        </Box>
+        <div className='relative pt-8'>
+            <div className='flex flex-col justify-center items-center gap-y-6'>
+                <div className='w-[1px] h-20 bg-darkness-100'></div>
+                <h5 className='title text-center text-darkness-100 font-medium text-2xl'>
+                    Join The Team <br />
+                    Of Our Experienced Traders
+                </h5>
+                <div className='flex gap-3'>
+                    <button className='btn btn-blue'>Start Premium</button>
+                    <button className='btn btn-dark'>Free Trial</button>
+                </div>
+                <div className='flex items-center gap-4'>
+                    {socialMedia?.map((item) => (
+                        <span key={item?.id} className='cursor-pointer p-3 rounded-full hover:bg-darkness-500 transition-colors'>
+                            <Icon name={item?.name} size='24px' />
+                        </span>
+                    ))}
+                </div>
+                <div className='w-[1px] h-20 bg-darkness-100'></div>
+            </div>
+            <div className='mesh bg-primary-400 w-20 h-20 left-0 top-6'></div>
+            <div className='mesh bg-primary-500 w-20 h-20 right-[5%] bottom-24'></div>
+        </div>
     );
 };
 
