@@ -49,7 +49,7 @@ const Header = () => {
                 id="main-navbar"
                 sx={[styles.wrapper, scrollDirection === 'up' ? styles.showHeader : blurHeader ? styles.hideHeader : styles.normalHeader]}
             >
-                <Box className='container mx-auto px-2 xl:max-w-screen-xl top-0 py-2 md:py-2 md:px-0'>
+                <div className='container mx-auto px-2 xl:max-w-screen-xl top-0 py-2 md:py-2 md:px-0'>
                     <Stack direction='row' justifyContent='space-between'>
                         <Stack direction='row' alignItems='center' gap='32px'>
                             <Box sx={styles.logoWrapper}>
@@ -140,7 +140,7 @@ const Header = () => {
                         </Stack>
                         }
                     </Stack>
-                </Box>
+                </div>
             </AppBar>
         </header>
     );
