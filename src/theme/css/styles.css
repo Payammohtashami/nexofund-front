@@ -53,10 +53,8 @@ button:disabled {
     @apply hover:shadow-btn border border-primary-400 hover:bg-primary-400
 }
 
-.btn-blue {
-    &:hover {
-        background: linear-gradient(180deg, rgba(140, 220, 255, 0.1) 0%, rgba(140, 220, 255, 0) 100%);
-    }
+.btn-blue:hover {
+    background: linear-gradient(180deg, rgba(140, 220, 255, 0.1) 0%, rgba(140, 220, 255, 0) 100%);
 }
 
 .title {
@@ -67,9 +65,28 @@ button:disabled {
     @apply absolute rounded-full blur-3xl
 }
 
-.btn-dark {
-    &:hover {
-        filter: 'drop-shadow(0px 0px 11px rgba(40, 23, 237, 0.5))';
+.btn-dark:hover {
+    filter: 'drop-shadow(0px 0px 11px rgba(40, 23, 237, 0.5))';
+}
+
+.animate-up-down {
+    animation: up-down 1s infinite;
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(.8,0,1,1);
+    }
+    
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,.2,1);
+    }
+    
+    100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(.8,0,1,1);
     }
 }
 

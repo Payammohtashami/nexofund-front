@@ -412,3 +412,27 @@ export const howToWorkData = [
         image: '/images/Home/howToWork4.png',
     },
 ];
+
+
+export const statisticsData = [
+    {
+        id: 'item-1',
+        value: '$130M+',
+        title: 'paid out nexofund traders',
+    },
+    {
+        id: 'item-2',
+        value: '180+',
+        title: 'no. of countries with traders registered at nexofund',
+    },
+    {
+        id: 'item-3',
+        value: '16M+',
+        title: 'no. of opened every month',
+    },
+    {
+        id: 'item-4',
+        value: '8H',
+        title: 'avg payout processing time',
+    },
+];
