@@ -23,7 +23,7 @@ const Layout = ({ Component, pageProps }) => {
         <div className={`${poppins.className} bg-darkness-600`}>
             <NextNProgress color="#2817ED" options={{ easing: "ease",showSpinner: false}} />
             <main className="w-full min-h-screen">
-                {/* {!Component.headerHide ? <Header /> : null} */}
+                {!Component.headerHide ? <Header /> : null}
                 <Component {...pageProps} />
                 {!Component.footerHide ? <Footer /> : null}
             </main>

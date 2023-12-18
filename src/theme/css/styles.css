@@ -73,6 +73,17 @@ button:disabled {
     animation: up-down 1s infinite;
 }
 
+.animate-underline::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0px;
+    bottom: -3px;
+}
+
+.animate-underline:hover::before {
+    animation: underline .5s forwards;
+}
 @keyframes up-down {
     0% {
         transform: translateY(-25%);
@@ -101,5 +112,24 @@ button:disabled {
     
     100% {
         background-position: 5% 50%
+    }
+}
+
+@keyframes underline {
+    0% {
+        left: 0;
+        width: 0px;
+    }
+    40% {
+        left: 0;
+        width: 100%;
+    }
+    60% {
+        right: 0;
+        width: 100%;
+    }
+    100% {
+        right: 0;
+        width: 0px;
     }
 }

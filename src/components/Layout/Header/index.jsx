@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
-import Icon from "components/Icon";
 import Link from "next/link";
-import styles from "./styles.js";
+
+// components
+import Icon from "components/Icon";
+import Wallet from "./components/Wallet.jsx";
+import Profile from "./components/Profile.jsx";
+import { AppBar, useMediaQuery, Drawer } from "@mui/material";
+
+// constant
 import routes from "config/routes.js";
 import { headerMenu } from "constant/main.js";
-import { AppBar, Box, Button, Menu, MenuItem, Stack, Typography } from "@mui/material";
+
+// mui styles
+import styles from "./styles.js";
+import { MenuRounded } from "@mui/icons-material";
+import MobileDrawer from "./components/MobileDrawer.jsx";
 
 const Header = () => {
     // Variable
     const user = false;
-    const [scrollDirection, setScrollDirection] = useState(null);
+    const [openMenu, setOpenMenu] = useState(false);
     const [blurHeader, setBlurHeader] = useState();
-    const [open, setOpen] = useState(false);
-    const handleClick = (event) => {
-        setOpen(event.currentTarget);
-    };
-    const handleClose = () => {
-        setOpen(null);
-    };
+    const [scrollDirection, setScrollDirection] = useState(null);
+    const isMobile = useMediaQuery('(max-width:767px)');
     
     // Effects
     useEffect(() => {
@@ -47,101 +52,74 @@ const Header = () => {
             <AppBar
                 position="fixed"
                 id="main-navbar"
-                sx={[styles.wrapper, scrollDirection === 'up' ? styles.showHeader : blurHeader ? styles.hideHeader : styles.normalHeader]}
+                className="!transition-all !shadow-btn !pt-1 !border-b !border-darkness-500 !backdrop-blur-lg !bg-darkness-500/5"
+                sx={[scrollDirection === 'up' ? styles.showHeader : blurHeader ? styles.hideHeader : styles.normalHeader]}
             >
                 <div className='container mx-auto px-2 xl:max-w-screen-xl top-0 py-2 md:py-2 md:px-0'>
-                    <Stack direction='row' justifyContent='space-between'>
-                        <Stack direction='row' alignItems='center' gap='32px'>
-                            <Box sx={styles.logoWrapper}>
-                                <Icon name='Logo' />
-                            </Box>
-                            <Stack direction='row' alignItems='center' gap='44px'>
-                                {headerMenu?.map((item) => (
-                                    <Link key={item.id} href={item.url}>
-                                        <Typography sx={styles.menuItem}>
-                                            {item.title}
-                                        </Typography>
+                    {isMobile ? 
+                        <div className="flex justify-between">
+                            <div className="flex items-center gap-2">
+                                <span onClick={() => setOpenMenu(true)} className="rounded-2xl p-1.5  border border-darkness-300">
+                                    <MenuRounded className="text-darkness-100" />
+                                </span>
+                                <Icon name='Logo' size="42" />
+                            </div>
+                            {user ? 
+                                <div className="flex gap-2">
+                                    <Wallet />
+                                    <Profile />
+                                </div>
+                                :
+                                <div className="flex gap-2">
+                                    <Link href={routes.auth.login} className="btn btn-blue items-center !text-base !font-medium flex !rounded-xl !py-0 h-10">
+                                        Login
                                     </Link>
-                                ))}
-                            </Stack>
-                        </Stack>
-                        {user ? 
-                        <Stack direction='row' gap='16px'>
-                            <Box>
-                                <Button
-                                    id="basic-button"
-                                    sx={styles.gradinetButton}
-                                    aria-controls={open ? 'basic-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={open ? 'true' : undefined}
-                                    onClick={handleClick}
-                                >
-                                    <Stack direction='row' alignItems='center' gap='6px' py={1.2} sx={styles.walletButton}>
-                                        <Icon name='Wallet' size='20px'  />
-                                        <Typography>Wallet</Typography>
-                                        <Icon name='KeyboardArrowDown' size='24px' />
-                                    </Stack>
-                                </Button>
-                                <Menu
-                                    id="basic-menu"
-                                    anchorEl={open}
-                                    open={open}
-                                    onClose={handleClose}
-                                    MenuListProps={{
-                                        'aria-labelledby': 'basic-button',
-                                    }}
-                                    sx={styles.menuWrapper}
-                                >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                                </Menu>
-                            </Box>
-
-                            <Box>
-                                <Button
-                                    id="basic-button"
-                                    sx={styles.blueButton}
-                                    aria-controls={open ? 'basic-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={open ? 'true' : undefined}
-                                    onClick={handleClick}
-                                >
-                                    <Stack direction='row' alignItems='center' gap='6px' py={1.2}>
-                                        <Icon name='profileUserButton' size='20px'  />
-                                        <Typography>Profile</Typography>
-                                        <Icon name='KeyboardArrowDown' size='24px' />
-                                    </Stack>
-                                </Button>
-                                <Menu
-                                    id="basic-menu"
-                                    anchorEl={open}
-                                    open={open}
-                                    onClose={handleClose}
-                                    MenuListProps={{
-                                        'aria-labelledby': 'basic-button',
-                                    }}
-                                    sx={styles.menuWrapper}
-                                >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                                </Menu>
-                            </Box>
-                        </Stack>
+                                    <Link href={routes.auth.register} className="btn bg-white items-center !text-base !font-medium flex !rounded-xl !py-0 h-10 !text-darkness-800">
+                                        Join us
+                                    </Link>
+                                </div>
+                            }
+                        </div>
                         :
-                        <Stack direction='row' gap='16px'>
-                            <Button sx={styles.whiteButton}>
-                                <Link href={routes.auth.login}>Login</Link>
-                            </Button>
-                            <Button sx={styles.blueButton}>
-                                <Link href={routes.auth.register}>Join us</Link>
-                            </Button>
-                        </Stack>
-                        }
-                    </Stack>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-8">
+                                <Icon name='Logo' size="42" />
+                                <div className="flex items-center gap-11">
+                                    {headerMenu?.map((item) => (
+                                        <Link key={item.id} href={item.url} className="text-darkness-100 relative before:bg-primary-400 font-medium animate-underline">
+                                            {item.title}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                            {user ? 
+                                <div className="flex gap-4">
+                                    <Wallet />
+                                    <Profile />
+                                </div>
+                                :
+                                <div className="flex gap-4">
+                                    <Link href={routes.auth.login} className="btn btn-blue items-center !text-base !font-medium flex !rounded-xl !py-0 h-10">
+                                        Login
+                                    </Link>
+                                    <Link href={routes.auth.register} className="btn bg-white items-center !text-base !font-medium flex !rounded-xl !py-0 h-10 !text-darkness-800">
+                                        Join us
+                                    </Link>
+                                </div>
+                            }
+                        </div>
+                    }
                 </div>
             </AppBar>
+            {isMobile && 
+                <Drawer
+                    anchor='left'
+                    open={openMenu}
+                    onClose={() => setOpenMenu(false)}
+                >
+                    <MobileDrawer headerMenu={headerMenu} />
+                </Drawer>
+            }
         </header>
     );
     };

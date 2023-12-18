@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const DownloadApp = () => {
     return (
-        <div className='relative'>
+        <div className='relative pb-20'>
             <div className='grid grid-cols-1 md:grid-cols-12 items-center gap-8 md:gap-4'>
                 <div className='col-span-1 md:col-span-6'>
                     <h4 data-aos='fade-right' data-aos-delay='100' data-aos-duration='600' className='title'>Download It Now</h4>

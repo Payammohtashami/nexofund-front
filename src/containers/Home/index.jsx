@@ -25,7 +25,7 @@ const Home = () => {
                     <CryptoBubbles />
                     <Plans /> 
                     <DownloadApp />
-                    {/* <Comment /> */}
+                    <Comment />
                     <Footer />
                 </div>
             </div>
