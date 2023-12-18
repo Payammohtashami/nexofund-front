@@ -299,6 +299,12 @@ const icons = {
       <path d="M16.0014 12.0017H12.8001C12.3581 12.0017 11.9998 11.6433 11.9998 11.2013V8" stroke="#DFDEEF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
+  sort: (
+    <svg viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.66357 8.1665L6.99691 5.83317L9.33024 8.1665" stroke={'currentColor'} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4.66357 15.8335L6.99691 18.1668L9.33024 15.8335" stroke={'currentColor'} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  ),
   simpleQRCode: (
     <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M33 0H0V33H33V0ZM27.5 27.5H5.5V5.5H27.5V27.5Z" fill="#DFDEEF"/>

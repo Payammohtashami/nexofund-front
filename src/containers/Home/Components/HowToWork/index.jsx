@@ -2,45 +2,16 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './styles';
 import { Box, Stack, Typography } from '@mui/material';
+// mock
+import { howToWorkData } from 'mock/home';
 
 const HowToWork = () => {
-
-    const data = [
-        {
-            id: 'sections-1',
-            number: '01',
-            title: 'What Do We Do?',
-            descriptions: `We are the first crypto prop-trading platform, featuring up-to-date news and other datas required to assess the crypto market at ease, that allows you to use AI to trade more wisely. Also the users' comments will let you avoid some of the risks. Additionally, the users can participate in challenges to earn assets, as well as utilizing features like up-to-date news about the cryptos aimed to trade with multi-language translation in Nexofund.`,
-            image: '/images/Home/howToWork1.png',
-        },
-        {
-            id: 'sections-2',
-            number: '02',
-            title: 'How can I Make Money?',
-            descriptions: `You can participate in prop-trading challenge with economical plans, and after meeting the challenge's conditions, the funds will be provided to you according to the plan of your choice. You can trade using this funds and 100% of the earnings will be added to your account and available to withdraw.`,
-            image: '/images/Home/howToWork2.png',
-        },
-        {
-            id: 'sections-3',
-            number: '03',
-            title: 'Great, how Can I start?',
-            descriptions: `You can check the plans and choose one of them according to your interest. You'll participate in the challenge immediately where you can start trading. If your budget doesn't meet the plan's price, you can leave proper comments on the news, and earn a part of the required budget.`,
-            image: '/images/Home/howToWork3.png',
-        },
-        {
-            id: 'sections-4',
-            number: '04',
-            title: 'Free Trial',
-            descriptions: `Even if you don't meet the required budget or you are not well assured yet, don't worry. You can simply sign up and leave comments on a limited number of the news and earn Dogecoins as rewards. ( Some of the platform features shown on their profile will be deactivated and only available to use for the users with active plans. In addition, the paid users will have access to all the comments to pass their challenge more conveniently. )`,
-            image: '/images/Home/howToWork4.png',
-        },
-    ];
     return (
         <Box sx={{top: '-128px', position: 'relative',}}>
             <Box sx={{textAlign: 'center'}}>
                 <Typography data-aos='zoom-in' data-aos-delay='250' data-aos-duration='800' className='title' sx={{mb: 3}}>How It Works?</Typography>
                 <Box>
-                    {data?.map((item, index) => (
+                    {howToWorkData?.map((item, index) => (
                         <Stack key={item?.id} direction={{xs: 'column', md: 'row'}} gap='8px'>
                             {index % 2 === 0 ? 
                                 <Box data-aos='zoom-in' data-aos-delay='150' data-aos-duration='800' sx={{flex: '1'}}>

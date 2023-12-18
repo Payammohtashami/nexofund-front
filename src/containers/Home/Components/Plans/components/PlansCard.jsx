@@ -7,9 +7,9 @@ import Icon from 'components/Icon';
 const PlansCard = ({data, isActive, handler}) => {
     return (
         <div className='w-full' data-aos="fade-right" data-aos-duration="600" data-aos-delay="200">
-            <button
+            <div
                 onClick={handler}
-                className={`w-full rounded-3xl py-2 md:py-4 px-4 md:px-7 text-white !border-2 ${isActive ? 'btn-dark hover:bg-transparent' : 'border-darkness-500 bg-darkness-500'}`}
+                className={`w-full cursor-pointer rounded-3xl py-2 md:py-4 px-4 md:px-7 text-white !border-2 ${isActive ? 'btn-dark hover:bg-transparent' : 'border-darkness-500 bg-darkness-500'}`}
             >
                 <div className='flex'>
                     <div className='flex-1'>
@@ -24,31 +24,27 @@ const PlansCard = ({data, isActive, handler}) => {
                         </div>
                     </div>
                     
-                    <div className='w-2/5'>
-                        <Link 
-                            href={'#'} 
-                            className={`shadow-btn rounded-2xl flex transition-colors items-center justify-center gap-1 p-4 w-full text-base md:text-2xl font-medium text-white ${!isActive && 'btn-blue'}`}
-                            style={isActive ? {
-                                position: 'relative',
-                                overflow: 'hidden',
-                                background: 'linear-gradient(100.84deg, #2817ED 4.93%, #AB30D7 84.35%)',
-                                backgroundSize: '400% 400%',
-                                animation: 'gradient 7s ease infinite',
-                                backgroundPosition: 'center',
-                                border: '2px solid transparent',
-                                zIndex: 10,
-                            } : null}
-                        >
-                            {/* <Box sx={isActive ? styles.activePlanCardButton : styles.planCardButton}> */}
-                                <span className='text-darkness-200 text-sm'>$</span>
-                                {data?.price}
-                                <span className='text-darkness-200 text-sm'>/month</span>
-                                <Icon name='launch' size='24' />
-                            {/* </Box> */}
-                        </Link>
-                    </div>
+                    <button 
+                        // href={'#'} 
+                        className={`w-2/5 shadow-btn rounded-2xl flex transition-colors items-center justify-center gap-1 p-4 text-base md:text-2xl font-medium text-white ${!isActive && 'btn-blue'}`}
+                        style={isActive ? {
+                            position: 'relative',
+                            overflow: 'hidden',
+                            background: 'linear-gradient(100.84deg, #2817ED 4.93%, #AB30D7 84.35%)',
+                            backgroundSize: '400% 400%',
+                            animation: 'gradient 7s ease infinite',
+                            backgroundPosition: 'center',
+                            border: '2px solid transparent',
+                            zIndex: 10,
+                        } : null}
+                    >
+                            <span className='text-darkness-200 text-sm'>$</span>
+                            {data?.price}
+                            <span className='text-darkness-200 text-sm'>/month</span>
+                            <Icon name='launch' size='24' />
+                    </button>
                 </div>
-            </button>
+            </div>
         </div>
     );
 };

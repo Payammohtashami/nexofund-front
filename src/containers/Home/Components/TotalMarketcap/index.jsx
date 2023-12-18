@@ -50,8 +50,8 @@ const TotalMarketcap = () => {
         [widthRef]
     );
     return (
-        <Box sx={{my: 3}}>
-            <Typography className='title'>Crypto Total Market Cap, $</Typography>
+        <div className='pb-20'>
+            <h3 className='title'>Crypto Total Market Cap, $</h3>
             <Box sx={{mt: 2}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={11}>
@@ -134,7 +134,7 @@ const TotalMarketcap = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </Box>
+        </div>
     );
 };
 

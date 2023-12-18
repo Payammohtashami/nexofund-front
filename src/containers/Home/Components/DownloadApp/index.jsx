@@ -37,7 +37,7 @@ const DownloadApp = () => {
                     </div>
                 </div>
                 <div className='col-span-1 md:col-span-6'>
-                    <Image src='/images/Home/download.png' width={480} height={480} sizes='100vw' className='w-60 md:w-[480px] mx-auto' />
+                    <Image src='/images/Home/download.png' width={480} height={480} loading='lazy' className='w-60 md:w-[480px] mx-auto' />
                 </div>
             </div>
             <div className='mesh bg-primary-500 w-20 h-20 left-[5%] top-6'></div>
