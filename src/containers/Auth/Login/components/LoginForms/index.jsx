@@ -1,14 +1,16 @@
 import React from 'react';
-import Icon from 'components/Icon';
-import styles from './styles';
 import Link from 'next/link';
 import routes from 'config/routes';
-import TextFieldComponent from 'components/TextField';
-import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
-import { Controller, useForm } from 'react-hook-form';
+
+// forms
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form';
 import { loginValidationSchema } from 'validations/auth';
+
+// components
+import Icon from 'components/Icon';
 import CustomButton from 'components/CustomButton';
+import TextFieldComponent from 'components/TextField';
 
 const LoginForms = ({ setStep, turnBack}) => {
     const { 
@@ -22,32 +24,22 @@ const LoginForms = ({ setStep, turnBack}) => {
     });
     
     const loginHandler = (data) => {
-        
+        setStep('CONFIRM_CODE')
     };
     return (
-        <Box component='form' noValidate onSubmit={handleSubmit(loginHandler)}>
-            <Stack 
-                gap='6px' 
-                direction='row' 
-                alignItems='center' 
+        <form noValidate onSubmit={handleSubmit(loginHandler)}>
+            <Link href={routes.base} className='flex items-center mb-4 gap-3' 
                 data-aos={turnBack ? "fade-left" : "fade-right"}
                 data-aos-delay='400'
-                sx={{mb: '16px'}}
             >
-                <IconButton>
-                    <Link href='/'>
-                        <Icon name='Back' size='20' />
-                    </Link>
-                </IconButton>
-                <Typography sx={styles.loginText}>Login</Typography>
-            </Stack>
-            <Grid container>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
+                <Icon name='Back' size='20' />
+                <p className='text-xl text-darkness-100 font-semibold'>Login</p>
+            </Link>
+            <div className='flex flex-col gap-6'>
+
+                <div 
                     data-aos-delay='150'
+                    data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
                     <Controller
                         name='email'
@@ -67,13 +59,11 @@ const LoginForms = ({ setStep, turnBack}) => {
                             )
                         }
                     />
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}} 
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
+                </div>
+
+                <div 
                     data-aos-delay='300'
+                    data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
                     <Controller
                         name='password'
@@ -86,76 +76,53 @@ const LoginForms = ({ setStep, turnBack}) => {
                                 label='Your Password'
                                 placeholder='Enter Your Password'
                                 errors={errors?.password?.message}
-                                Icon={
-                                    <Icon name='passwod' size='24' />
-                                }
+                                Icon={<Icon name='passwod' size='24' />}
                             />
                             )
                         }
                     />
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '24px'}} 
+                </div>
+
+                <div 
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='200'
                 >
-                    <Button sx={styles.loginWithGooglButton}>
+                    <button className='flex items-center text-darkness-600 bg-white w-full rounded-xl px-5 py-3 gap-3 border border-transparent hover:border-primary-400 hover:text-white hover:shadow-btn  hover:bg-darkness-500 transition-all'>
                         <img src='/images/google.png' alt='' />
                         Login With Google
-                    </Button>
-                </Grid>
-                <Grid 
-                    item
-                    xs={12}
+                    </button>
+                </div>
+                <button 
                     data-aos-delay='100'
                     data-aos={turnBack ? "fade-left" : "fade-right"}
-                    sx={{mb: '24px'}}
+                    onClick={() => setStep('FORGOT_PASSWORD')}
+                    className='text-primary-300 hover:text-primary-500 transition-colors w-fit'
                 >
-                    <ButtonBase 
-                        sx={styles.fotgotPasswordButton} 
-                        onClick={() => setStep('FORGOT_PASSWORD')}
-                    >
-                        Forgot Your Password?
-                    </ButtonBase>
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
+                    Forgot Your Password?
+                </button>
+
+                <div 
                     data-aos-delay='300'
-                    sx={{mb: '14px'}}
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
                     <CustomButton 
-                        withSpinner
                         type='submit'
                         loading={false}
-                        spinnerColor='#FFF'
-                        extraSx={styles.loginButton}
-                        disabled={!isValid || isSubmitting}
+                        className="btn btn-blue w-full disabled:bg-primary-400/50"
+                        // disabled={!isValid || isSubmitting}
                     >
                         Login
                     </CustomButton>
-                </Grid>
-                <Grid 
-                    item
-                    xs={12} 
-                    data-aos-delay='400'
-                    sx={{mb: '14px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
-                >
-                    <Stack direction='row' alignItems='center' gap='6px'>
-                        <Typography sx={styles.signUpText}>Don’t Have An Account?</Typography>
-                        <ButtonBase sx={styles.fotgotPasswordButton}>
-                            <Link href={routes.auth.register}>
-                                Sign Up
-                            </Link>
-                        </ButtonBase>
-                    </Stack>
-                </Grid>
-            </Grid>
-        </Box>
+                    <p className='text-darkness-100 text-sm mt-3'>
+                        Don’t Have An Account?
+                        <Link href={routes.auth.register} className='text-primary-300 hover:text-primary-500 transition-colors ml-2'>
+                            Sign Up
+                        </Link>
+                    </p>
+                </div>
+
+            </div>
+        </form>
     );
 };
 

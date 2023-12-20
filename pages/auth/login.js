@@ -1,4 +1,9 @@
-import Login from "containers/Auth/Login";
+import dynamic from "next/dynamic";
+import DynamicLoader from 'components/DynamicLoader';
+
+const Login = dynamic(() => import('containers/Auth/Login'), {
+    loading: DynamicLoader,
+});
 
 const LoginPage = () => {
     return (
@@ -7,6 +12,7 @@ const LoginPage = () => {
 };
 LoginPage.headerHide = true;
 LoginPage.footerHide = true;
+
 export const getServerSideProps = async () => {
     return {
         props: {

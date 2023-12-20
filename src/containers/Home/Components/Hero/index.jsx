@@ -3,6 +3,12 @@ import HeroBackground from 'components/Icon/HeroBackground';
 import { FuturaFont } from 'theme/LocalFonts.js';
 
 const Hero = () => {
+    const scrollTo = () => {
+        window.scrollTo({
+            top: window.screen.height * 1,
+            behavior: 'smooth'
+        })
+    }
     return (
         <div className='h-[160vh] relative'>
             <div className='sticky min-h-[320px] h-screen w-full top-0 z-10' data-aos='zoom-in' data-aos-delay='250' data-aos-duration='800'>
@@ -10,7 +16,7 @@ const Hero = () => {
                     <h1 className={`${FuturaFont.className} text-darkness-100 tracking-[24px] text-xl md:text-3xl text-center`}>NEXOFUND</h1>
                     <p className='text-darkness-100 text-center text-base md:text-xl leading-10 mr-6'>Predict It Right , Get Free Doge Coin</p>
                     <div className='flex items-center mt-8 bg-gradient-primary overflow-hidden hover:shadow-btn rounded-2xl p-[1px] transition'>
-                        <button className=' gap-2 bg-darkness-800 hover:bg-transparent transition-colors flex items-center text-white px-9 py-4 rounded-[15px]'>
+                        <button onClick={scrollTo} className=' gap-2 bg-darkness-800 hover:bg-transparent transition-colors flex items-center text-white px-9 py-4 rounded-[15px]'>
                             Let’s Begin
                             <Icon name={'ArrowBottom'} className="animate-up-down" size='24px' />
                         </button>

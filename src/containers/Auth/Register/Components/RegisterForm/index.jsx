@@ -1,70 +1,49 @@
 import React from 'react';
-import Icon from 'components/Icon';
-import styles from './styles';
 import Link from 'next/link';
 import routes from 'config/routes';
+
+// forms
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Controller, useForm } from 'react-hook-form';
+import { emailValidationSchema } from 'validations/auth';
+
+// components
+import Icon from 'components/Icon';
 import CustomButton from 'components/CustomButton';
 import TextFieldComponent from 'components/TextField';
-import { Controller, useForm } from 'react-hook-form';
-import { yupResolver } from "@hookform/resolvers/yup";
-import { emailValidationSchema } from 'validations/auth';
-import { Box, Button, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
-import { useRegisterEmail } from 'client/Mutation';
-import { toast } from 'react-hot-toast';
+
 
 const RegisterForm = ({setStep, turnBack}) => {
-    const { mutate: registerEmailSubmit, isLoading: registerEmailLoading } = useRegisterEmail()
     const { 
         control,
         handleSubmit,
-        formState: { errors, isValid, isSubmitting },
+        formState: { errors },
     } = useForm({
         mode: "onSubmit",
         defaultValues: {email: ""}, 
         resolver: yupResolver(emailValidationSchema),
     });
-    const registerHandler = (data) => {
-        registerEmailSubmit(
-            data,
-            {
-                onSuccess: () => {
-                    setStep('CONFIRM_CODE')
-                },
-                onError: (error) => {
-                    toast?.error(`${error?.response?.data?.message}`)
-                },
-            }
-        )
+    const registerHandler = () => {
+        setStep('CONFIRM_CODE')
     };
     return (
-        <Box component='form' noValidate onSubmit={handleSubmit(registerHandler)}>
-            <Stack 
-                gap='6px' 
-                direction='row' 
-                alignItems='center' 
+        <form noValidate onSubmit={handleSubmit(registerHandler)}>
+            <Link href={routes.base} className='flex items-center mb-4 gap-3' 
                 data-aos={turnBack ? "fade-left" : "fade-right"}
                 data-aos-delay='400'
-                sx={{mb: '16px'}}
             >
-                <IconButton>
-                    <Link href={routes.base}>
-                        <Icon name='Back' size='20' />
-                    </Link>
-                </IconButton>
-                <Typography sx={styles.loginText}>Sign Up</Typography>
-            </Stack>
-            <Typography
+                <Icon name='Back' size='20' />
+                <p className='text-xl text-darkness-100 font-semibold'>Sign Up</p>
+            </Link>
+            <p
                 data-aos="fade-right"
                 data-aos-delay='200' 
-                sx={styles.descriptionText}
+                className='mb-6 text-darkness-200'
             >
                 We will send you A 4 digit confirmation code please make sure your email is currect.
-            </Typography>
-            <Grid container>
-                <Grid
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
+            </p>
+            <div className='flex flex-col gap-6'>
+                <div
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
@@ -79,62 +58,42 @@ const RegisterForm = ({setStep, turnBack}) => {
                                 label='Your Email'
                                 placeholder='Enter Your Email'
                                 errors={errors?.email?.message}
-                                Icon={
-                                    <Icon name='email' size='24' />
-                                }
+                                Icon={<Icon name='email' size='24' />}
                             />
                             )
                         }
                     />
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '24px'}} 
+                </div>
+                <div 
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='200'
                 >
-                    <Button sx={styles.loginWithGooglButton}>
+                    <button className='flex items-center text-darkness-600 bg-white w-full rounded-xl px-5 py-3 gap-3 border border-transparent hover:border-primary-400 hover:text-white hover:shadow-btn  hover:bg-darkness-500 transition-all'>
                         <img src='/images/google.png' alt='' />
                         Send Code With Google
-                    </Button>
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
+                    </button>
+                </div>
+                <div 
                     data-aos-delay='300'
-                    sx={{mb: '14px'}}
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
                     <CustomButton
                         type="submit"
                         withSpinner
                         spinnerColor='#FFF'
-                        loading={registerEmailLoading}
-                        extraSx={styles.loginButton} 
-                        disabled={!isValid || isSubmitting}
+                        className='btn btn-blue w-full' 
                     >
                         Send Code
                     </CustomButton>
-                </Grid>
-                <Grid 
-                    item
-                    xs={12} 
-                    data-aos-delay='400'
-                    sx={{mb: '14px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
-                >
-                    <Stack direction='row' alignItems='center' gap='6px'>
-                        <Typography sx={styles.signUpText}>Already Have An Account?</Typography>
-                        <ButtonBase sx={styles.fotgotPasswordButton}>
-                            <Link href={routes.auth.login}>
-                                Sign In
-                            </Link>
-                        </ButtonBase>
-                    </Stack>
-                </Grid>
-            </Grid>
-        </Box>
+                    <p className='text-darkness-100 text-sm mt-3'>
+                        Already Have An Account?
+                        <Link href={routes.auth.login} className='text-primary-300 hover:text-primary-500 transition-colors ml-2'>
+                            Sign In
+                        </Link>
+                    </p>
+                </div>
+            </div>
+        </form>
     );
 };
 

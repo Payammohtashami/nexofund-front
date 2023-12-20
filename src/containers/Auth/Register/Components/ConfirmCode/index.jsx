@@ -1,113 +1,96 @@
-import React, { useState } from 'react';
-import Icon from 'components/Icon';
-import styles from './styles';
-import Link from "next/link";
-import routes from 'config/routes';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from "@hookform/resolvers/yup"
-import { OtpInputCustom } from 'components/ConfirmCode';
-import { Box, ButtonBase, Grid, IconButton, Stack, Typography } from '@mui/material';
-import CustomButton from 'components/CustomButton';
-import { useConfirmRegisteredCode } from 'client/Mutation';
+import React from 'react';
 
-const ConfirmCode = ({turnBack, setStep}) => {
-    const { mutate: confirmRegsiterCodeSubmit, isLoading: conftirmRegisterCodeLoading } = useConfirmRegisteredCode()
-    const [ otp, setOtp ] = useState('');
+// forms
+import { yupResolver } from "@hookform/resolvers/yup"
+import { Controller, useForm } from 'react-hook-form';
+import { otpCodeValidationSchema } from 'validations/auth';
+
+// components
+import Icon from 'components/Icon';
+import CustomButton from 'components/CustomButton';
+import { OtpInputCustom } from 'components/ConfirmCode';
+
+const ConfirmCode = ({turnBack, setStep, setTurnBack}) => {
     const { 
         handleSubmit,
-        formState: { isValid, isSubmitting },
+        formState: {errors},
+        control,
     } = useForm({
         mode: "onSubmit",
         defaultValues: {code: ""}, 
-        resolver: yupResolver(emailValidationSchema),
+        resolver: yupResolver(otpCodeValidationSchema),
     });
-    const confirmEmailHandler = () => {
-        confirmRegsiterCodeSubmit(
-            {
-                code: otp,
-                verifyToken: '',
-            },
-            {
-                onSuccess: () => {
-                    setStep('SET_PASSWORD')
-                },
-                onError: (error) => {
-                    toast?.error(`${error}`)
-                },
-            }
-        )
+
+    console.log({errors}, 'errors');
+
+    const editEmailHandler = () => {
+        setStep('REGISTER');
+        setTurnBack(true);
+    };
+
+    const confirmEmailHandler = (data) => {
+        setStep('SET_PASSWORD')
     };
     return (
-        <Box component='form' noValidate onSubmit={handleSubmit(confirmEmailHandler)}>
-            <Stack
-                gap='6px'
-                direction='row' 
-                alignItems='center' 
+        <form noValidate onSubmit={handleSubmit(confirmEmailHandler)}>
+            <button onClick={editEmailHandler} className='flex items-center mb-4 gap-3' 
                 data-aos={turnBack ? "fade-left" : "fade-right"}
                 data-aos-delay='400'
-                sx={{mb: '16px'}}
             >
-                <IconButton>
-                    <Link href={routes.base}>
-                        <Icon name='Back' size='20' />
-                    </Link>
-                </IconButton>
-                <Typography sx={styles.loginText}>Confirmation Code</Typography>
-            </Stack>
-            <Stack>
-                <Typography
-                    data-aos="fade-right"
+                <Icon name='Back' size='20' />
+                <p className='text-xl text-darkness-100 font-semibold'>Confirmation Code</p>
+            </button>
+            <div>
+                <p
+                    className='text-sm lg:text-base text-darkness-200'
                     data-aos-delay='200' 
-                    sx={styles.descriptionText}
+                    data-aos={turnBack ? "fade-left" : "fade-right"}
                     >
                     we sent the confirmation code to your email , wrong email?
-                </Typography>
-                <ButtonBase 
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
+                </p>
+                <button 
                     data-aos-delay='150' 
-                    sx={styles.fotgotPasswordButton}
+                    data-aos={turnBack ? "fade-left" : "fade-right"}
+                    className='text-sm lg:text-base text-primary-300 mb-6 hover:text-primary-500 transition-colors'
+                    onClick={editEmailHandler}
                 >
                     Edit email
-                </ButtonBase>
-            </Stack>
-            <Grid container>
-                <Grid
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
-                    data-aos-delay='150'
+                </button>
+            </div>
+            <div
+                className='mb-8'
+                data-aos={turnBack ? "fade-left" : "fade-right"}
+                data-aos-delay='150'
+            >
+                <div className="[&>div]:flex [&>div]:gap-1 [&>div]:lg:gap-2 [&>div>input]:h-14 [&>div>input]:flex-1 [&>div>input]:rounded-2xl [&>div>input]:bg-darkness-500 [&>div>input]:text-white [&>div>input]:border-darkness-400 [&>div>input]:border">
+                    <Controller
+                        name='code'
+                        control={control}
+                        render={({field: { onChange, value }}) => (
+                            <OtpInputCustom
+                                value={value}
+                                onChange={onChange}
+                                numInputs={5}
+                                renderSeparator={<span></span>}
+                                renderInput={(props) => <input {...props} />}
+                            />
+                        )}
+                    />
+                </div>
+            </div>
+            <div
+                data-aos-delay='300'
+                data-aos={turnBack ? "fade-left" : "fade-right"}
+            >
+                <CustomButton
+                    type="submit"
+                    withSpinner
+                    className='btn btn-blue w-full'
                 >
-                    <Box sx={styles.inputsStyles}>
-                        <OtpInputCustom
-                            value={otp}
-                            onChange={setOtp}
-                            numInputs={4}
-                            renderSeparator={<span></span>}
-                            renderInput={(props) => <input {...props} />}
-                        />
-                    </Box>
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
-                    data-aos-delay='300'
-                    sx={{mb: '14px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
-                >
-                    <CustomButton
-                        withSpinner
-                        type="submit"
-                        spinnerColor='#FFF'
-                        extraSx={styles.loginButton} 
-                        disabled={!isValid || isSubmitting}
-                        loading={conftirmRegisterCodeLoading}
-                    >
-                        Confirm
-                    </CustomButton>
-                </Grid>
-            </Grid>
-        </Box>
+                    Confirm
+                </CustomButton>
+            </div>
+        </form>
     );
 };
 

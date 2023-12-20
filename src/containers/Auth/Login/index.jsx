@@ -1,72 +1,32 @@
 import React, { useState } from 'react';
-import Mesh from 'components/Mesh';
-import styles from '../styles';
+// layout
+import AuthLayout from '../Layout';
+
+// components
 import LoginForms from './components/LoginForms';
 import ConfirmCode from './components/ConfirmCode';
-import HeroBackground from 'components/Icon/HeroBackground';
-import { Box, Container } from '@mui/material';
 
 const Login = () => {
     const [step, setStep] = useState('LOGIN');
     const [turnBack, setTurnBack] = useState(false);
     return (
-        <Box sx={{position: 'relative', mb: '90px'}}>
-            <Box sx={styles.HeroBackground}>
-                <Box sx={{
-                    opacity: 0.3
-                }}>
-                    <HeroBackground />
-                </Box>
-                <Box sx={styles.thirdBackgroundLayer} />
-                <Box sx={styles.secendBackgroundLayer} />
-            </Box>
-            <Box sx={{position: 'absolute', width: '100%', height: '100%', top: 0}}>
-                <Mesh 
-                    bgcolor='#2817ED'
-                    size='88px'
-                    left='10%'
-                    top='10vh'
-                />
-                <Mesh 
-                    bgcolor='#2817ED'
-                    size='88px'
-                    right='10%'
-                    top='45vh'
-                />
-                <Mesh 
-                    bgcolor='#B53FEC'
-                    size='88px'
-                    left='10%'
-                    top='65vh'
-                />
-                <Mesh 
-                    bgcolor='#B53FEC'
-                    size='88px'
-                    right='5%'
-                    top='0'
-                />
-            </Box>
-            <Container component="main" maxWidth="sm" sx={{my: '90px'}}>
-                <Box sx={styles.boxWrapper}>
-                    {step === 'LOGIN' ? 
-                        <LoginForms 
-                            setStep={setStep}
-                            turnBack={turnBack}
-                            setTurnBack={setTurnBack}
-                        /> 
-                    : null}
-                    
-                    {step === 'CONFIRM_CODE' ? 
-                        <ConfirmCode
-                            setStep={setStep}
-                            turnBack={turnBack}
-                            setTurnBack={setTurnBack}
-                        /> 
-                    : null}
-                </Box>
-            </Container>
+        <AuthLayout>
+            {step === 'LOGIN' ? 
+                <LoginForms 
+                    setStep={setStep}
+                    turnBack={turnBack}
+                    setTurnBack={setTurnBack}
+                /> 
+            : null}
             
-        </Box>
+            {step === 'CONFIRM_CODE' ? 
+                <ConfirmCode
+                    setStep={setStep}
+                    turnBack={turnBack}
+                    setTurnBack={setTurnBack}
+                /> 
+            : null}
+        </AuthLayout>
     );
 };
 
