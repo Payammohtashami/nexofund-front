@@ -1,4 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+// forms
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm, Controller } from 'react-hook-form';
+import { otpCodeValidationSchema } from 'validations/auth';
+
+// hooks
+import { useDispatch } from 'react-redux';
 
 // components
 import Icon from 'components/Icon';
@@ -6,11 +14,22 @@ import CustomButton from 'components/CustomButton';
 import { OtpInputCustom } from 'components/ConfirmCode';
 
 const ConfirmCode = ({turnBack, setTurnBack, setStep}) => {
-    const [otp, setOtp] = useState('');
+    const { 
+        handleSubmit,
+        formState: {errors},
+        control,
+    } = useForm({
+        mode: "onSubmit",
+        defaultValues: {code: ""}, 
+        resolver: yupResolver(otpCodeValidationSchema),
+    });
+
     const editEmailHandler = () => {
         setTurnBack(true);
         setStep('LOGIN');
     };
+
+    const dispatch = useDispatch();
     return (
         <div>
             <button
@@ -45,13 +64,19 @@ const ConfirmCode = ({turnBack, setTurnBack, setStep}) => {
                 data-aos-delay='150'
             >
                 <div className="[&>div]:flex [&>div]:gap-1 [&>div]:lg:gap-2 [&>div>input]:h-14 [&>div>input]:flex-1 [&>div>input]:rounded-2xl [&>div>input]:bg-darkness-500 [&>div>input]:text-white [&>div>input]:border-darkness-400 [&>div>input]:border">
-                    <OtpInputCustom
-                        value={otp}
-                        onChange={setOtp}
-                        numInputs={5}
-                        renderSeparator={<span></span>}
-                        renderInput={(props) => <input {...props} />}
-                    />
+                    <Controller
+                        name='code'
+                        control={control}
+                        render={({field: { onChange, value }}) => (
+                            <OtpInputCustom
+                                value={value}
+                                onChange={onChange}
+                                numInputs={5}
+                                renderSeparator={<span></span>}
+                                renderInput={(props) => <input {...props} />}
+                            />
+                        )}
+                    />  
                 </div>
             </div>
             <div

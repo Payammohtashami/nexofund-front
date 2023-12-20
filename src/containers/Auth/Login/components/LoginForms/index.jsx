@@ -2,7 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import routes from 'config/routes';
 
-// forms
+// forms & hooks
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { loginValidationSchema } from 'validations/auth';
@@ -11,8 +13,11 @@ import { loginValidationSchema } from 'validations/auth';
 import Icon from 'components/Icon';
 import CustomButton from 'components/CustomButton';
 import TextFieldComponent from 'components/TextField';
+import { updateUserData } from 'feature/user/asyncActions';
 
 const LoginForms = ({ setStep, turnBack}) => {
+    const dispatch = useDispatch();
+    const router = useRouter();
     const { 
         control,
         handleSubmit,
@@ -24,7 +29,10 @@ const LoginForms = ({ setStep, turnBack}) => {
     });
     
     const loginHandler = (data) => {
-        setStep('CONFIRM_CODE')
+        // router.push(routes.wallet.base);
+        dispatch(updateUserData({
+            email: data?.email,
+        }));
     };
     return (
         <form noValidate onSubmit={handleSubmit(loginHandler)}>

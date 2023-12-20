@@ -5,6 +5,7 @@ import Link from "next/link";
 import Icon from "components/Icon";
 import Wallet from "./components/Wallet.jsx";
 import Profile from "./components/Profile.jsx";
+import { useSelector } from 'react-redux';
 import { AppBar, useMediaQuery, Drawer } from "@mui/material";
 
 // constant
@@ -18,7 +19,7 @@ import MobileDrawer from "./components/MobileDrawer.jsx";
 
 const Header = () => {
     // Variable
-    const user = false;
+    const user = useSelector((state) => state?.user?.data);
     const [openMenu, setOpenMenu] = useState(false);
     const [blurHeader, setBlurHeader] = useState();
     const [scrollDirection, setScrollDirection] = useState(null);
@@ -64,7 +65,7 @@ const Header = () => {
                                 </span>
                                 <Icon name='Logo' size="42" />
                             </div>
-                            {user ? 
+                            {Object.keys(user)?.length > 0 ? 
                                 <div className="flex gap-2">
                                     <Wallet />
                                     <Profile />
@@ -92,7 +93,7 @@ const Header = () => {
                                     ))}
                                 </div>
                             </div>
-                            {user ? 
+                            {Object.keys(user)?.length > 0 ? 
                                 <div className="flex gap-4">
                                     <Wallet />
                                     <Profile />

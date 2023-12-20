@@ -1,14 +1,24 @@
 import React from 'react';
 import Icon from 'components/Icon';
-import styles from './styles';
 import TextFieldComponent from 'components/TextField';
-import { useRouter } from 'next/router';
-import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { confirmPasswordValidationSchema } from 'validations/auth';
 
 const SetPassword = ({turnBack, setTurnBack, setStep}) => {
-    const router = useRouter();
-    const backHandler = () => {
-        setStep('LOGIN');
+
+    const { 
+        control,
+        handleSubmit,
+        formState: { errors, isValid, isSubmitting },
+    } = useForm({
+        mode: "onSubmit",
+        defaultValues: {password: '', confirm_password: ''}, 
+        resolver: yupResolver(confirmPasswordValidationSchema),
+    });
+
+    const editEmailHandler = () => {
+        setStep('REGISTER');
         setTurnBack(true);
     };
 
@@ -17,72 +27,67 @@ const SetPassword = ({turnBack, setTurnBack, setStep}) => {
         setStep('CONFIRM_CODE')
     };
     return (
-        <Box>
-            <Stack
-                gap='6px' 
-                direction='row' 
-                alignItems='center' 
+        <div>
+            <button onClick={editEmailHandler} className='flex items-center mb-4 gap-3' 
                 data-aos={turnBack ? "fade-left" : "fade-right"}
-                data-aos-delay='300'
-                sx={{mb: '16px'}}
+                data-aos-delay='400'
             >
-                <IconButton onClick={backHandler}>
-                    <Icon name='Back' size='20' />
-                </IconButton>
-                <Typography sx={styles.loginText}>Choose Your Password</Typography>
-            </Stack>
-            <Grid container>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
+                <Icon name='Back' size='20' />
+                <p className='text-xl text-darkness-100 font-semibold'>Confirmation Code</p>
+            </button>
+            <div className='flex flex-col gap-6'>
+                <div 
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    <TextFieldComponent
-                        control={control}
-                        type='password'
+                    <Controller
                         name='password'
-                        label='Your Password'
-                        placeholder='Enter Your Password'
-                        errors={errors}
-                        Icon={
-                            <Icon name='email' size='24' />
+                        control={control}
+                        render={({field}) => (
+                            <TextFieldComponent
+                                field={field}
+                                type='password'
+                                name='password'
+                                label='Your Password'
+                                placeholder='Enter Your Password'
+                                errors={errors?.password?.message}
+                                Icon={<Icon name='passwod' size='24' />}
+                            />
+                            )
                         }
                     />
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
+                </div>
+                <div 
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    <TextFieldComponent
+                    <Controller
+                        name='confirm_password'
                         control={control}
-                        type='password'
-                        name='confirmPassword'
-                        label='Confirm Your Password'
-                        placeholder='Enter Your Password'
-                        errors={errors}
-                        Icon={
-                            <Icon name='email' size='24' />
+                        render={({field}) => (
+                            <TextFieldComponent
+                                field={field}
+                                type='password'
+                                name='password'
+                                label='Confirm Password'
+                                placeholder='Repeat Your Password'
+                                errors={errors?.password?.message}
+                                Icon={<Icon name='passwod' size='24' />}
+                            />
+                            )
                         }
                     />
-                </Grid>
-                <Grid
-                    item 
-                    xs={12} 
+                </div>
+                <div
                     data-aos-delay='250'
-                    sx={{mb: '14px'}}
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                 >
-                    <Button sx={styles.loginButton} onClick={sendCode}>
+                    <button className='btn btn-blue w-full' onClick={sendCode}>
                         Confirm
-                    </Button>
-                </Grid>
-            </Grid>
-        </Box>
+                    </button>
+                </div>
+            </div>
+        </div>
     );
 };
 

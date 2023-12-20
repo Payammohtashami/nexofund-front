@@ -21,8 +21,6 @@ const ConfirmCode = ({turnBack, setStep, setTurnBack}) => {
         resolver: yupResolver(otpCodeValidationSchema),
     });
 
-    console.log({errors}, 'errors');
-
     const editEmailHandler = () => {
         setStep('REGISTER');
         setTurnBack(true);

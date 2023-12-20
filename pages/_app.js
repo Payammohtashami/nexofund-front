@@ -1,11 +1,13 @@
 import Head from "next/head";
 
-// components
+// libs & components
+import store from 'feature/store';
 import Layout from "components/Layout";
 import { Toaster } from "react-hot-toast";
 
 // providers
-import ThemeRegistery from '../src/theme/ThemeRegistery';
+import ThemeRegistery from 'theme/ThemeRegistery';
+import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from "react-query";
 
 // css styles
@@ -15,7 +17,7 @@ import "aos/dist/aos.css";
 function MyApp({ Component, pageProps }) {
     const queryClient = new QueryClient();
     return (
-        <>
+        <Provider store={store}>
             <Head>
                 <meta charSet="UTF-8" key="charset" />
                 <title>Nexofund</title>
@@ -35,7 +37,7 @@ function MyApp({ Component, pageProps }) {
                     <Toaster position="top-right" />
                 </ThemeRegistery>
             </QueryClientProvider>
-        </>
+        </Provider>
     );
 }
 
