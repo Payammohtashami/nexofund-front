@@ -24,7 +24,7 @@ const HowToWork = () => {
                         :
                         !isMobile &&
                         <div className='flex-1'>
-                            <Image src={item.image} height='320' width='320' className='mx-auto' />
+                            <Image src={item.image} alt={'guide: ' + item?.title} height={320} width={320} className='mx-auto' />
                         </div>
                     }
                     {index % 2 !== 0 ? 
@@ -35,12 +35,12 @@ const HowToWork = () => {
                         </div>
                         :
                         <div className='flex-1 mt-12 md:mt-0'>
-                            <Image src={item.image} height='320' width='320' className='mx-auto' />
+                            <Image src={item.image} alt={'guide: ' + item?.title} height={320} width={320} className='mx-auto' />
                         </div>
                     }
                     {isMobile && index % 2 !== 0 &&
                         <div className='flex-1 mt-12'>
-                            <Image src={item.image} height='320' width='320' className='mx-auto' />
+                            <Image src={item.image} alt={'guide: ' + item?.title} height={320} width={320} className='mx-auto' />
                         </div>}
                 </div>
             ))}

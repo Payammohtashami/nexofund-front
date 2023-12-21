@@ -18,6 +18,12 @@ const TextFieldComponent = ({ field, name, type, Icon, label, errors, placeholde
                 value={value}
                 ref={ref}
                 className={`[&>.MuiInputBase-root]:rounded-xl block w-full bg-darkness-500 rounded-xl [&>.MuiInputBase-root]:border-none !border-none px-3.5  [&>.MuiInputBase-root]:py-0 [&>.MuiInputBase-root]:text-darkness-100  ring-0 ring-inset [&>.MuiInputBase-root]:placeholder:text-gray-400 [&>.MuiInputBase-root]:focus:ring-0 sm:text-sm sm:leading-6`}
+                sx={{
+                    "select:-webkit-autofill, input:-webkit-autofill, textarea:-webkit-autofill": {
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "#fff",
+                    },
+                }}
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">

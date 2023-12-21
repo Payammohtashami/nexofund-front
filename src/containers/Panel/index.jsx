@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import React from 'react';
 import CoinChart from './components/CoinChart';
 import DailyNews from './components/DailyNews';

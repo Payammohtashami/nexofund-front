@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import HeroBackground from 'components/Icon/HeroBackground';
-import React from 'react';
+import { CloseRounded, InfoRounded } from '@mui/icons-material';
 
 const AuthLayout = ({children}) => {
+    const [showAlert, setShowAlert] = useState(true);
     return (
         <div className='relative flex flex-col items-center'>
             {/* top background */}
@@ -16,7 +18,23 @@ const AuthLayout = ({children}) => {
                     style={{background: 'radial-gradient(circle, rgba(8,7,26,1) 24%, rgba(19,17,55,1) 40%, rgba(21,18,59,1) 46%, rgba(22,20,64,1) 58%, rgba(27,22,101,1) 62%, rgba(37,29,193,1) 70%, rgba(36,146,226,1) 80%)'}}
                 ></span>
             </div>
-
+            {showAlert ? 
+                <div className="fixed top-0 bg-darkness-800 z-10 py-1 w-full">
+                    <div className="container  px-2 xl:max-w-screen-xl mx-auto">
+                        <div className="flex items-center justify-between w-full">
+                            <div className="text-cyan-400 gap-3 flex items-center">
+                                <InfoRounded />
+                                <p className='text-left'>You can login with any email and password data.</p>
+                            </div>
+                            <button onClick={() => setShowAlert(false)} className='text-white p-1 cursor-pointer rounded-full hover:bg-darkness-500'>
+                                <CloseRounded />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                :
+                null
+            }
 
             {/* main section */}
             <section className='pt-12 pb-24 lg:py-24 container mx-auto max-w-[560px] px-4'>

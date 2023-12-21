@@ -32,7 +32,7 @@ const PlansDetail = ({direction, checked, data}) => {
                 <div className='col-span-1'>
                     <Slide direction='left' in={checked} style={{transitionDuration: '0.5s', transitionDelay: !checked ? 0 : `200ms`}}>
                         <div className="h-full items-center justify-center flex">
-                            <Image src='/images/Home/plans.png' width={320} height={320} loading='lazy' />
+                            <Image alt='plans' src='/images/Home/plans.png' width={320} height={320} loading='lazy' />
                         </div>
                     </Slide>
                 </div>

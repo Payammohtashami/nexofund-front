@@ -14,7 +14,7 @@ const CommentCard = ({data}) => {
         >
             <h6 className='text-darkness-100 font-medium mb-4'>{data?.title}</h6>
             <p className='mb-4 text-darkness-200 text-sm md:text-lg'>{data?.description}</p>
-            <div className='flex items-center mb-4' direction='row' alignItems='center'>
+            <div className='flex items-center mb-4'>
                 {Array(5).fill({}).map((_, index) => (
                     <Icon size="20" key={index} name={data?.rating >= index + 1 ? 'FillRatingStar' : 'RatingStar'} />
                 ))}

@@ -253,7 +253,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 2,
         coin: 'Ethereum',
         icon: 'ETH',
         price: 2267,
@@ -269,7 +269,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 3,
         coin: 'Binance Coin',
         icon: 'BNB',
         price: 240.4,
@@ -285,7 +285,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 4,
         coin: 'Bitcoin',
         icon: 'Bitcoin',
         price: 42186,
@@ -301,7 +301,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 5,
         coin: 'Ethereum',
         icon: 'ETH',
         price: 2267,
@@ -317,7 +317,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 6,
         coin: 'Binance Coin',
         icon: 'BNB',
         price: 240.4,
@@ -333,7 +333,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 7,
         coin: 'Bitcoin',
         icon: 'Bitcoin',
         price: 42186,
@@ -349,7 +349,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 8,
         coin: 'Ethereum',
         icon: 'ETH',
         price: 2267,
@@ -365,7 +365,7 @@ export const CryptoBubblesTableData = [
         },
     },
     {
-        id: 1,
+        id: 9,
         coin: 'Binance Coin',
         icon: 'BNB',
         price: 240.4,

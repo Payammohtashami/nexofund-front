@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import routes from 'config/routes';
 
@@ -10,6 +10,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { loginValidationSchema } from 'validations/auth';
 
 // components
+import toast from 'react-hot-toast';
 import Icon from 'components/Icon';
 import CustomButton from 'components/CustomButton';
 import TextFieldComponent from 'components/TextField';
@@ -29,7 +30,8 @@ const LoginForms = ({ setStep, turnBack}) => {
     });
     
     const loginHandler = (data) => {
-        // router.push(routes.wallet.base);
+        router.push(routes.wallet.base);
+        toast.success('login is successfully!');
         dispatch(updateUserData({
             email: data?.email,
         }));

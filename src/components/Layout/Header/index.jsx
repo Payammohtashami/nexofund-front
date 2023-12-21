@@ -14,8 +14,8 @@ import { headerMenu } from "constant/main.js";
 
 // mui styles
 import styles from "./styles.js";
-import { MenuRounded } from "@mui/icons-material";
 import MobileDrawer from "./components/MobileDrawer.jsx";
+import { MenuRounded } from "@mui/icons-material";
 
 const Header = () => {
     // Variable

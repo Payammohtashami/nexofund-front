@@ -301,8 +301,8 @@ const icons = {
   ),
   sort: (
     <svg viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.66357 8.1665L6.99691 5.83317L9.33024 8.1665" stroke={'currentColor'} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M4.66357 15.8335L6.99691 18.1668L9.33024 15.8335" stroke={'currentColor'} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4.66357 8.1665L6.99691 5.83317L9.33024 8.1665" stroke={'currentColor'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M4.66357 15.8335L6.99691 18.1668L9.33024 15.8335" stroke={'currentColor'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
   simpleQRCode: (
