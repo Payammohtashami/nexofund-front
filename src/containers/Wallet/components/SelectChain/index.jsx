@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from 'components/Icon';
-import styles from '../styles';
-import { Box, Button, ButtonBase, ButtonGroup, Grid, Stack, Typography } from '@mui/material';
+import Layout from '../Layout';
 
 const SelectChain = ({activeChain, setACtiveChain, setStep, setActiveCoin, activeCoin}) => {
     const chainsList = [
@@ -23,51 +22,38 @@ const SelectChain = ({activeChain, setACtiveChain, setStep, setActiveCoin, activ
         },
     ]
     return (
-        <Box>
-            <Stack direction='row' alignItems='center' gap='10px'>
-                <ButtonBase onClick={() => setStep(0)} sx={{...styles.title, color: 'solid.dark3'}}>
+        <>
+            <div className='flex items-center gap-3'>
+                <button 
+                    className='text-darkness-200 font-medium text-lg'
+                    onClick={() => setStep(0)} 
+                >
                     Wallet
-                </ButtonBase>
+                </button>
                 <Icon name='RightArrow' size='14px' />
-                <Typography sx={styles.title}>Deposit</Typography>
-            </Stack>
-            <Box sx={styles.walletWrapper}>
-                <Stack alignItems='center'>
-                    <ButtonGroup sx={styles.groupButton}>
-                        <Button sx={activeCoin === 'USDT' ? styles.activeButton : null} onClick={() => setActiveCoin('USDT')}>
-                            <Icon name='USDT' size='24px' />
-                            USDT
-                        </Button>
-                        <Button sx={activeCoin === 'DOGE' ? styles.activeButton : null} onClick={() => setActiveCoin('DOGE')}>
-                            <Icon name='DOGE' size='24px' />
-                            DOGE
-                        </Button>
-                    </ButtonGroup>
-                </Stack>
-                <Box>
-                    <Typography sx={styles.balanceText}>Balance : <span>400 USDT</span></Typography>
-                    <Typography sx={styles.dogeBalanceText}>1 USDT = 16.14 DOGE</Typography>
-                </Box>
-                <Stack direction='column' gap='8px'>
-                    <Typography sx={styles.cardTitle}>Choose Chain</Typography>
-                    <Grid container spacing='16px'>
+                <p className='font-semibold text-xl text-white'>Deposit</p>
+            </div>
+            <Layout {...{setActiveCoin, activeCoin}}>
+                <div className='flex flex-col gap-2'>
+                    <h6 className='font-semibold text-white'>Choose Chain</h6>
+                    <div className='grid grid-cols-2 gap-4'>
                         {chainsList?.map((item) => (
-                            <Grid item xs={12} md={6}>
-                                <Button onClick={() => setACtiveChain(item?.name)} sx={item?.name === activeChain ? styles.activeChainButton : styles.chainsButton}>
+                            <div className='col-span-1' key={item?.name}>
+                                <button className={`btn bg-darkness-500 !text-base flex border-2 border-transparent items-center w-full gap-2 ${item?.name === activeChain ? 'shadow-btn !border-primary-400' : ''}`} onClick={() => setACtiveChain(item?.name)}>
                                     <Icon name={item?.icon} size='24' />
                                     {item?.name}
-                                </Button>
-                            </Grid>
+                                </button>
+                            </div>
                         ))}
-                        <Grid item xs={12} md={12}>
-                            <Button onClick={() => setStep(2)} sx={styles.blueButton}>
+                        <div className='col-span-2'>
+                            <button className='btn btn-blue !text-base w-full' onClick={() => setStep(2)}>
                                 Next
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Stack>
-            </Box>
-        </Box>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </Layout>
+        </>
     );
 };
 

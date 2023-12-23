@@ -1,59 +1,48 @@
 import React from 'react';
-import { Box, Button, ButtonBase, ButtonGroup, IconButton, Stack, Typography } from '@mui/material';
-import styles from '../styles';
 import Icon from 'components/Icon';
+import Layout from '../Layout';
 
-const CreateWallet = ({activeChain, setACtiveChain, setStep, setActiveCoin, activeCoin}) => {
+const CreateWallet = ({setStep, setActiveCoin, activeCoin}) => {
     return (
-        <Box>
-            <Stack direction='row' alignItems='center' gap='10px'>
-                <ButtonBase onClick={() => setStep(0)} sx={{...styles.title, color: 'solid.dark3'}}>
+        <>
+            <div className='flex items-center gap-3'>
+                <button 
+                    className='text-darkness-200 font-medium text-lg'
+                    onClick={() => setStep(0)} 
+                >
                     Wallet
-                </ButtonBase>
+                </button>
                 <Icon name='RightArrow' size='14px' />
-                <ButtonBase onClick={() => setStep(1)} sx={{...styles.title, color: 'solid.dark3'}}>
+                <button 
+                    className='text-darkness-200 font-medium text-lg'
+                    onClick={() => setStep(1)} 
+                >
                     Deposit
-                </ButtonBase>
+                </button>
                 <Icon name='RightArrow' size='14px' />
-                <Typography sx={styles.title}>Address</Typography>
-            </Stack>
-            <Box sx={styles.walletWrapper}>
-                <Stack alignItems='center'>
-                    <ButtonGroup sx={styles.groupButton}>
-                        <Button sx={activeCoin === 'USDT' ? styles.activeButton : null} onClick={() => setActiveCoin('USDT')}>
-                            <Icon name='USDT' size='24px' />
-                            USDT
-                        </Button>
-                        <Button sx={activeCoin === 'DOGE' ? styles.activeButton : null} onClick={() => setActiveCoin('DOGE')}>
-                            <Icon name='DOGE' size='24px' />
-                            DOGE
-                        </Button>
-                    </ButtonGroup>
-                </Stack>
-                <Box>
-                    <Typography sx={styles.balanceText}>Balance : <span>400 USDT</span></Typography>
-                    <Typography sx={styles.dogeBalanceText}>1 USDT = 16.14 DOGE</Typography>
-                </Box>
-                <Box>
-                    <Typography ml='10px'>Here is your address</Typography>
-                    <Stack direction='row' alignItems='center' justifyContent='space-between' sx={styles.walletAddressBox}>
-                        <Typography>fweffkigrgigeisgir-0fisfw00fiff0f</Typography>
-                        <IconButton>
+                <p className='font-semibold text-xl text-white'>Address</p>
+            </div>
+            <Layout {...{setActiveCoin, activeCoin}}>
+                <div>
+                    <p className='ml-3 text-white text-sm'>Here is your address</p>
+                    <div className='flex items-center justify-between mt-4 rounded-2xl bg-darkness-700 py .-1 px-5 border border-primary-400'>
+                        <p className='text-white text-sm tracking-wider'>fweffkigrgigeisgir-0fisfw00fiff0f</p>
+                        <button className='rounded-full p-2 transition-colors hover:bg-darkness-500'>
                             <Icon name='copy' size='24px' />
-                        </IconButton>
-                    </Stack>
-                </Box>
-                <Box mt='16px'>
-                    <Typography ml='10px'>Or Scan This QR</Typography>
-                    <Stack alignItems='center' mt='12px' mb='48px'>
+                        </button>
+                    </div>
+                </div>
+                <div className='mt-6'>
+                    <p className='ml-3 text-white text-sm'>Or Scan This QR</p>
+                    <div className='flex justify-center mb-12 mt-3'>
                         <Icon name='simpleQRCode' size='88px' />
-                    </Stack>
-                    <Button sx={styles.greenButton}>
+                    </div>
+                    <button className='rounded-2xl transition-all px-6 py-3 bg-other-green text-darkness-600 capitalize hover:text-white hover:bg-darkness-500 w-full'>
                         Deposit
-                    </Button>
-                </Box>
-            </Box>
-        </Box>
+                    </button>
+                </div>
+            </Layout>
+        </>
     );
 };
 

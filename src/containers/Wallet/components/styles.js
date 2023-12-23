@@ -58,8 +58,8 @@ const styles = {
         border: '1px solid', 
         padding: '24px',
         borderRadius: '26px',
-        backdropFilter: 'blur(12px)',
         bgcolor: (theme) => theme.palette.solid.dark5,
+        backdropFilter: 'blur(12px)',
         borderColor: (theme) => theme.palette.solid.dark5,
     },
 

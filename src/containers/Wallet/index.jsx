@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+// components
 import MainSection from './components/MainSection';
 import SelectChain from './components/SelectChain';
 import CreateWallet from './components/CreatWallet';

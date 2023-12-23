@@ -42,7 +42,7 @@ button:disabled {
 }
 
 .btn {
-    @apply text-white rounded-xl md:rounded-2xl py-2 px-4 md:px-6 md:py-3 text-sm md:text-lg hover:shadow-btn transition-all hover:backdrop-blur-xl
+    @apply text-white rounded-xl md:rounded-2xl py-2 px-4 md:px-6 md:py-3 text-sm md:text-lg hover:shadow-btn transition
 }
 
 .btn-blue {
