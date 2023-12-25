@@ -17,7 +17,7 @@ const FAQ = () => {
     };
     return (
         <div className='container mx-auto px-2 xl:max-w-screen-xl relative top-0 py-2 md:py-2 md:px-0 mb-24'>
-            <div className='z-10 relative mt-36 md:mt-44 border rounded-3xl backdrop-blur-lg p-6 border-darkness-500 bg-darkness-500' sx={styles.wrapper}>
+            <div className='z-10 relative mt-36 md:mt-44 border rounded-3xl backdrop-blur-lg p-6 border-darkness-500 bg-darkness-500'>
                 {faqData?.map((item) => (
                     <Accordion sx={styles.accordionWrapper} expanded={expanded === item.id} key={item.id} onChange={handleChange(item.id)}>
                         <AccordionSummary
@@ -25,7 +25,7 @@ const FAQ = () => {
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                         >
-                            <p className={`py-6 font-medium text-xl ${expanded === item?.id ? 'text-primary-400' : 'text-darkness-200'}`} sx={expanded === item?.id ? styles.activeTitle : styles.accordionTitle}>
+                            <p className={`py-6 font-medium text-xl ${expanded === item?.id ? 'text-primary-400' : 'text-darkness-200'}`}>
                                 {item.title}
                             </p>
                         </AccordionSummary>

@@ -1,12 +1,10 @@
 import React from 'react';
-import styles from './styles';
-import { Box } from '@mui/material';
 
 const CoinChart = () => {
     return (
-        <Box sx={styles.wrapper}>
+        <div className='border border-darkness-500 relative backdrop-blur-lg rounded-3xl w-full overflow-auto bg-darkness-500 h-full [&::-webkit-scrollbar]:w-0'>
             
-        </Box>
+        </div>
     );
 };
 

@@ -4,6 +4,10 @@ const routes = {
         register: '/auth/register',
         login: '/auth/login'
     },
+    faq: '/faq',
+    panel: {
+        base: '/panel',
+    },
     wallet: {
         base: '/wallet',
         deposit: '/wallet/deposit',

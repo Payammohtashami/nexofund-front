@@ -7,25 +7,28 @@ const Status = () => {
     const ref = useRef(null);
     const prev = () => {
         requestAnimationFrame(() => {
-          const scrollLeft = ref.current.scrollLeft;
-          ref.current.scrollLeft = scrollLeft - 1000;
+            const scrollLeft = ref.current.scrollLeft;
+            ref.current.scrollLeft = scrollLeft - 1000;
         });
-      };
+    };
     
       const next = () => {
         requestAnimationFrame(() => {
-          const scrollLeft = ref.current.scrollLeft;
-          ref.current.scrollLeft = scrollLeft + 1000;
+            const scrollLeft = ref.current.scrollLeft;
+            ref.current.scrollLeft = scrollLeft + 1000;
         });
-      };
+    };
     return (
-        <Box>
-            <Typography sx={styles.title}>Status</Typography>
-            <Box sx={styles.wrapper}>
-                <TableContainer ref={ref} sx={{
-                    transition: 'all 0.2s ease',
-                    scrollBehavior: "smooth",
-                }}>
+        <>
+            <h4 className='text-2xl text-white font-semibold my-4'>Status</h4>
+            <div className='border border-darkness-500 relative backdrop-blur-lg rounded-3xl w-full overflow-auto bg-darkness-500 [&::-webkit-scrollbar]:h-0'>
+                <TableContainer
+                    ref={ref}
+                    sx={{
+                        transition: 'all 0.2s ease',
+                        scrollBehavior: "smooth",
+                    }}
+                >
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow sx={styles.headerTableRow}>
@@ -94,8 +97,8 @@ const Status = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>
-            </Box>
-        </Box>
+            </div>
+        </>
     );
 };
 

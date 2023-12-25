@@ -1,28 +1,26 @@
+import routes from "config/routes";
+
 export const headerMenu = [
     {
         id: 'menu-1',
         title: 'Home',
-        url: '/',
+        url: routes.base,
     },
     {
       id: 'menu-2',
-      title: 'How it works?',
-      url: '#',
-  },
-    {
-        id: 'menu-3',
-        title: 'Statistics',
-        url: '#',
+      title: 'Panel',
+      url: routes.panel.base,
     },
+    
     {
         id: 'menu-4',
-        title: 'Market',
-        url: '#',
+        title: 'Wallet',
+        url: routes.wallet.base,
     },
     {
         id: 'menu-5',
         title: 'FAQ',
-        url: '/faq',
+        url: routes.faq,
     },
 ];
 

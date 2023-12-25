@@ -1,30 +1,29 @@
-import { Box, Grid } from '@mui/material';
 import React from 'react';
-import CoinChart from './components/CoinChart';
+
+// components
+import Status from './components/Status';
 import DailyNews from './components/DailyNews';
 import Isolation from './components/Isolation';
-import Status from './components/Status';
+import CoinChart from './components/CoinChart';
 
 const Panel = () => {
     return (
-        <Box sx={{minHeight: '100vh', my: '108px'}}>
-            <Box className='container'>
-                <Grid container spacing='20px' alignItems='stretch'>
-                    <Grid item xs={12} md={8}>
-                        <CoinChart />
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <DailyNews />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                        <Isolation />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                        <Status />
-                    </Grid>
-                </Grid>
-            </Box>
-        </Box>
+        <div className='container pt-32 mx-auto px-2 xl:max-w-screen-xl relative top-0 md:px-0 mb-24'>
+            <div className='grid items-stretch gap-5 grid-cols-1 md:grid-cols-3 min-h-screen'>
+                <div className='col-span-1 md:col-span-2'>
+                    <CoinChart />
+                </div>
+                <div className='col-span-1 md:col-span-1'>
+                    <DailyNews />
+                </div>
+                <div className='col-span-1 md:col-span-3'>
+                    <Isolation />
+                </div>
+                <div className='col-span-1 md:col-span-3'>
+                    <Status />
+                </div>
+            </div>
+        </div>
     );
 };
 
