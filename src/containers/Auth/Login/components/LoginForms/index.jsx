@@ -22,7 +22,7 @@ const LoginForms = ({ setStep, turnBack}) => {
     const { 
         control,
         handleSubmit,
-        formState: { errors, isValid, isSubmitting },
+        formState: { errors },
     } = useForm({
         mode: "onSubmit",
         defaultValues: {email: "", password: ''}, 
@@ -102,14 +102,13 @@ const LoginForms = ({ setStep, turnBack}) => {
                         Login With Google
                     </button>
                 </div>
-                <button 
+                <Link href={routes.auth.forgetPassword} 
                     data-aos-delay='100'
                     data-aos={turnBack ? "fade-left" : "fade-right"}
-                    onClick={() => setStep('FORGOT_PASSWORD')}
                     className='text-primary-300 hover:text-primary-500 transition-colors w-fit'
                 >
                     Forgot Your Password?
-                </button>
+                </Link>
 
                 <div 
                     data-aos-delay='300'

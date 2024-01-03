@@ -5,20 +5,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, Controller } from 'react-hook-form';
 import { otpCodeValidationSchema } from 'validations/auth';
 
-// hooks
-import { useDispatch } from 'react-redux';
-
 // components
 import Icon from 'components/Icon';
 import CustomButton from 'components/CustomButton';
 import { OtpInputCustom } from 'components/ConfirmCode';
 
 const ConfirmCode = ({turnBack, setTurnBack, setStep}) => {
-    const { 
-        handleSubmit,
-        formState: {errors},
-        control,
-    } = useForm({
+    const { control } = useForm({
         mode: "onSubmit",
         defaultValues: {code: ""}, 
         resolver: yupResolver(otpCodeValidationSchema),
@@ -29,7 +22,6 @@ const ConfirmCode = ({turnBack, setTurnBack, setStep}) => {
         setStep('LOGIN');
     };
 
-    const dispatch = useDispatch();
     return (
         <div>
             <button

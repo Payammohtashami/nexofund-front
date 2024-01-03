@@ -4,6 +4,7 @@ import DynamicLoader from 'components/DynamicLoader';
 const FAQ = dynamic(() => import('containers/FAQ'), {
     loading: DynamicLoader,
 });
+
 const FAQpage = () => {
     return (
         <FAQ />
@@ -11,9 +12,9 @@ const FAQpage = () => {
 };
 
 
-export const getServerSideProps = async (ctx) => {
+export const getStaticProps = async () => {
     return {
         props: {},
-    }
-}
+    };
+};
 export default FAQpage;

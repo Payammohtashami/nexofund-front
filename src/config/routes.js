@@ -2,7 +2,8 @@ const routes = {
     base: '/',
     auth: {
         register: '/auth/register',
-        login: '/auth/login'
+        login: '/auth/login',
+        forgetPassword: '/auth/forget-password',
     },
     faq: '/faq',
     panel: {

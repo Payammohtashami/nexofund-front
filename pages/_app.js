@@ -8,14 +8,12 @@ import { Toaster } from "react-hot-toast";
 // providers
 import ThemeRegistery from 'theme/ThemeRegistery';
 import { Provider } from 'react-redux';
-import { QueryClient, QueryClientProvider } from "react-query";
 
 // css styles
 import "theme/css/styles.css";
 import "aos/dist/aos.css";
 
 function MyApp({ Component, pageProps }) {
-    const queryClient = new QueryClient();
     return (
         <Provider store={store}>
             <Head>
@@ -31,12 +29,10 @@ function MyApp({ Component, pageProps }) {
                 <meta name="twitter:creator" content="Nexofund" />
                 <meta name="twitter:title" content="Nexofund" />
             </Head>
-            <QueryClientProvider client={queryClient}>
-                <ThemeRegistery>
-                    <Layout {...{Component, pageProps}} />
-                    <Toaster position="top-right" />
-                </ThemeRegistery>
-            </QueryClientProvider>
+            <ThemeRegistery>
+                <Layout {...{Component, pageProps}} />
+                <Toaster position="top-right" />
+            </ThemeRegistery>
         </Provider>
     );
 }

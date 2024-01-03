@@ -20,7 +20,7 @@ const Layout = ({ Component, pageProps }) => {
         Aos.init({});
     }, []);
     return (
-        <div className="bg-darkness-600">
+        <div>
             <NextNProgress color="#2817ED" options={{ easing: "ease",showSpinner: false}} />
             <main className={poppins?.className}>
                 {!Component.headerHide ? <Header /> : null}

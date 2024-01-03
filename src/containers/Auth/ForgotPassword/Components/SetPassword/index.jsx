@@ -1,88 +1,92 @@
 import React from 'react';
+import Link from 'next/link';
+import routes from 'config/routes';
+
+// components
 import Icon from 'components/Icon';
-import styles from './styles';
+import CustomButton from 'components/CustomButton';
 import TextFieldComponent from 'components/TextField';
-import { useRouter } from 'next/router';
-import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material';
 
-const SetPassword = ({turnBack, setTurnBack, setStep}) => {
-    const router = useRouter();
-    const backHandler = () => {
-        setStep('LOGIN');
-        setTurnBack(true);
-    };
+// forms
+import { Controller, useForm } from 'react-hook-form';
 
-    const sendCode = () => {
-        setTurnBack(false);
-        setStep('CONFIRM_CODE')
-    };
+const SetPassword = ({ turnBack }) => {
+    const { 
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        mode: "onSubmit",
+        defaultValues: {password: '', confirmPassword: ''}, 
+    });
+
+    const setPassword = () => {};
     return (
-        <Box>
-            <Stack
-                gap='6px' 
-                direction='row' 
-                alignItems='center' 
-                data-aos={turnBack ? "fade-left" : "fade-right"}
-                data-aos-delay='300'
-                sx={{mb: '16px'}}
-            >
-                <IconButton onClick={backHandler}>
-                    <Icon name='Back' size='20' />
-                </IconButton>
-                <Typography sx={styles.loginText}>Choose Your Password</Typography>
-            </Stack>
-            <Grid container>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
+        <>
+            <Link href={routes.auth.login} className='flex items-center mb-4 gap-3'>
+                <Icon name='Back' size='20' />
+                <p className='text-xl text-darkness-100 font-semibold'>Choose Your Password</p>
+            </Link>
+            
+            <form noValidate onSubmit={handleSubmit(setPassword)}>
+                <div
+                    className='mt-6'
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    <TextFieldComponent
-                        control={control}
-                        type='password'
+                    <Controller
                         name='password'
-                        label='Your Password'
-                        placeholder='Enter Your Password'
-                        errors={errors}
-                        Icon={
-                            <Icon name='email' size='24' />
+                        control={control}
+                        render={({field}) => (
+                            <TextFieldComponent
+                                field={field}
+                                type='text'
+                                name='password'
+                                label='Your New Password'
+                                placeholder='Enter Your Password'
+                                errors={errors?.password?.message}
+                                Icon={
+                                    <Icon name='passwod' size='24' />
+                                }
+                            />
+                            )
                         }
                     />
-                </Grid>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
+                </div>
+                <div
+                    className='mt-6'
                     data-aos={turnBack ? "fade-left" : "fade-right"}
                     data-aos-delay='150'
                 >
-                    <TextFieldComponent
+                    <Controller
+                        name='password'
                         control={control}
-                        type='password'
-                        name='confirmPassword'
-                        label='Confirm Your Password'
-                        placeholder='Enter Your Password'
-                        errors={errors}
-                        Icon={
-                            <Icon name='email' size='24' />
+                        render={({field}) => (
+                            <TextFieldComponent
+                                field={field}
+                                type='text'
+                                name='password'
+                                label='Your New Password'
+                                placeholder='Enter Your Password'
+                                errors={errors?.password?.message}
+                                Icon={
+                                    <Icon name='passwod' size='24' />
+                                }
+                            />
+                            )
                         }
                     />
-                </Grid>
-                <Grid
-                    item 
-                    xs={12} 
-                    data-aos-delay='250'
-                    sx={{mb: '14px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
+                </div>
+                <CustomButton
+                    withSpinner
+                    type='submit'
+                    loading={false}
+                    className="btn btn-blue w-full disabled:bg-primary-400/50 mt-6"
                 >
-                    <Button sx={styles.loginButton} onClick={sendCode}>
-                        Confirm
-                    </Button>
-                </Grid>
-            </Grid>
-        </Box>
+                    Confirm
+                </CustomButton>
+            </form>
+        </>
     );
 };
 

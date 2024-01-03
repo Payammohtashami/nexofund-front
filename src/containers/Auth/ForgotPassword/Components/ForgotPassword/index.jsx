@@ -1,102 +1,66 @@
 import React from 'react';
-import { Box, Button, Grid, IconButton, Stack, Typography } from '@mui/material';
-import styles from './styles';
+import Link from 'next/link';
+import routes from 'config/routes';
+
+// components
 import Icon from 'components/Icon';
+import CustomButton from 'components/CustomButton';
 import TextFieldComponent from 'components/TextField';
+
+// forms
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { emailValidationSchema } from 'validations/auth';
-import { yupResolver } from '@hookform/resolvers/yup';
-import CustomButton from 'components/CustomButton';
-import { useForgotPassword } from 'client/Mutation';
 
-const ForgotPasswordComponent = ({setStep, turnBack, setTurnBack}) => {
-    const { mutate: forgotPasswordSubmit, isLoading: forgotPasswordLoading } = useForgotPassword()
-    const backHandler = () => {
-        setStep('LOGIN');
-        setTurnBack(true);
-    };
-
+const ForgotPasswordComponent = ({ setStep }) => {
     const { 
         control,
         handleSubmit,
-        formState: { errors, isValid, isSubmitting },
+        formState: { errors },
     } = useForm({
         mode: "onSubmit",
         defaultValues: {email: ''}, 
         resolver: yupResolver(emailValidationSchema),
     });
     const forgotPasswordHandler = (data) => {
-        return;
+        setStep('CONFIRM_CODE');
     };
     return (
-        <Box component='form' noValidate onSubmit={handleSubmit(forgotPasswordHandler)}>
-            <Stack
-                gap='6px' 
-                direction='row' 
-                alignItems='center' 
-                data-aos={turnBack ? "fade-left" : "fade-right"}
-                data-aos-delay='300'
-                sx={{mb: '16px'}}
-            >
-                <IconButton onClick={backHandler}>
-                    <Icon name='Back' size='20' />
-                </IconButton>
-                <Typography sx={styles.loginText}>Forgot Password</Typography>
-            </Stack>
-            <Typography 
-                data-aos={turnBack ? "fade-left" : "fade-right"}
-                data-aos-delay='200' 
-                sx={styles.descriptionText}
-            >
+        <form noValidate onSubmit={handleSubmit(forgotPasswordHandler)}>
+            <Link href={routes.auth.login} className='flex items-center mb-4 gap-3'>
+                <Icon name='Back' size='20' />
+                <p className='text-xl text-darkness-100 font-semibold'>Forgot Password</p>
+            </Link>
+            <p className='text-darkness-200 mb-6'>
                 We will send you A 4 digit confirmation code please make sure your email is currect.
-            </Typography>
-            <Grid container>
-                <Grid 
-                    item 
-                    xs={12} 
-                    sx={{mb: '36px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
-                    data-aos-delay='150'
+            </p>
+                <Controller
+                    name='email'
+                    control={control}
+                    render={({field}) => (
+                        <TextFieldComponent
+                            field={field}
+                            type='text'
+                            name='email'
+                            label='Your Email'
+                            placeholder='Enter Your Email'
+                            errors={errors?.email?.message}
+                            Icon={
+                                <Icon name='email' size='24' />
+                            }
+                        />
+                        )
+                    }
+                />
+                <CustomButton
+                    withSpinner
+                    type='submit'
+                    loading={false}
+                    className="btn btn-blue w-full disabled:bg-primary-400/50 mt-6"
                 >
-                    <Controller
-                        name='email'
-                        control={control}
-                        render={({field}) => (
-                            <TextFieldComponent
-                                field={field}
-                                type='text'
-                                name='email'
-                                label='Your Email'
-                                placeholder='Enter Your Email'
-                                errors={errors?.email?.message}
-                                Icon={
-                                    <Icon name='email' size='24' />
-                                }
-                            />
-                            )
-                        }
-                    />
-                </Grid>
-                <Grid
-                    item 
-                    xs={12} 
-                    data-aos-delay='250'
-                    sx={{mb: '14px'}}
-                    data-aos={turnBack ? "fade-left" : "fade-right"}
-                >
-                    <CustomButton
-                        withSpinner
-                        type='submit'
-                        loading={forgotPasswordLoading}
-                        spinnerColor='#FFF'
-                        extraSx={styles.loginButton}
-                        disabled={!isValid || isSubmitting}
-                    >
-                        Send Code
-                    </CustomButton>
-                </Grid>
-            </Grid>
-        </Box>
+                    Send Code
+                </CustomButton>
+        </form>
     );
 };
 

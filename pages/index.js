@@ -3,7 +3,8 @@ import DynamicLoader from 'components/DynamicLoader';
 
 const Home = dynamic(() => import('containers/Home'), {
     loading: DynamicLoader,
-  });
+});
+
 const Homepage = () => {
     return (
         <Home />
@@ -11,7 +12,7 @@ const Homepage = () => {
 };
 
 
-export const getServerSideProps = async (ctx) => {
+export const getStaticProps = async (ctx) => {
     return {
         props: {},
     }

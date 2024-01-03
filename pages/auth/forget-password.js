@@ -1,8 +1,14 @@
-import Login from "containers/Auth/Login";
+import dynamic from "next/dynamic";
+import DynamicLoader from 'components/DynamicLoader';
+
+
+const ForgotPassword = dynamic(() => import('containers/Auth/ForgotPassword'), {
+    loading: DynamicLoader,
+});
 
 const ForgotPasswordPage = () => {
     return (
-        <Login />
+        <ForgotPassword />
     );
 };
 ForgotPasswordPage.headerHide = true;
@@ -10,7 +16,6 @@ ForgotPasswordPage.footerHide = true;
 
 
 export const getServerSideProps = async () => {
-
     return {
         props: {
             initialStore: {},
