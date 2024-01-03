@@ -11,9 +11,6 @@ const RegisterPage = () => {
     );
 };
 
-RegisterPage.headerHide = true;
-RegisterPage.footerHide = true;
-
 export const getServerSideProps = async () => {
     return {
         props: {

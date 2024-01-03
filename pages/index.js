@@ -1,3 +1,4 @@
+import Layout from 'components/Layout';
 import dynamic from "next/dynamic";
 import DynamicLoader from 'components/DynamicLoader';
 
@@ -7,7 +8,9 @@ const Home = dynamic(() => import('containers/Home'), {
 
 const Homepage = () => {
     return (
-        <Home />
+        <Layout>
+            <Home />
+        </Layout>
     );
 };
 

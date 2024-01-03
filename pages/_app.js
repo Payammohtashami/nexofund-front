@@ -1,8 +1,8 @@
 import Head from "next/head";
+import { Poppins } from 'next/font/google'
 
 // libs & components
 import store from 'feature/store';
-import Layout from "components/Layout";
 import { Toaster } from "react-hot-toast";
 
 // providers
@@ -12,6 +12,11 @@ import { Provider } from 'react-redux';
 // css styles
 import "theme/css/styles.css";
 import "aos/dist/aos.css";
+
+const poppins = Poppins({ 
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    subsets: ["latin"],
+});
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -30,7 +35,9 @@ function MyApp({ Component, pageProps }) {
                 <meta name="twitter:title" content="Nexofund" />
             </Head>
             <ThemeRegistery>
-                <Layout {...{Component, pageProps}} />
+                <div className={poppins?.className}>
+                    <Component {...pageProps} />
+                </div>
                 <Toaster position="top-right" />
             </ThemeRegistery>
         </Provider>

@@ -11,7 +11,7 @@ const CryptoBubbles = () => {
             <div className='flex justify-between mb-4 z-30'>
                 <h3 className='title'>Crypto Bubble</h3>
             </div>
-            <div className='w-full z-30 rounded-3xl border-2 border-darkness-500 bg-darkness-500 backdrop-blur-lg'>
+            <div className='w-full z-30 rounded-3xl border-2 border-darkness-500 bg-darkness-500'>
                 <div className="relative overflow-x-auto">
                     <table className='w-full text-left'>
                         <thead className='text-darkness-200 text-base '>

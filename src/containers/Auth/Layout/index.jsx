@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeroBackground from 'components/Icon/HeroBackground';
 import { CloseRounded, InfoRounded } from '@mui/icons-material';
+import Aos from 'aos';
 
 const AuthLayout = ({children}) => {
     const [showAlert, setShowAlert] = useState(true);
+    useEffect(() => {
+        Aos.init();
+    }, []);
     return (
         <div className='relative flex flex-col items-center'>
             {/* top background */}

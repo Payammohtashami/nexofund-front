@@ -2,14 +2,13 @@ import React, { useEffect, useRef } from 'react';
 
 // components
 import Icon from 'components/Icon';
-import { useMediaQuery } from '@mui/material';
 
 
 let tvScriptLoadingPromise;
+
 const TotalMarketcap = () => {
     const widthRef = useRef(null);
     const onLoadScriptRef = useRef();
-    const isMobile = useMediaQuery('(max-width:767px)');
     useEffect(() => {
         onLoadScriptRef.current = createWidget;
         if (!tvScriptLoadingPromise) {
@@ -99,13 +98,13 @@ const TotalMarketcap = () => {
             <div>
                 <div className='grid grid-cols-12 gap-4 items-start'>
                     <div className='col-span-12 md:col-span-11 w-full'>
-                        <div className='mb-5 gap-4 flex flex-col p-2 border w-full overflow-hidden backdrop-blur-md bg-darkness-500 border-darkness-500 rounded-3xl' ref={widthRef}>
+                        <div className='mb-5 w-full' ref={widthRef}>
                             <div className='tradingview-widget-container'>
                                 <div id='tradingview_cad91' />
                             </div>
                         </div>
                         <div className='grid grid-cols-4 gap-2'>
-                            <div className='col-span-4 md:col-span-1 p-4 border backdrop-blur-md bg-darkness-500 border-darkness-500 rounded-3xl'>
+                            <div className='col-span-4 md:col-span-1 p-4 border  bg-darkness-500 border-darkness-500 rounded-3xl'>
                                 <div className='flex justify-between items-center'>
                                     <div className='flex gap-2 items-center'>
                                         <Icon name='TOTALMARKETCAP' size='28' />
@@ -122,7 +121,7 @@ const TotalMarketcap = () => {
                                 </div>
                             </div>
                             {coins?.map((items) => (
-                                <div key={items?.name} className='flex items-center justify-between col-span-4 md:col-span-1 p-4 border backdrop-blur-md bg-darkness-500 border-darkness-500 rounded-3xl'>
+                                <div key={items?.name} className='flex items-center justify-between col-span-4 md:col-span-1 p-4 border  bg-darkness-500 border-darkness-500 rounded-3xl'>
                                     <div className='flex gap-2 items-center'>
                                         <Icon name={items?.icon} size='28' />
                                         <p className='text-white'>{items?.day?.value}<span className='text-xs text-darkness-200'>.{items?.day?.float}%</span></p>
@@ -132,7 +131,7 @@ const TotalMarketcap = () => {
                             ))}
                         </div>
                     </div>
-                    <div className='col-span-3 md:col-span-1 gap-4 flex flex-col p-2 border backdrop-blur-md bg-darkness-500 border-darkness-500 rounded-3xl'>
+                    <div className='col-span-3 md:col-span-1 gap-4 flex flex-col p-2 border  bg-darkness-500 border-darkness-500 rounded-3xl'>
                         <button className='flex items-center justify-center rounded-full p-2 transition-colors w-fit mx-auto hover:bg-darkness-500'>
                             <Icon name='Camera' size='24' />
                         </button>

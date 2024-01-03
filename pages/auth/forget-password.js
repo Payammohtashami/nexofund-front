@@ -11,9 +11,6 @@ const ForgotPasswordPage = () => {
         <ForgotPassword />
     );
 };
-ForgotPasswordPage.headerHide = true;
-ForgotPasswordPage.footerHide = true;
-
 
 export const getServerSideProps = async () => {
     return {

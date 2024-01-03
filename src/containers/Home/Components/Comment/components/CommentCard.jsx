@@ -7,7 +7,7 @@ import { Avatar } from '@mui/material';
 const CommentCard = ({data}) => {
     return (
         <div
-            className='border rounded-3xl border-darkness-500 bg-darkness-500 px-8 py-6 z-30 backdrop-blur-lg'
+            className='border rounded-3xl border-darkness-500 bg-darkness-500 px-8 py-6 z-30'
             data-aos="zoom-in"
             data-aos-duration="600"
             data-aos-delay="200"

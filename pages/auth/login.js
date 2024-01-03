@@ -10,8 +10,6 @@ const LoginPage = () => {
         <Login />
     );
 };
-LoginPage.headerHide = true;
-LoginPage.footerHide = true;
 
 export const getServerSideProps = async () => {
     return {

@@ -1,3 +1,4 @@
+import Layout from 'components/Layout';
 import dynamic from "next/dynamic";
 import DynamicLoader from 'components/DynamicLoader';
 
@@ -6,9 +7,9 @@ const Panel = dynamic(() => import('containers/Panel'), {
 });
 const Panelpage = () => {
     return (
-        <>
+        <Layout>
             <Panel />
-        </>
+        </Layout>
     );
 };
 

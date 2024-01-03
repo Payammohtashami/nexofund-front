@@ -1,3 +1,4 @@
+import Layout from 'components/Layout';
 import dynamic from "next/dynamic";
 import DynamicLoader from 'components/DynamicLoader';
 
@@ -7,7 +8,9 @@ const FAQ = dynamic(() => import('containers/FAQ'), {
 
 const FAQpage = () => {
     return (
-        <FAQ />
+        <Layout>
+            <FAQ />
+        </Layout>
     );
 };
 
