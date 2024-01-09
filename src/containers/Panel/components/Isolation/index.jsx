@@ -61,7 +61,7 @@ const Isolation = () => {
                 <button className={`rounded-xl transition-all px-6 py-4 text-darkness-600 capitalize hover:text-white hover:bg-darkness-500 ${activeMode === 'SELL' ? 'bg-other-red' : 'bg-other-green' }`}>Submit</button>
             </div>
 
-            <div className='mb-6 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-12'>
+            <div className='mb-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-12'>
                 <div>
                     <Controller
                         name='take_profit'

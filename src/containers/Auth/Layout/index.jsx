@@ -27,8 +27,8 @@ const AuthLayout = ({children}) => {
                     <div className="container  px-2 xl:max-w-screen-xl mx-auto">
                         <div className="flex items-center justify-between w-full">
                             <div className="text-cyan-400 gap-3 flex items-center">
-                                <InfoRounded />
-                                <p className='text-left'>You can login with any email and password data.</p>
+                                <InfoRounded fontSize='small' />
+                                <p className='text-left text-xs md:text-sm'>You can login with any email and password data.</p>
                             </div>
                             <button onClick={() => setShowAlert(false)} className='text-white p-1 cursor-pointer rounded-full hover:bg-darkness-500'>
                                 <CloseRounded />
@@ -41,7 +41,7 @@ const AuthLayout = ({children}) => {
             }
 
             {/* main section */}
-            <section className='pt-12 pb-24 lg:py-24 container mx-auto max-w-[560px] px-4'>
+            <section className='py-24 container mx-auto max-w-[560px] px-4'>
                 <div className='p-4 lg:p-8 rounded-2xl lg:rounded-3xl backdrop-blur-lg bg-darkness-500'>
                     {children}
                 </div>
