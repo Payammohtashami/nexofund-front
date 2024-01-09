@@ -87,7 +87,7 @@ const Header = () => {
                                 <Icon name='Logo' size="42" />
                                 <div className="flex items-center gap-11">
                                     {headerMenu?.map((item) => (
-                                        <Link key={item.id} href={item.url} className="text-darkness-100 relative before:bg-primary-400 font-medium animate-underline">
+                                        <Link key={item.id} href={item.url} target={item?.target ?? ''} className="text-darkness-100 relative before:bg-primary-400 font-medium animate-underline">
                                             {item.title}
                                         </Link>
                                     ))}

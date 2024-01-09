@@ -6,6 +6,7 @@ const routes = {
         forgetPassword: '/auth/forget-password',
     },
     faq: '/faq',
+    github: 'https://github.com/Payammohtashami/nexofund-front',
     panel: {
         base: '/panel',
     },

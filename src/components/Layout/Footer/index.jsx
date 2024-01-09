@@ -28,7 +28,7 @@ const Footer = () => {
                     <h6 className={`${FuturaFont.className} text-darkness-100 tracking-[20px] font-bold text-center mb-6`}>NEXOFUND</h6>
                     <div className="flex items-center gap-4 md:gap-6">
                         {headerMenu?.map((item) => (
-                            <Link key={item?.id} href={item.url} className="text-darkness-100 relative before:bg-primary-400 text-xs md:text-base animate-underline">
+                            <Link key={item?.id} target={item?.target ?? ''} href={item.url} className="text-darkness-100 relative before:bg-primary-400 text-xs md:text-base animate-underline">
                                 {item.title}
                             </Link>
                         ))}

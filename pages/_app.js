@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google'
 
 // libs & components
 import store from 'feature/store';
+import NextNProgress from 'nextjs-progressbar';
 import { Toaster } from "react-hot-toast";
 
 // providers
@@ -36,6 +37,7 @@ function MyApp({ Component, pageProps }) {
             </Head>
             <ThemeRegistery>
                 <div className={poppins?.className}>
+                    <NextNProgress color="#2817ED" />
                     <Component {...pageProps} />
                 </div>
                 <Toaster position="top-right" />

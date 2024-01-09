@@ -22,6 +22,12 @@ export const headerMenu = [
         title: 'FAQ',
         url: routes.faq,
     },
+    {
+        id: 'menu-5',
+        title: 'Github',
+        url: routes.github,
+        target: '_blank',
+    },
 ];
 
 export const socialMedia = [

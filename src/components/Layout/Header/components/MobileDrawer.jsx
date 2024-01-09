@@ -13,7 +13,7 @@ const MobileDrawer = () => {
             </div>
             <div className="flex flex-col items-center gap-4">
                 {headerMenu?.map((item) => (
-                    <Link key={item.id} href={item.url} className="text-darkness-100 relative before:bg-primary-400 font-medium animate-underline">
+                    <Link key={item.id} target={item?.target ?? ''} href={item.url} className="text-darkness-100 relative before:bg-primary-400 font-medium animate-underline">
                         {item.title}
                     </Link>
                 ))}
