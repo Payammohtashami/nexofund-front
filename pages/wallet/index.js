@@ -14,9 +14,9 @@ const Walletpage = () => {
 };
 
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async (ctx) => {
     return {
         props: {},
     }
-}
+};
 export default Walletpage;

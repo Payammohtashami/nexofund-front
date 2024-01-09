@@ -11,13 +11,10 @@ const RegisterPage = () => {
     );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async (ctx) => {
     return {
-        props: {
-            initialStore: {},
-        },
-    };
+        props: {},
+    }
 };
-
 
 export default RegisterPage;
